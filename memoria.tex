@@ -31,8 +31,8 @@
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
 
-\title{Memoria del Proyecto}
-\author{Nombre del autor}
+\title{Dr.Scratch Herramienta de análisis automático de proyectos Scratch}
+\author{Cristian David Chushig Muzo}
 
 \renewcommand{\baselinestretch}{1.5}  %% Interlineado
 
@@ -61,27 +61,28 @@
 \vspace{3cm}
 
 \Large
-TITULACIÓN EN MAYÚSCULAS
+INGENIERÍA EN TELECOMUNICACIONES E INGENIERÍA TÉCNICA EN SISTEMAS
 
 \vspace{0.4cm}
 
 \large
-Curso Académico 2020/2021
+Curso Académico 2014/2015
 
 \vspace{0.8cm}
 
-Trabajo Fin de Carrera/Grado/Máster
+Trabajo Fin de Carrera
 
 \vspace{2.5cm}
 
 \LARGE
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
+Dr.Scratch Análisis automático de proyectos Scratch
 
 \vspace{4cm}
 
 \large
-Autor : Nombre del Alumno \\
-Tutor : Dr. Gregorio Robles
+Autor : Cristian David Chushig Muzo \\
+Tutor : Dr. Gregorio Robles \\
+Co-Tutor: Jesús Moreno León
 \end{center}
 \end{titlepage}
 
@@ -97,7 +98,9 @@ Tutor : Dr. Gregorio Robles
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
 \textit{Dedicado a \\
-mi familia / mi abuelo / mi abuela}
+mi madre y su incansable  \\
+esfuerzo de sacar adelante \\
+a sus hijos}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -105,12 +108,21 @@ mi familia / mi abuelo / mi abuela}
 
 \chapter*{Agradecimientos}
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
-\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
 
-Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja,
-no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo 
-parezca disfrutará tanto de tus logros como tú\ldots Además, la pareja quizás
-no sea para siempre, pero tu madre sí.
+Ha sido muy duro el camino, pero sin duda ha valido la pena. Afrontar la aventura de
+estudiar fuera de mi país natal es uno de mis mayores aciertos
+
+El más grande de mis agradecimientos va dirigido a mi madre, aquella mujer luchadora que
+con su esfuerzo ha sacado adelante a tres hijos. Ha sido un ejemplo de cómo se tiene que
+conseguir lo que se quiere. Siempre llevo los valores inculcados, las costumbres dadas y
+mi identidad en cada paso que doy, cualquier logro conseguido en mi vida se lo debo a ella.
+Su pasión, su valor y su amor en todos estos años no sólo me han convertido en un profesional,
+sino también en una persona de provechos. Un gracias nunca será suficiente, pero el 
+agradecimiento de corazón queda plasmado en estas pocas palabras.
+
+También no quisiera olvidarme de mi familia en Quito, siempre han sido constantes los apoyos
+recibidos y sin duda el cariño.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -118,6 +130,9 @@ no sea para siempre, pero tu madre sí.
 \chapter*{Resumen}
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
+
+
+
 
 Aquí viene un resumen del proyecto. Ha de constar de tres o cuatro párrafos,
 donde se presente de manera clara y concisa de qué va el proyecto. Han
@@ -155,7 +170,7 @@ just before submitting.
 % y comentar/descomentar esa instrucción de LaTeX.
 
 %%%% Índice de contenidos
-\tableofcontents 
+\tableofcontents
 %%%% Índice de figuras
 \cleardoublepage
 %\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
@@ -176,8 +191,27 @@ just before submitting.
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-En este capítulo se introduce el proyeto. Debería tener información general sobre 
-el mismo, dando la información sobre el contexto en el que se ha desarrollado.
+El desarrollo de la tecnología está cambiando nuestros hábitos cotidianos: la
+forma en que nos relacionamos con las personas, la manera de trabajar y significativamente
+nuestra forma de aprender. El conocimiento ahora es global, al alcance de todos, con
+una sencilla búsqueda a través de un dispositivo conectado a internet tenemos incontable
+información en nuestras manos. Pero, girando la atención al uso de la tecnología en las aulas
+nos encontramos con un uso pasivo, convirtiendo al estudiante en usuario de aplicaciones.
+Los escolares, nativos digitales, conocen cómo buscar información en internet y manejar aplicaciones
+de una manera natural, pero la tecnología de trasfondo es invisible para ellos, lo que
+hace que pierdan muchas oportunidades y retos para su desarrollo en la enseñanza de programación.
+La programación en las aulas no es un descubrimiento nuevo, existen desde los años 60  con Logo. Pero,
+su popularidad se ha incrementando en los últimos años gracias a nuevas plataformas y aplicaciones
+como App Inventor, Stencyl, Alice, Etoys y Scratch.
+
+Y es Scratch donde girá el presente proyecto. Scratch 
+
+El objetivo de la programación en edades tempranas es proveer de nuevas habilidades a niños y
+jóvenes, habilidades necesarias en un entorno digital y globalizado. Encarar procesos de
+autocorreción y búsqueda de errores, enfrentarse a retos de resolución de problemas son ejemplos
+claros de éstas habilidades.
+
+
 
 \section{}
 \label{sec:}
@@ -189,7 +223,7 @@ Sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opinio
 
  \begin{figure}
     \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
+    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1.png}
     \caption{Página con enlaces a hilos}
     \label{figura:foro_hilos}
  \end{figure}
@@ -239,16 +273,26 @@ Sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opinio
 \label{chap:objetivos}
 
 \section{Objetivo general}
-label{sec:objetivo-general}
+\label{sec:objetivo-general}
+
+El objetivo general del proyecto es crear una herramienta y plataforma para que los
+usuarios de Scratch puedan evaluar sus proyectos y hacer un seguimiento de su progreso
+en relación a habilidades de pensamiento computacional.
 
 
 \section{Objetivos específicos}
-label{sec:objetivos-especificos}
+\label{sec:objetivos-especificos}
 
-
-\section{Planificación temporal}
-label{sec:planificacion-temporal}
-
+\begin{itemize}
+  \item Crear una arquitectura software que permita la convergencia entre el framework Hairball
+  con las tecnologías web, con el fin de mejorar su usabilidad y experiencia de usuario.
+  \item Construir un modelo de datos que se adapte a la salida de datos que ofrece Hairball y 
+  parametrizarlo con las herramientas ofrecidas por Django.
+  \item Adaptar el contexto ofrecido por Django a todo el potencial que ofrece Bootstrap como
+  herramienta de Front End.
+  \item Introducir técnicas de ludificación dentro de la plataforma para atraer la atención y
+  uso de los usuarios.
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -259,17 +303,74 @@ label{sec:planificacion-temporal}
 \cleardoublepage
 \chapter{Estado del arte}
 
-Descripción de las tecnologías que utilizas en tu trabajo. Con dos o tres párrafos por cada tecnología, vale.
+En este capítulo se introducirán las bases tecnológicas más importantes del proyecto.
 
 
-Puedes citar libros, como el de Bonabeau et al. sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. % Nota que el ~ añade un espacio en blanco, pero no deja que exista un salto de línea. Imprescindible ponerlo para las citas.
+\section{Scratch}
+\label{sec:seccion2}
+Scratch es un proyecto del Grupo Lifelong Kindergarten del Laboratorio de Medios del MIT.
+Scratch permite programar historias interactivas, juegos y animaciones a través de un
+entorno completamente visual. Se fundamenta en el uso de personajes, escenarios y bloques
+gráficos con una funcionalidad específica que permite crear una lógica e interacción 
+entre los elementos. Además Scratch es gratuito, de uso libre, multilenguaje y es muy
+recomendado para la iniciación en el mundo de la programación. Su uso se ha intensificado
+en los últimos años y dentro de su nube tiene millones de proyectos almacenados que 
+pueden ser compartidos y vistos por otros usuarios Scratch.
 
-También existe la posibilidad de poner notas al pie de página, por ejemplo, 
-una para indicarte que visite la página de 
-LibreSoft\footnote{\url{http://www.libresoft.es}}.
 
-\section{Sección 1} 
-\label{sec:seccion1}
+\section{Hairball}
+\label{sec:seccion3}
+Hairball es un framework utilizado para el análisis de proyectos Scratch. Creado por Bryce
+Boe en la universidad de Santa Barbara. Hairball se constituye esencialmente de plugins. 
+Los plugins iniciales fueron desarrollados por la universidad de Santa Barbara, y a estos se 
+suman otros plugins programados por la universidad Rey Juan Carlos y en concreto por Jesús Moreno Léon.
+El framework es de libre acceso y está disponible en la red.\footnote{\url{github.com/ucsb-cs-education/hairball}}.
+
+Los plugins que se puedan encontrar en la última versión de Hairball son:
+
+\begin{itemize}
+  \item blocks.DeadCode. 
+  Busca código que no llega a ejecutarse nunca, parametrizándolo en un valor entero.
+  \item blocks.BlockCounts.
+  Cuenta el número de bloques asociados al proyecto y devuelve su valor en un entero.
+  \item initialization.AttributeInitialization.
+  Busca propiedades de los personajes que son modificadas en algún punto del programa,
+  pero que no se inicializan al comenzar la 	ejecución del proyecto. Por cada propiedad
+  analizada del personaje: posición, tamaño, 	disfraz, visibilidad y orientación, se
+  muestra un valor 0 si la propiedad no se modifica, 	1 si se modifica pero no se inicializa,
+  2 si se inicializa correctamente.
+  \item duplicate.DuplicateScripts.
+  Busca programas repetidos en el proyecto. Programas que deberían haber sido implementados
+  con un método definido por el programador.
+  \item mastery.Mastery.
+  Asigna una puntuación que indica el grado de maestría demostrado en la programación del
+  proyecto para diferentes aspectos: abstracción, paralelización, razonamiento lógico,
+  sincronización, control de flujo, interactividad con el usuario, representación de la información.
+	
+	
+\end{itemize}
+
+
+\section{Django}
+\label{sec:seccion4}
+Django es un framework web de código abierto escrito en Python que permite construir aplicaciones
+web más rápido y con menos código. Proporciona un conjunto de herramientas para crear aplicaciones
+siguiendo los principios de DRY Don't Repeat Yourself, para evitar la duplicidad de líneas de código.
+Se basa en el diseño MVC Modelo Vista Controlador, lo que le brinda independencia y permite que
+las partes funcionales estén claramente separadas. 
+Django permite la conexión con distintos sistemas de bases de datos como MySQl, Oracle.
+
+
+
+\section{Bootstrap}
+\label{sec:seccion5}
+Bootstrap es un framework desarrollado por Twitter para crear interfaces y diseños web responsive
+basados en HTML5 y CSS3. Su principal ventaja es la de adaptar la interfaz de la aplicación web
+al tamaño del dispositivo desde donde se está accediendo. La documentación ofrecida permite la 
+construcción de webs de forma eficaz.
+
+
+
 
 
 
@@ -281,17 +382,49 @@ LibreSoft\footnote{\url{http://www.libresoft.es}}.
 \cleardoublepage
 \chapter{Diseño e implementación}
 
-\section{Arquitectura general} 
+Este capítulo es el eje principal del proyecto, en el que se describe la arquitectura,
+el diseño y se hace una descripción de las funcionalidades más importantes de Dr.
+Scratch. Está dividido en tres partes: el servidor basado en Django, el framework
+Hairball y el frontEnd basado en Bootstrap.
+
+\section{Arquitectura general}
 \label{sec:arquitectura}
+
+La arquitectura de Dr. Scratch se muestra en la figura 4.1. Está claramente identificado
+con la arquitectura cliente-servidor.
+
 
 figura~\ref{fig:arquitectura}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
+  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
   \caption{Estructura del parser básico}
   \label{fig:arquitectura}
 \end{figure}
+
+\begin{itemize}
+  \item Servidor. En principio el servidor se ejecutaba en local
+  \item Hairball.
+	\item Cliente.
+	
+\end{itemize}
+
+
+\section{Diseño e implementación del servidor}
+\label{sec:servidor}
+
+El diseño e implementación del servidor se basa en dos partes representativas. Por un lado,
+el modelos de datos que se configura dentro del fichero models.py y por otro lado la funcionalidad
+inherente al RESTFUL que se encuentra en views.py.
+
+
+\section{Modelo de datos}
+\label{sec:servidor}
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -394,7 +527,7 @@ las tecnologías utilizadas y demás.
 % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
 % formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
 % y verás que lo puedes hacer de manera sencilla.
-% Más información: 
+% Más información:
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
 
 \end{document}
