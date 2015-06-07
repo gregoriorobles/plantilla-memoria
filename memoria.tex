@@ -197,23 +197,24 @@ just before submitting.
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-El desarrollo de la tecnología está cambiando nuestros hábitos cotidianos: la forma en 
-que nos relacionamos con las personas, la manera de trabajar y significativamente
+El desarrollo de la tecnología está cambiando nuestros hábitos cotidianos: la forma
+en que nos relacionamos con las personas, la manera de trabajar y significativamente
 nuestra forma de aprender. El conocimiento ahora es global, al alcance de todos, con
 una sencilla búsqueda a través de un dispositivo conectado a internet tenemos incontable
-información en nuestras manos. Pero, girando la atención al uso de la tecnología en las aulas
-nos encontramos con un uso pasivo, convirtiendo al estudiante en usuario de aplicaciones.
-Los escolares, nativos digitales, conocen cómo buscar información en internet y manejar aplicaciones
-de una manera natural, pero la tecnología de trasfondo es invisible para ellos, lo que
-hace que pierdan muchas oportunidades y retos para su desarrollo en la enseñanza de programación.
-La programación en las aulas no es un descubrimiento nuevo, existen desde los años 60  con Logo. Pero,
-su popularidad se ha incrementando en los últimos años gracias a nuevas plataformas y aplicaciones
+información en nuestras manos. Pero, girando la atención al uso de la tecnología en las 
+aulas nos encontramos con un uso pasivo, convirtiendo al estudiante en usuario de 
+aplicaciones. Los escolares, nativos digitales, conocen cómo buscar información en internet 
+y manejar aplicaciones de una manera natural, pero la tecnología de trasfondo es invisible 
+para ellos, lo que hace que pierdan muchas oportunidades y retos para su desarrollo en la
+enseñanza de programación.
+La programación en las aulas no es un descubrimiento nuevo, existen desde los años 60  con Logo. 
+Pero, su popularidad se ha incrementando en los últimos años gracias a nuevas plataformas y aplicaciones
 como App Inventor, Stencyl, Alice, Etoys y Scratch.
 
-Y es Scratch donde girá el presente proyecto. Scratch ha tenido una penetración importante en la 
-educación americana, y una de las muchas razones es su facilidad de aprendizaje. Los bloques gráficos
-permiten a los usuarios un aprendizaje eficaz, y su entorno amigable permite la potenciación de la
-creatividad en el diseño y desarrollo de los proyectos.
+Y es Scratch donde girá el presente proyecto. Scratch ha tenido una penetración importante 
+en la educación americana, y una de las muchas razones es su facilidad de aprendizaje. Los
+bloques gráficos permiten a los usuarios un aprendizaje eficaz, y su entorno amigable permite 
+la potenciación de la creatividad en el diseño y desarrollo de los proyectos.
 
 El objetivo de la programación en edades tempranas es proveer de nuevas habilidades a niños y
 jóvenes, habilidades necesarias en un entorno digital y globalizado. Encarar procesos de
@@ -248,13 +249,17 @@ en relación a habilidades de pensamiento computacional.
 
 \begin{itemize}
   \item Crear una arquitectura software que permita la convergencia entre el framework Hairball
-  con las tecnologías web, con el fin de mejorar su usabilidad y experiencia de usuario.
+  con las tecnologías web, con el fin de mejorar su usabilidad y experiencia de usuario. En 
+	primera instancia el análisis de los proyectos se hará subiéndolos en el formato sb2.
   \item Construir un modelo de datos que se adapte a la salida de datos que ofrece Hairball y
   parametrizarlo con las herramientas ofrecidas por Django.
   \item Adaptar el contexto ofrecido por Django a todo el potencial que ofrece Bootstrap como
   herramienta de Front End.
   \item Introducir técnicas de ludificación dentro de la plataforma para atraer la atención y
   uso de los usuarios.
+	\item Permitir un seguimiento de la evolución de los usuarios de Dr. Scratch en términos de 
+	las habilidades de pensamiento computacional adquiridas a lo largo del uso de la plataforma
+	mediante los proyectos evaluados.
 \end{itemize}
 
 
@@ -470,14 +475,60 @@ Hairball.
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
+El presente proyecto consiguió el objetivo general que se planteó, la 
+construcción de una plataforma web donde los usuarios de Scratch pueden 
+obtener una valoración de sus proyectos. Esta plataforma es una versión
+beta de Dr. Scratch, las nuevas funcionalidades y el potencial de Dr. 
+Scratch da un espectro de desarrollo importante y atractivo.
+
+Dentro de los objetivos específicos también se puede valorar de manera
+positiva toda la labor de desarrollo. La convergencia del framework
+Hairball con Django fue satisfactorio. Se logró parametrizar las salidas
+que ofrecía cada plugin de Hairball dentro de un contexto de modelo de
+datos, y gracias a esto tener una estructura fiable para el almacenamiento
+y extracción de los componentes de pensamiento computacional asociados
+a cada proyecto. En las primeras versiones del modelo de datos se notó
+las posibles mejoras para hacer más consistente las relaciones entre las
+distintas tablas y se optó por la reformulación del modelo de datos hasta
+que se obtuvo una versión que a nuestro parecer era viable y era capaz
+de soportar las consultas realizadas por el componente Front End de una
+manera eficiente, sin repercutir en términos de rendimiento.
+
+Uno de los aportes no contemplados en los objetivos iniciales fue la
+manera en cómo el usuario mete su proyecto dentro de la plataforma
+para analizarlo. En primera instancia se decidió subirlo a Dr. Scratch
+para evaluarlo, pero se comprobó que la eficiencia no era del todo
+buena, así que se cambió el enfoque y haciendo uso de la API de Scratch
+y del aporte de un script hecho por un desarrollador externo se 
+obtuvo otro método más eficaz. Simplemente con la introducción del 
+identificador del proyecto que se asocia en la nube de Scratch ahora
+se puede realizar el análisis, todo esto repercutiendo en la optimización 
+de respuesta del servidor al usuario.
 
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos,
-donde se planteaba el objetivo general y se elaboraban los específicos.
+En el objetivo de introducir ludificación dentro de Dr. Scratch la 
+valoración no fue satisfactoria. Pese a que hubo contactos con las 
+técnicas de ludificación, éstas no fueron incluidas principalmente 
+por términos de tiempo y focalización en otras funcionalidades que 
+se consideraban con un grado mayor de relevancia. Una de las medidas
+adoptadas para la inclusión de la ludificación dentro de Dr. Scratch
+fue elaborar funciones y procedimientos de almacenamiento de la 
+información más óptimos. Las versiones iniciales de los métodos para 
+almacenar los datos importantes de los plugins no eran demasiado 
+óptimos en relación a la modularidad. Así pues, en la última versión
+de los procs usados se optó por dar independencia entre los datos de 
+los plugins, así como reformular varios campos de las tablas del
+modelo de datos, el resultado fue una robustez y optimización en la
+adquisición de datos que para una versión futura de Dr. Scratch 
+permitirá una mayor integración con la ludificación, ya que el 
+tratamiento de los datos será importante.
 
-Es aquí donde hay que debatir qué se ha conseguido y qué no. Cuando algo no
-se ha conseguido, se ha de justificar, en términos de qué problemas se han
-encontrado y qué medidas se han tomado para mitigar esos problemas.
+Otro de los hitos que no se pudo cumplir fue la construcción de una
+funcionalidad que permita el seguimiento de los usuarios para poder
+evaluar su progreso en el grado de adquisición de habilidades de 
+pensamiento computacional. Se hizo un seguimiento e hincapié en la 
+introducción de este componente, pero también por motivos de tiempo
+no fue posible su integración. 
 
 
 \section{Aplicación de lo aprendido}
@@ -511,18 +562,14 @@ Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
 Sin lugar a dudas Dr. Scratch tiene muchas funcionalidades que puede ser agregadas,
 una de ellas es la inclusión de técnicas de ludificación.
 
+
+
+
 Ningún software se termina, así que aquí vienen ideas y funcionalidades
 que estaría bien tener implementadas en el futuro.
 
 Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
 
-
-\section{Valoración personal}
-\label{sec:valoracion}
-
-Finalmente (y de manera opcional), hay gente que se anima a dar su punto de
-vista sobre el proyecto, lo que ha aprendido, lo que le gustaría haber aprendido,
-las tecnologías utilizadas y demás.
 
 
 
