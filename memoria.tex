@@ -359,13 +359,23 @@ Hairball y el frontEnd basado en Bootstrap.
 \label{sec:arquitectura}
 
 La arquitectura de Dr. Scratch se muestra en la figura 4.1. Está claramente identificado
-con la arquitectura cliente-servidor.
-
+con el modelo cliente-servidor. El usuario a través de un navegador subirá su proyecto
+o introducirá el identificador a través de un formulario. Esta petición será recogida 
+por el manejador de Django será procesada por un método asociada a la url, dentro de 
+este método se llamará a los plugins de Hairball recogiendo los datos parametrizados en
+el modelo de datos para su almacenamiento, y se responderá renderizando el contenido
+en un template.
 
 \begin{itemize}
-  \item Servidor. 
-  \item Hairball.
-  \item Cliente.
+  \item Servidor. Se basa principalmente en Django. Django permite la abstracción de la
+	base de datos, el modelo vista controlador y la interacción con el componente Front End.
+  \item Hairball. Es un framework que permite el análisis de proyectos Scratch. Su uso es
+	a través de una consola bash. Hairball se compone de plugins, para usar cada uno se
+	tiene que realizar una llamada independiente por consola.
+  \item Cliente. Generalmente el acceso a la plataforma se hace mediante un navegador. El
+	desarrollo de la parte Front End se realiza conjuntamente con Django y Bootstrap, este
+	último permite una funcionalidad responsive lo que permite que el acceso a Dr. Scratch
+	puede hacerse por un dispositivo móvil o tablet, sin la pérdida del diseño original.
 	
 \end{itemize}
 
@@ -395,7 +405,7 @@ Para usar el plugin DeadCode se hace la siguiente llamada.
 \begingroup
 \fontsize{7pt}{8pt}\selectfont
 \begin{verbatim}
-hairball -p blocks.DeadCode test-project.sb2 
+$ hairball -p blocks.DeadCode test-project.sb2 
 test-project.sb2 
 'Stage': [kurt.Script([ 
     kurt.Block('whenIReceive', u'never'), 
@@ -418,7 +428,7 @@ Para el uso del plugin AttributeInitialization se presenta la siguiente salida:
 \begingroup
 \fontsize{7pt}{8pt}\selectfont
 \begin{verbatim}
-hairball -p initialization.AttributeInitialization test-project.sb2 
+$ hairball -p initialization.AttributeInitialization test-project.sb2 
 test-project.sb2
 {u'frozen_elsa_by_meddek-d6w674h': {'position': 2, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}, 
 u'Sprite8': {'position': 0, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}, 
@@ -430,6 +440,31 @@ u'Sprite2': {'position': 0, 'size': 0, 'costume': 0, 'visibility': 2, 'orientati
  u'Sprite1': {'position': 2, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}}
 \end{verbatim}
 \endgroup
+
+Este plugin busca propiedades de los personajes que son modificadas en algún punto del 
+proyecto, pero que no se inicializaron al comenzar el flujo del programa. Las propiedades 
+de los personajes son: position, size, costume, visibility, orientation. Por cada propiedad
+analizada de cada personaje se muestra un valor parametrizado: un 0 si no ha modificado, un
+1 si se modifica pero no se inicializa, 2 si se inicializa correctamente. Por lo tanto, las
+propiedades que tienen un valor de 1 tienen un error de programación, y serán las propiedades
+que tienen el valor 1 las que se almacenan para su posterior tratamiento.
+
+
+\begingroup
+\fontsize{7pt}{8pt}\selectfont
+\begin{verbatim}
+$ hairball -p convention.SpriteNaming test-project.sb2 
+test-project.sb2
+5 default sprite names found:
+Sprite2
+Sprite8
+Sprite1
+Sprite4
+Sprite3
+\end{verbatim}
+\endgroup
+
+
 
 
 
@@ -458,8 +493,6 @@ Hairball.
 
 \cleardoublepage
 \chapter{Resultados}
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -536,7 +569,7 @@ no fue posible su integración.
 
 Sin lugar a dudas
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado
+Aquí viene lo que has aprendido durante el Grado/'Máster y que has aplicado
 en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y
 comentar en un párrafo los conocimientos y habilidades puestos en práctica.
 
