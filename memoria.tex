@@ -132,20 +132,26 @@ recibidos y sin duda el cariño.
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
 
+Este trabajo recoge el desarrollo de una plataforma web, Dr. Scratch, orientada a la 
+evaluación de proyectos Scratch en relación a aspectos de pensamiento computacional. 
+El núcleo de Dr. Scratch es Hairball, un framework usado para el análisis estático de 
+proyectos Scratch a través de una consola Linux. Dr. Scratch presenta los resultados
+de Hairball adaptados al público de la aplicación.
+
+El objetivo principal es crear una herramienta automatizada y de fácil uso para el 
+análisis de proyectos Scratch. Para esto, el interfaz usado es web y trata de ser 
+lo más amigable posible con el público, especialmente niños y jóvenes que inician
+su camino en el mundo de la programación.
+
+El proyecto se ha realizado principalmente con el framework Django en la parte del
+servidor, Hairball como núcleo y Bootstrap como framework para el Front End.
+
+El proyecto Dr. Scratch se desarrolla dentro de una iniciativa del Grupo de Sistemas
+y Comunicaciones (Gsyc) de la universidad Rey Juan Carlos (URJC) que investiga el
+impacto del Desarrollo delpensamiento computacional y busca comprobar las destrezas
+que se pueden potenciar en el contexto y proceso del aprendizaje de la programación.
 
 
-Aquí viene un resumen del proyecto. Ha de constar de tres o cuatro párrafos,
-donde se presente de manera clara y concisa de qué va el proyecto. Han
-de quedar respondidas las siguientes preguntas:
-
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto
-dentro de un marco general?
-\end{itemize}
-
-Lo mejor es escribir el resumen al final.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -191,8 +197,8 @@ just before submitting.
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-El desarrollo de la tecnología está cambiando nuestros hábitos cotidianos: la
-forma en que nos relacionamos con las personas, la manera de trabajar y significativamente
+El desarrollo de la tecnología está cambiando nuestros hábitos cotidianos: la forma en 
+que nos relacionamos con las personas, la manera de trabajar y significativamente
 nuestra forma de aprender. El conocimiento ahora es global, al alcance de todos, con
 una sencilla búsqueda a través de un dispositivo conectado a internet tenemos incontable
 información en nuestras manos. Pero, girando la atención al uso de la tecnología en las aulas
@@ -204,7 +210,10 @@ La programación en las aulas no es un descubrimiento nuevo, existen desde los añ
 su popularidad se ha incrementando en los últimos años gracias a nuevas plataformas y aplicaciones
 como App Inventor, Stencyl, Alice, Etoys y Scratch.
 
-Y es Scratch donde girá el presente proyecto. Scratch
+Y es Scratch donde girá el presente proyecto. Scratch ha tenido una penetración importante en la 
+educación americana, y una de las muchas razones es su facilidad de aprendizaje. Los bloques gráficos
+permiten a los usuarios un aprendizaje eficaz, y su entorno amigable permite la potenciación de la
+creatividad en el diseño y desarrollo de los proyectos.
 
 El objetivo de la programación en edades tempranas es proveer de nuevas habilidades a niños y
 jóvenes, habilidades necesarias en un entorno digital y globalizado. Encarar procesos de
@@ -213,52 +222,6 @@ claros de éstas habilidades.
 
 
 
-\section{}
-\label{sec:}
-
-\subsection{Estilo}
-\label{subsec:estilo}
-
-Sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}
-
- \begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1.png}
-    \caption{Página con enlaces a hilos}
-    \label{figura:foro_hilos}
- \end{figure}
-
-{\footnotesize
-\begin{verbatim}
-    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-    Date: Fri Jan 14 19:25:51 2005
-    Subject: [Mailman-Users] mailman issues
-    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-
-    Dear Sir/Madam,
-    How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-    Thanks
-
-    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-    From: msapiro at value.net (Mark Sapiro)
-    Date: Fri Jan 14 19:49:04 2005
-    Subject: [Mailman-Users] mailman issues
-    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-    Message-ID: <PC173020050114104851057801b04d55@msapiro>
-
-    gaurav_gold wrote:
-    >How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-
-    See the FAQ
-    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-    article 3.11
-\end{verbatim}
-}
 
 
 
@@ -394,19 +357,10 @@ La arquitectura de Dr. Scratch se muestra en la figura 4.1. Está claramente iden
 con la arquitectura cliente-servidor.
 
 
-figura~\ref{fig:arquitectura}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
-\end{figure}
-
 \begin{itemize}
-  \item Servidor. En principio el servidor se ejecutaba en local
+  \item Servidor. 
   \item Hairball.
-	\item Cliente.
+  \item Cliente.
 	
 \end{itemize}
 
@@ -414,16 +368,80 @@ figura~\ref{fig:arquitectura}.
 \section{Diseño e implementación del servidor}
 \label{sec:servidor}
 
-El diseño e implementación del servidor se basa en dos partes representativas. Por un lado,
-el modelos de datos que se configura dentro del fichero models.py y por otro lado la funcionalidad
-inherente al RESTFUL que se encuentra en views.py.
+El diseño e implementación del servidor se basa en dos partes representativas. Por un lado todo lo
+correspondiente a la plataforma web con Django y por otro la incorporación de la funcionalidad de
+Hairball y su correspondiente tratamiento de información.
+
+\subsection{Conexión con Hairball}
+Hairball provee la salida de datos a través de la consola. Para cada plugin de Hairball se debe hacer una llamada
+a través de la consola. En esta sección se detalla con ejemplos las salidas de cada uno de los plugins usados en
+Dr.Scratch, ya que esto contribuirá al entendimiento del modelo de datos del proyecto.
+
+Cada uno de los plugins se ejecutan a través de una consola bash y su modo de uso es el siguiente:
+
+\begin{center}
+hairball -p "`plugin-hairball"' "`nombre-proyecto-formato-sb2"'
+\end{center}
+
+Para evaluar las salidas de Hairball se usará el proyecto Scratch test-project.sb2, descargado a través de la 
+nube de Scratch.\footnote{\url{scratch.mit.edu/}}
+
+Para usar el plugin DeadCode se hace la siguiente llamada.
+\begingroup
+\fontsize{7pt}{8pt}\selectfont
+\begin{verbatim}
+hairball -p blocks.DeadCode test-project.sb2 
+test-project.sb2 
+'Stage': [kurt.Script([ 
+    kurt.Block('whenIReceive', u'never'), 
+    kurt.Block('startScene', u'castle')], pos=(366, 155)), 
+           kurt.Script([  
+    kurt.Block('whenIReceive', u'yeppers'), 
+    kurt.Block('startScene', u'castle')], pos=(229, 243)), 
+           kurt.Script([ 
+    kurt.Block('whenIReceive', u'no'), 
+    kurt.Block('startScene', u'castle')], pos=(85, 312))] 
+\end{verbatim}
+\endgroup
+
+De la salida se deduce que para el proyecto Scratch test-project.sb2 existen 6 bloques de código
+muerto dentro de 3 scripts. Además se puede tener la información de la posición asociado al código
+muerto. 
+
+Para el uso del plugin AttributeInitialization se presenta la siguiente salida:
+
+\begingroup
+\fontsize{7pt}{8pt}\selectfont
+\begin{verbatim}
+hairball -p initialization.AttributeInitialization test-project.sb2 
+test-project.sb2
+{u'frozen_elsa_by_meddek-d6w674h': {'position': 2, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}, 
+u'Sprite8': {'position': 0, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}, 
+u'ElsaPose': {'position': 2, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}, 
+u'Sprite4': {'position': 2, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}, 
+'stage': {'background': 2}, 
+u'Sprite2': {'position': 0, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0},
+ u'Sprite3': {'position': 2, 'size': 0, 'costume': 1, 'visibility': 2, 'orientation': 0},
+ u'Sprite1': {'position': 2, 'size': 0, 'costume': 0, 'visibility': 2, 'orientation': 0}}
+\end{verbatim}
+\endgroup
 
 
-\section{Modelo de datos}
+
+\subsection{Modelo de datos}
+El modelo de datos tiene como objetivo adecuarse a las salidas de consola de Hairball. Una de las principales
+ventajas de Django es que la conexión con los sistemas de bases de datos es transparente para el usuario. 
+Simplemente se debe realizar la respectiva configuración en el fichero settings.py de la base de datos. Para
+este proyecto se uso en primera instancia SQlite.
+
+Para la especificación del modelo de datos en Django se debe modificar el fichero models.py. En este fichero
+se especifican 
+
+\section{Diseño e implementación del cliente}
 \label{sec:servidor}
 
-El modelo de datos se construye de acuerdo a las salidas de datos ofrecidas por los plugins de 
-Hairball. 
+El modelo de datos se construye de acuerdo a las salidas de datos ofrecidas por los plugins de
+Hairball.
 
 
 
@@ -481,7 +499,7 @@ comentar en un párrafo los conocimientos y habilidades puestos en práctica.
 Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
 
 \begin{enumerate}
-  \item El uso de tecnologías web en conjunción con proyectos de 
+  \item El uso de tecnologías web en conjunción con proyectos de
   \item b
 \end{enumerate}
 
@@ -515,8 +533,10 @@ las tecnologías utilizadas y demás.
 
 \cleardoublepage
 \appendix
-\chapter{Manual de usuario}
+\chapter{Instalación y uso de Hairball}
 \label{app:manual}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -526,15 +546,5 @@ las tecnologías utilizadas y demás.
 
 \cleardoublepage
 
-% Las siguientes dos instrucciones es todo lo que necesitas
-% para incluir las citas en la memoria
-\bibliographystyle{abbrv}
-\bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
-% las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
-% que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
-% formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
-% y verás que lo puedes hacer de manera sencilla.
-% Más información:
-% http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
 
 \end{document}
