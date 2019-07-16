@@ -393,7 +393,7 @@ Púlsalo y encontrarás la referencia en formato BibTeX, tal que así:
 
 Copia el texto en BibTeX y pégalo en el fichero \texttt{memoria.bib}, que es donde están las referencias bibliográficas.
 Para incluir la referencia en el texto de la memoria, deberás citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendrás que poner el nuevo (robles2005self).
-Compila (dos veces) y \emph{voilà}... ¡tenemos una nueva cita!
+Compila el fichero \texttt{memoria.tex} (\texttt{pdflatex memoria.tex}), añade la bibliografía (\texttt{bibtex memoria.aux}) y vuelve a compilar \texttt{memoria.tex} (\texttt{pdflatex memoria.tex})\ldots y \emph{voilà} ¡tenemos una nueva cita!
 
 También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
 
@@ -412,13 +412,13 @@ Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero 
  \begin{center}
   \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
     \hline
-    1 & 2 & 3 \\ \hline % el hline nos da una línea vertical
-    4 & 5 & 6 \\ \hline
-    7 & 8 & 9 \\
+    Uno & 2 & 3 \\ \hline % el hline nos da una línea vertical
+    Cuatro & 5 & 6 \\ \hline
+    Siete & 8 & 9 \\
     \hline
   \end{tabular}
   \label{tabla:ejemplo}
-  \caption{Ejemplo de tabla}
+  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
  \end{center}
 \end{table}
 
@@ -451,9 +451,14 @@ A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que
 \begin{figure}
   \centering
   \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico}
+  \caption{Estructura del parser básico.}
   \label{fig:arquitectura}
 \end{figure}
+
+Recuerda que toda figura que añadas a tu memoria debe ser explicada.
+Sí, aunque te parezca evidente lo que se ve en la figura~\ref{fig:arquitectura}, la figura en sí solamente es un apoyo a tu texto.
+Así que explica lo que se ve en la figura, haciendo referencia a la misma tal y como ves aquí.
+Por ejemplo: En la figura~\ref{fig:arquitectura} se puede ver que la estructura del \emph{parser} básico, que consta de seis componentes diferentes: los datos se obtienen de la red, y según el tipo de dato, se pasará a un \emph{parser} específico y bla, bla, bla\ldots
 
 Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
 
