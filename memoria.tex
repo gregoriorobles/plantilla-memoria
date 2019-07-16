@@ -165,14 +165,14 @@ Además, la pareja quizás no sea para siempre, pero tu madre sí.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto. Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
+Aquí viene un resumen del proyecto.
+Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
 Han de quedar respondidas las siguientes preguntas:
 
 \begin{itemize}
   \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
   \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto
-dentro de un marco general?
+  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
 \end{itemize}
 
 Lo mejor es escribir el resumen al final.
@@ -184,9 +184,9 @@ Lo mejor es escribir el resumen al final.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-Here comes a translation of the ``Resumen'' into English. Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out
-just before submitting.
+Here comes a translation of the ``Resumen'' into English. 
+Please, double check it for correct grammar and spelling.
+As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out just before submitting.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -220,11 +220,13 @@ just before submitting.
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-En este capítulo se introduce el proyeto. Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
+En este capítulo se introduce el proyeto.
+Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
 
 No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
 
-Aconsejo a todo el mundo que mire y se inspire en memorias pasadas. Las mías están todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
+Aconsejo a todo el mundo que mire y se inspire en memorias pasadas.
+Las memorias de los proyetos que he llevado yo están (casi) todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
 
 \section{Sección}
 \label{sec:seccion}
@@ -238,16 +240,19 @@ Cambiad de ``UTF-8'' a ``ISO-Latin-1'' (o vicecersa) y funcionará.
 \subsection{Estilo}
 \label{subsec:estilo}
 
-Recomiendo leer los consejos prácticos sobre LaTeX de Diomidos 
-Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
+Recomiendo leer los consejos prácticos sobre escribir documentos científicos en \LaTeX \ de Diomidis Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
 
-Sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}
+Lee sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}. 
+Las comas en español no se ponen al tuntún.
+Y nunca, nunca entre el objeto y el predicado (p.ej. en ``Yo, hago el TFG'' sobre la coma).
 
 A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
-Observarás que el texto dentro del a referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
+Observarás que el texto dentro de la referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
 También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
+Nota que hay unas comillas de inicio (``) y otras de cierre (''), y que son diferentes.
 Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
-Por eso hay que compilar dos veces.
+Por eso hay que compilar dos veces tu memoria.
+Si no, no se crearán las referencias.
 
  \begin{figure}
     \centering
@@ -255,6 +260,9 @@ Por eso hay que compilar dos veces.
     \caption{Página con enlaces a hilos}
     \label{figura:foro_hilos}
  \end{figure}
+
+A continuación un bloque ``verbatim'', que se utiliza para mostrar texto tal cual.
+Se puede utilizar para ofrecer el contenido de correos electrónicos, código, entre otras cosas.
 
 {\footnotesize
 \begin{verbatim}
@@ -291,14 +299,16 @@ Por eso hay que compilar dos veces.
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se debería introducir la esctura de la memoria. Así:
+En esta sección se debería introducir la esctura de la memoria. 
+
+Así:
 
 \begin{itemize}
   \item En el primer capítulo se hace una intro al proyecto.
   
   \item En el capítulo~\ref{chap:objetivos} (ojo, otra referencia automática) se muestran los objetivos del proyecto.
   
-  \item A continuación se presenta el estado del arte.
+  \item A continuación se presenta el estado del arte en el capítulo~\ref{chap:estado}.
   
   \item \ldots
 \end{itemize}
@@ -345,14 +355,49 @@ Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 
 
 \cleardoublepage
 \chapter{Estado del arte}
+\label{chap:estado}
 
 Descripción de las tecnologías que utilizas en tu trabajo. 
 Con dos o tres párrafos por cada tecnología, vale. 
 Se supone que aquí viene todo lo que no has hecho tú.
 
-Puedes citar libros, como el de Bonabeau et al. sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. % Nota que el ~ añade un espacio en blanco, pero no deja que exista un salto de línea. Imprescindible ponerlo para las citas.
+Puedes citar libros, como el de Bonabeau et al., sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. 
+Me encantan los procesos estigmérgicos.
+Deberías leer más sobre ellos.
+Pero quizás no ahora, que tenemos que terminar la memoria para sacarnos por fin el título.
+Nota que el \~ \ añade un espacio en blanco, pero no deja que exista un salto de línea. 
+Imprescindible ponerlo para las citas.
+
+Citar es importantísimo en textos científico-técnicos. 
+Porque no partimos de cero.
+Es más, partir de cero es de tontos; lo suyo es aprovecharse de lo ya existente para construir encima y hacer cosas más sofisticadas.
+¿Dónde puedo encontrar textos científicos que referenciar?
+Un buen sitio es Google Scholar\footnote{\url{http://scholar.google.com}}.
+Por ejemplo, si buscas por ``stigmergy libre software'' para encontrar trabajo sobre software libre y el concepto de estigmergia (¿te he comentado que me gusta el concepto de estigmergia ya?), encontrarás un artículo que escribí hace tiempo cuyo título es ``Self-organized development in libre software: a model based on the stigmergy concept''.
+Si pulsas sobre las comillas dobles (entre la estrella y el ``citado por ...'', justo debajo del extracto del resumen del artículo, te saldrá una ventana emergente con cómo citar.
+Abajo a la derecha, aparece un enlace BibTeX.
+Púlsalo y encontrarás la referencia en formato BibTeX, tal que así:
+
+{\footnotesize
+\begin{verbatim}
+@inproceedings{robles2005self,
+  title={Self-organized development in libre software:
+         a model based on the stigmergy concept},
+  author={Robles, Gregorio and Merelo, Juan Juli\'an 
+          and Gonz\'alez-Barahona, Jes\'us M.},
+  booktitle={ProSim'05},
+  year={2005}
+}
+\end{verbatim}
+}
+
+Copia el texto en BibTeX y pégalo en el fichero \texttt{memoria.bib}, que es donde están las referencias bibliográficas.
+Para incluir la referencia en el texto de la memoria, deberás citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendrás que poner el nuevo (robles2005self).
+Compila (dos veces) y \emph{voilà}... ¡tenemos una nueva cita!
 
 También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
+
+
 
 \section{Sección 1} 
 \label{sec:seccion1}
@@ -361,7 +406,7 @@ Hemos hablado de cómo incluir figuras.
 Pero no hemos dicho nada de tablas.
 A mí me gustan las tablas.
 Mucho.
-Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo}.
+Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero nota cómo he puesto la referencia).
 
 \begin{table}
  \begin{center}
@@ -398,6 +443,10 @@ Eso sí, normalmente aconsejo no poner código, sino diagramas.
 Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
 
 Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
+\LaTeX \ pone las figuras donde mejor cuadran. 
+Y eso quiere decir que quizás no lo haga donde lo hemos puesto...
+Eso no es malo.
+A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que yo me encargo de la maquetación.
 
 \begin{figure}
   \centering
@@ -440,6 +489,12 @@ Esta sección es la sección espejo de las dos primeras del capítulo de objetivos,
 Es aquí donde hay que debatir qué se ha conseguido y qué no. 
 Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
 
+Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
+Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
+
+\begin{verbatim}
+  aspell --lang=es_ES -c memoria.tex
+\end{verbatim}
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
@@ -458,15 +513,15 @@ Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el
 Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
 
 \begin{enumerate}
-  \item a
-  \item b
+  \item Aquí viene uno.
+  \item Aquí viene oto.
 \end{enumerate}
 
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Ningún software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
+Ningún proyecto ni software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
 
 Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
 
@@ -481,6 +536,9 @@ Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
 \chapter{Manual de usuario}
 \label{app:manual}
 
+Esto es un apéndice.
+Si has creado una aplicación, siempre viene bien tener un manual de usuario.
+Pues ponlo aquí.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
