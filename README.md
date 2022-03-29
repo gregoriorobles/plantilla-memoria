@@ -12,3 +12,9 @@ Una buena práctica es, una vez realizado el fork, cambiar el nombre de tu repos
 Esta plantilla no está terminada, por lo que se puede considerar trabajo en curso. Si tienes algun comentario o sugerencia, estaré encantado de recibirlo. Agradezco especialmente <i>pull-requests</i>.
 
 Para otras cuestiones, mándame un correo a grex (arroba) gsyc.urjc.es.
+
+## Plantilla en R/RStudio
+
+Si os da por hacer el proyecto en R/RStudio y, de paso, quieren hacer también la memoria en PDF del trabajo de un solo golpe, aprovechando el esfuerzo, os recomiendo esta plantilla de Felipe Ortega:
+
+https://github.com/glimmerphoenix/plantilla-memoria-rmd-URJC
