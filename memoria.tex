@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Plantilla de memoria en LaTeX para la ETSIT - Universidad Rey Juan Carlos
+%% Plantilla de memoria en LaTeX para la EIF - Universidad Rey Juan Carlos
 %%
 %% Por Gregorio Robles <grex arroba gsyc.urjc.es>
 %%     Grupo de Sistemas y Comunicaciones
-%%     Escuela Técnica Superior de Ingenieros de Telecomunicación
+%%     Escuela de Ingeniería de Fuenlabrada
 %%     Universidad Rey Juan Carlos
 %% (muchas ideas tomadas de Internet, colegas del GSyC, antiguos alumnos...
 %%  etc. Muchas gracias a todos)
@@ -247,6 +247,8 @@ Volviendo a las referencias, nota que al compilar, la primera vez se crea un dic
 Por eso hay que compilar dos veces tu memoria.
 Si no, no se crearán las referencias.
 
+
+
  \begin{figure}
     \centering
     \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
@@ -254,8 +256,10 @@ Si no, no se crearán las referencias.
     \label{figura:foro_hilos}
  \end{figure}
 
+
 A continuación un bloque ``verbatim'', que se utiliza para mostrar texto tal cual.
 Se puede utilizar para ofrecer el contenido de correos electrónicos, código, entre otras cosas.
+
 
 {\footnotesize
 \begin{verbatim}
@@ -289,12 +293,26 @@ Se puede utilizar para ofrecer el contenido de correos electrónicos, código, e
 \end{verbatim}
 }
 
+
+
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se debería introducir la esctura de la memoria. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
+  \caption{Estructura del parser básico}
+  \label{fig:arquitectura}
+\end{figure}
+
+
+
+
+En esta sección se debería introducir la estructura de la memoria. 
 
 Así:
+
 
 \begin{itemize}
   \item En el primer capítulo se hace una intro al proyecto.
@@ -305,6 +323,8 @@ Así:
   
   \item \ldots
 \end{itemize}
+
+
 
 
 
@@ -399,7 +419,7 @@ Hemos hablado de cómo incluir figuras.
 Pero no hemos dicho nada de tablas.
 A mí me gustan las tablas.
 Mucho.
-Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero nota cómo he puesto la referencia).
+Aquí un ejemplo de tabla, la Tabla~\ref{tab:ejemplo} (siento ser pesado, pero nota cómo he puesto la referencia).
 
 \begin{table}
  \begin{center}
@@ -410,10 +430,13 @@ Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero
     Siete & 8 & 9 \\
     \hline
   \end{tabular}
-  \label{tabla:ejemplo}
-  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
+  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}, el pie de tabla/figura) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
+  \label{tab:ejemplo}
  \end{center}
 \end{table}
+
+Hay un sitio en Internet donde puedes diseñar las tablas fácilmente y luego hacer un corta y pega del resultado en tu editor.
+Puedes probarlo en \url{https://www.tablesgenerator.com/}.
 
 
 
@@ -424,34 +447,34 @@ Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero
 
 \cleardoublepage
 \chapter{Diseño e implementación}
+\label{sec:diseno}
 
 Aquí viene todo lo que has hecho tú (tecnológicamente). 
 Puedes entrar hasta el detalle. 
 Es la parte más importante de la memoria, porque describe lo que has hecho tú.
 Eso sí, normalmente aconsejo no poner código, sino diagramas.
 
+
+
 \section{Arquitectura general} 
 \label{sec:arquitectura}
 
 Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
 
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
-\LaTeX \ pone las figuras donde mejor cuadran. 
-Y eso quiere decir que quizás no lo haga donde lo hemos puesto\ldots
-Eso no es malo.
-A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que yo me encargo de la maquetación.
-
 \begin{figure}
   \centering
   \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
-  \caption{Estructura del parser básico.}\label{fig:arquitectura}
+  \caption{Estructura del parser básico}
+  \label{fig:arquitectura}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-    \caption{Página con enlaces a hilos}\label{fig:_arquitectura}
-\end{figure}
+
+Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
+\LaTeX \ pone las figuras donde mejor cuadran. 
+Y eso quiere decir que quizás no lo haga donde lo hemos puesto\ldots 
+Eso no es malo.
+A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que yo me encargo de la maquetación.
+
 
  
 Recuerda que toda figura que añadas a tu memoria debe ser explicada.
@@ -469,6 +492,7 @@ Si utilizas una base de datos, no te olvides de incluir también un diagrama de 
 
 \cleardoublepage
 \chapter{Experimentos y validación}
+\label{chap:experimentos}
 
 Este capítulo se introdujo como requisito en 2019. 
 Describe los experimentos y casos de test que tuviste que implementar para validar tus resultados. 
@@ -482,6 +506,7 @@ Incluye también los resultados de validación que permiten afirmar que tus resu
 
 \cleardoublepage
 \chapter{Resultados}
+\label{chap:resultados}
 
 En este capítulo se incluyen los resultados de tu trabajo fin de grado.
 
@@ -516,7 +541,8 @@ Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde l
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM.
+Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
 
 \begin{enumerate}
   \item a
