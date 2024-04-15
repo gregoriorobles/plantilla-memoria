@@ -434,10 +434,10 @@ Sus funciones más destacadas e importantes son:
 \end{enumerate}
 
 \section{Matplotlib} 
-\label{sec:Matplotlib}
+\label{sec:matplotlib}
 
 
-Matplotlibes~\cite{python:_matplotlib} es una librería de Python open source. John Hunter, neurobiólogo, fue su desarrollador inicial en 2002. Su objetivo era visualizar las señales eléctricas del cerebro de personas epilépticas. Por ello intentó replicar las diferentes funcionalidades de MATLAB (gráficas) con Python. 
+Matplotlib es~\cite{python:_matplotlib} es una librería de \textbf{Python open source}. John Hunter, neurobiólogo, fue su desarrollador inicial en 2002. Su objetivo era visualizar las señales eléctricas del cerebro de personas epilépticas. Por ello intentó replicar las diferentes funcionalidades de MATLAB (gráficas) con Python. 
 
 Matplotlib ha sido mejorado a lo largo del tiempo por numerosos contribuidores de la comunidad open source. Se usa para crear gráficas y diagramas de gran calidad que aportan la visualización de los datos de  forma detallada.
 
@@ -445,11 +445,58 @@ Es posible crear trazados, histogramas, diagramas de barras y cualquier tipo de 
 
 Esta librería es particularmente útil para las personas que trabajan con Python o NumPy.
 
-\begin{figure}
+\begin{figure}[hb]
 	\centering
 	\includegraphics[width=14cm, keepaspectratio]{img/Matplotlib.png}
 	\caption{Ejemplos gráficas Matplotlib}
 	\label{fig:matplotlib}
+\end{figure}
+
+\section{Pycharm} 
+\label{sec:pycharm}
+
+PyCharm es el \textbf{IDE}~\cite{python:_pycharm} más popular para Python hasta la fecha. Esta plataforma híbrida se utiliza habitualmente para el desarrollo de aplicaciones en Python por grandes empresas como Twitter, Facebook, Amazon y Pinterest.
+
+Un \textbf{Integrated Development environment (IDE)} o \textbf{Entorno de Desarrollo Integrado (EDI)} es un conjunto de herramientas necesarias para desarrollar software. Incluye un editor y un compilador.
+
+
+Pycharm es compatible con Windows, Linux y macOS. Además contiene módulos y paquetes que ayudan a los desarrolladores a programar software con Python más rápido y con menos esfuerzo y se puede personalizar para responder a las necesidades específicas de un proyecto.
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=14cm, keepaspectratio]{img/pycharm.png}
+	\caption{Pycharm}
+	\label{fig:pycharm}
+\end{figure}
+
+\section{SQL} 
+\label{sec:sql}
+Es un lenguaje de programación que \textbf{almacena y procesa información en una base de datos relacional}. 
+
+Una base de datos \textbf{relacional} almacena información en forma de tabla, con filas y columnas que representan diferentes atributos de datos junto con sus relaciones. Con ello se puede \textbf{almacenar, actualizar, eliminar, buscar y recuperar} información de la base de datos.
+
+Es un lenguaje de consulta popular que se usa con frecuencia en todos los tipos de aplicaciones debido a su alta integración con el resto de lenguajes tales como \textbf{java, python, C\#, PHP, etc}.
+
+\section{MySQL WorkBench} 
+\label{sec:mysqlworkbench}
+
+Es una herramienta visual ideal para \textbf{modelar, diseñar y administrar bases de datos MySQL} junto con el uso de código MySQL.
+
+Se trata de una herramienta gráfica que fue creada por la compañía Oracle.
+Es un programa de cliente que, a través de un entorno de desarrollo integrado, facilita la creación, consulta y administración de bases de datos~\cite{mysql:_workbench}. 
+
+Este software tiene múltiples funcionalidades como:
+\begin{itemize}
+	\item \textbf {Modelado de datos}: diseñar, modelar, gestionar y generar bases de datos de forma visual. 
+	\item \textbf {Ingeniería inversa}: recopilar información o datos a partir de un producto determinado para saber qué elementos lo componen. 
+	\item \textbf {Migrar bases de datos}: migrar desde Microsoft SQL Server, Microsoft Access, Sybase ASE y otros sistemas de gestión de bases de datos a MySQL.
+\end{itemize}
+
+\begin{figure}[hb]
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{img/workbench.png}
+	\caption{SQL Workbench}
+	\label{fig:workbench}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -460,40 +507,35 @@ Esta librería es particularmente útil para las personas que trabajan con Pytho
 \chapter{Diseño e implementación}
 \label{sec:diseno}
 
-Aquí viene todo lo que has hecho tú (tecnológicamente). 
-Puedes entrar hasta el detalle. 
-Es la parte más importante de la memoria, porque describe lo que has hecho tú.
-Eso sí, normalmente aconsejo no poner código, sino diagramas.
-
-
-
 \section{Arquitectura general} 
 \label{sec:arquitectura}
 
-Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
+Para poder completar este proyecto debemos analizar una gran cantidad de datos. Debian consta de 11 releases (lanzamientos) en los cuales se hallan un gran volumen de paquetes que va aumentando exponencialmente en releases posteriores.
+
+Por ello, se necesita seguir una secuencia específica representada en la \textbf {Figura~\ref{fig:Diagrama_general}} para descargar, limpiar, ordenar y extraer estos datos de forma efectiva. 
+
+Primero debemos descargar los diferentes releases de Debian desde su página oficial~\cite{oficialdebian:_releases}.
+Con ello ya podremos analizar los diferentes paquetes que contienen y así poder diseñar el diagrama entidad - relación correspondiente.
+
+Una vez tenemos el diseño completo, podremos comenzar con la creación de las diferentes BBDD (bases de datos) tal que cada release sea una BBDD con sus correspondientes tablas sql.
+
+En este punto creamos un script cuya funcionalidad será parsear los diferentes paquetes de cada release con el fin de extraer la información necesaria.
+
+Una vez extraída dicha información creamos otro script que, conectándose a la BBDD correspondiente, introduzca los datos parseados en la BBDD para su posterior análisis.
+
+Se crean una serie de Query´s o llamadas sql para poder obtener la información que necesitamos y así responder a los intereses del proyecto.
+
+Por último, creamos una serie de gráficas y tablas para ayudar a la visualización de los resultados obtenidos en este estudio.
+
 
 \begin{figure}
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura.png}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
+  \includegraphics[width=14cm, keepaspectratio]{img/Diagrama_general.png}
+  \caption{Fases del tratamiento de datos}
+  \label{fig:Diagrama_general}
 \end{figure}
 
 
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
-\LaTeX \ pone las figuras donde mejor cuadran. 
-Y eso quiere decir que quizás no lo haga donde lo hemos puesto\ldots 
-Eso no es malo.
-A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que yo me encargo de la maquetación.
-
-
- 
-Recuerda que toda figura que añadas a tu memoria debe ser explicada.
-Sí, aunque te parezca evidente lo que se ve en la figura~\ref{fig:arquitectura}, la figura en sí solamente es un apoyo a tu texto.
-Así que explica lo que se ve en la figura, haciendo referencia a la misma tal y como ves aquí.
-Por ejemplo: En la figura~\ref{fig:arquitectura} se puede ver que la estructura del \emph{parser} básico, que consta de seis componentes diferentes: los datos se obtienen de la red, y según el tipo de dato, se pasará a un \emph{parser} específico y bla, bla, bla\ldots
-
-Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
