@@ -509,8 +509,15 @@ Este software tiene múltiples funcionalidades como:
 
 \section{Arquitectura general} 
 \label{sec:arquitectura}
+El objetivo es descubrir e investigar como evoluciona la distribución de Debian a lo largo de su historia y los factores que han cambiado o se han mantenido en releases posteriores junto con su explicación. Para ello hemos seguido estas fases:
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm, keepaspectratio]{img/Diagrama_general.png}
+	\caption{Fases del tratamiento de datos}
+	\label{fig:Diagrama_general}
+\end{figure}
 
-Para poder completar este proyecto debemos analizar una gran cantidad de datos. Debian consta de 11 releases (lanzamientos) en los cuales se hallan un gran volumen de paquetes que va aumentando exponencialmente en releases posteriores.
+Debemos analizar una gran cantidad de datos. Debian consta de 11 releases (lanzamientos) en los cuales se hallan un gran volumen de paquetes que va aumentando exponencialmente en releases posteriores.
 
 Por ello, se necesita seguir una secuencia específica representada en la \textbf {Figura~\ref{fig:Diagrama_general}} para descargar, limpiar, ordenar y extraer estos datos de forma efectiva. 
 
@@ -528,16 +535,163 @@ Se crean una serie de Query´s o llamadas sql para poder obtener la información
 Por último, creamos una serie de gráficas y tablas para ayudar a la visualización de los resultados obtenidos en este estudio.
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=14cm, keepaspectratio]{img/Diagrama_general.png}
-  \caption{Fases del tratamiento de datos}
-  \label{fig:Diagrama_general}
+\section{Descarga de los releases de Debian} 
+\label{sec:Descarga_de_los_releases_de_Debian}
+
+Esta fase es la más rápida. Conociendo las páginas donde encontrar los releases retirados~\cite{debian:_releases_archive} y los que siguen en uso ~\cite{debian:_releases} (aportados por mi tutor Gregorio), podemos descargar sus diferentes archivos \textbf{main} donde encontramos todos los paquetes de cada lanzamiento y con ello los datos que queremos tratar.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{img/releases.png}
+	\caption{Descarga de los datos de releases}
+	\label{fig:Descarga_releases}
 \end{figure}
 
+\section{Análisis de los paquetes de cada release} 
+\label{sec:analisis_de_los_paquetes}
 
+En esta fase se requiere un estudio detallado de los diferentes atributos de cada paquete. Asignamos las entidades y las relaciones existentes entre los mismos para poder construir un diagrama valido para el diseño de las bases de datos posteriores.
 
+Un paquete esta conformado por los atributos mostrados en la \textbf {Figura~\ref{fig:paquete}}.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{img/paquete.png}
+	\caption{Atributos de un paquete.}
+	\label{fig:paquete}
+\end{figure}
+
+El siguiente proceso consta de la comparación de diferentes paquetes para entender que entidades hay y como relacionarlas:
+
+\begin{itemize}
+	\item \textbf {Package nombre}: siempre hay 1 y es único. 
+	\item \textbf {Binary}: mínimo hay 1 o más. 
+	\item \textbf {Version}: siempre hay 1 y puede repetirse en varios paquetes.
+	\item \textbf {Maintainer}: siempre hay 1 y puede repetirse en varios paquetes. 
+	\item \textbf {Uploaders}: mínimo hay 1 o más y puede repetirse en varios paquetes. 
+	\item \textbf {Build-Depends}: mínimo hay 1 o más y puede repetirse en varios paquetes.  
+	\item \textbf {Architecture}: siempre hay 1 y puede repetirse en varios paquetes. 
+	\item \textbf {Standards-Version}: siempre hay 1 y puede repetirse en varios paquetes.
+	\item \textbf {Format}: siempre hay 1 y puede repetirse en varios paquetes. 
+	\item \textbf {Files}:  mínimo hay 1 o más y son únicos. 
+	\item \textbf {Vcs-Browser}: (no está en todos los paquetes) siempre hay 1 y es único. 
+	\item \textbf {Vcs-Git}: (no está en todos los paquetes) siempre hay 1 y es único. 
+	\item \textbf {Checksums-Sha256}: mínimo hay 1 o más y son únicos. 
+	\item \textbf {Homepage}: (no está en todos los paquetes) siempre hay 1 y puede repetirse en varios paquetes. 
+	\item \textbf {Package-List}: mínimo hay 1 o más y son únicos. 
+	\item \textbf {Directory}: siempre hay 1 y es único. 
+	\item \textbf {Dgit}: (no está en todos los paquetes) siempre hay 1 y es único. 
+	\item \textbf {Testsuite}: (no está en todos los paquetes) siempre hay 1 y puede repetirse en varios paquetes. 
+	\item \textbf {Testsuite-Triggers}: (no está en todos los paquetes) mínimo hay 1 o más y puede repetirse en varios paquetes. 
+	\item \textbf {Priority}: siempre hay 1 y puede repetirse en varios paquetes. 
+	\item \textbf {Section}: siempre hay 1 y puede repetirse en varios paquetes. 
+\end{itemize}
+
+Con esta información podemos comenzar con el diseño del diagrama.
+
+\section{Creación diagrama Entidad - Relación} 
+\label{sec:diagrama_entidad_relacion}
+Un diagrama \textbf {entidad-relación}, también conocido como \textbf {modelo entidad relación o ERD ~\cite{lucidchart:_diagramaERD}}, es un tipo de diagrama de flujo que ilustra cómo las entidades, como personas, objetos o conceptos, se relacionan entre sí dentro de un sistema.
+
+Los diagramas ER se usan a menudo para diseñar o depurar bases de datos relacionales en los campos de ingeniería de software, sistemas de información empresarial, educación e investigación. También emplean un conjunto definido de símbolos, tales como rectángulos, diamantes, óvalos y líneas de conexión para representar la interconexión de \textbf {entidades, relaciones y sus atributos.}
+
+En la Figura ~\ref{fig:entidad_relación} se observa el diseño del diagrama junto con la Figura ~\ref{fig:leyenda_diagrama} que es su leyenda.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=17cm, keepaspectratio]{img/diagrama_entidad_relación.png}
+	\caption{Diagrama ERD.}
+	\label{fig:entidad_relación}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{img/Leyenda_diagrama.png}
+	\caption{Leyenda de diagrama ERD.}
+	\label{fig:leyenda_diagrama}
+\end{figure}
+
+Cada rectángulo es una entidad que va unida a otras entidades mediante una serie de líneas y el rombo que las separa es el indicador del tipo de relación que muestran.
+
+En este caso todas las entidades tienen una relación de pertenencia debido a que un paquete contiene o no estas entidades.
+
+En la \textbf {Figura ~\ref{fig:leyenda_diagrama}} podemos ver el tipo de relación entre entidades:
+
+\begin{itemize}
+\item \textbf {1: }esta línea discontinua muestra una relación de \textbf {0 a infinito}, es decir, pueden existir ninguna, una o muchas entidades en el paquete.
+\item \textbf {2: }esta línea continua muestra una relación de \textbf {1 a infinito}, es decir, pueden existir una o muchas entidades en el paquete pero nunca puede no existir.
+\item \textbf {3: }esta línea discontinua terminada en flecha muestra una relación de \textbf {0 a 1}, es decir, pueden existir ninguna o una entidad en el paquete.
+\item \textbf {4: }esta línea continua terminada en flecha muestra una relación de \textbf {1 a 1}, es decir, solo puede existir una entidad en el paquete obligatoriamente.
+\end{itemize}
+
+Una vez completadas las relaciones junto con las entidades se diseña la BBDD que va a acoger todos aquellos datos necesarios para el estudio.
+
+\section{Creación de BBDD junto con tablas SQL} 
+\label{sec:creacion_BBDD}
+En este punto se usan las aplicaciones MySQL Workbench y Pycharm.
+
+Se crean las diferentes BBDD en MySQL para poder realizar la inserción de las tablas posteriormente como se muestra en la \textbf {Figura ~\ref{fig:BBDDsql}}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=2cm, keepaspectratio]{img/BBDDsql.png}
+	\caption{Bases de datos}
+	\label{fig:BBDDsql}
+\end{figure}
+
+El diseño de la BBDD depende directamente del diagrama realizado anteriormente. 
+Este diagrama tiene una traducción a lenguaje sql:
+\begin{itemize}
+	\item \textbf {Entidad 1 (flecha hacia) Entidad 2}: cuando esto ocurre necesitamos crear una \textbf {foreing key} para relacionar las tablas de cada entidad. \textbf {Entidad 1} debe tener una foreing key para la \textbf {Entidad 2}.
+	
+	\begin{verbatim}
+		"""
+		CREATE TABLE IF NOT EXISTS package_list (
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		nombre VARCHAR(255) NOT NULL UNIQUE,
+		package_id INT NOT NULL,
+		FOREIGN KEY (package_id) REFERENCES package(id)
+		)
+		"""
+	\end{verbatim}
+	
+	Una \textbf {FOREIGN KEY} ~\cite{thedataschool:_foreingkey} en SQL, es una clave (campo de una columna) que sirve para relacionar dos tablas. El campo FOREIGN KEY se relaciona o vincula con la PRIMARY KEY de otra tabla de la bbdd.
+	
+	La restricción \textbf {PRIMARY KEY}~\cite{thedataschool:_primarykeyen} SQL identifica de forma única cada registro en una tabla.
+	Deben contener valores únicos y no pueden contener valores NULL.
+	Una tabla solo puede tener una clave principal, que puede consistir en campos simples o múltiples.
+	
+	\item \textbf {{Entidad 1 (linea) Entidad 2}}: en este caso no tenemos claro que entidad debría acoger la foreing key por lo que se crea una tabla intermedia.
+	Esta tabla constará de los identificadores de cada tabla como sus primary key.
+	En ella es en la que se definirán las foreing key hacia ambas tablas y así poder relacionarlas.
+	
+	\begin{verbatim}
+	"""
+	CREATE TABLE IF NOT EXISTS uploaders_package (
+	package_id INT NOT NULL,
+	uploaders_id INT NOT NULL,
+	PRIMARY KEY (package_id, uploaders_id),
+	FOREIGN KEY (package_id) REFERENCES package(id),
+	FOREIGN KEY (uploaders_id) REFERENCES uploaders(id)
+	)
+	"""
+	\end{verbatim}
+	
+	Finalmente, se procede al desarrollo de un script que se conecte a la BBDD para crearlas y comenzar a usarlas.
+	
+	Para ello, debemos establecer una conexión con la BBDD indicando el host, puerto, usuario, contraseña y nombre de la BBDD.
+	
+	Todo se realiza a través de python y con la librería mysql.connector.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=3.5cm, keepaspectratio]{img/Tablas.png}
+		\caption{Tablas BBDD}
+		\label{fig:Tablas}
+	\end{figure}
+
+	
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EXPERIMENTOS Y VALIDACIÓN %
