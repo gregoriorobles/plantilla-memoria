@@ -692,6 +692,187 @@ Este diagrama tiene una traducción a lenguaje sql:
 
 	
 \end{itemize}
+
+\section{Parseo de la información de los paquetes} 
+\label{sec:parseo}
+Tras la creación de las diferentes BBDD con sus tablas correspondientes, ahora debemos enfocarnos en obtener la información de interés para introducirla en dichas tablas SQL.
+
+Para ello se diseña un script en Pycharm siguiendo estos pasos:
+
+\begin{enumerate}
+	\item \textbf{Lectura del archivo.} Las descargas de los releases realizadas en la sección  ~\ref{sec:Descarga_de_los_releases_de_Debian} las tratamos como ficheros de texto. Por ello debemos leer linea por linea todo el fichero e ir guardando la información relevante de cada paquete.
+	
+	\begin{verbatim}
+		with open('Sources/14.Sources - bookworm-main.txt', 'r', encoding='utf-8') as file:
+		lines = iter(file.readlines())
+	\end{verbatim}
+	
+	\item \textbf{Especificar que datos son relevantes.} Se crea un array de strings con los diferentes nombres de los campos que queremos sacar para verificar si alguno se encuentra en la línea en la que estamos leyendo.
+	
+	\begin{verbatim}
+		array_items = ['Package', 'Binary', 'Version', 'Maintainer', 'Uploaders', 'Build-Depends', 'Architecture',
+		'Standards-Version', 'Format', 'Files', 'Vcs-Browser', 'Vcs-Git', 'Checksums-Sha256', 'Homepage',
+		'Package-List', 'Directory', 'Priority', 'Section', 'Testsuite', 'Testsuite-Triggers']
+	\end{verbatim}
+	
+	\item \textbf{Buscar los datos relevantes en el archivo.} Con el diseño del array ya podemos encontrar la información de interés. Recorremos línea a línea el archivo, comparamos si esa línea empieza con alguno de los items definidos seguido de \textbf{:} y parseamos la información guardándola en unas variables definidas anteriormente.
+	
+	\begin{verbatim}
+		for line in lines:
+		field, *value = map(str.strip, line.split(': ', 1))
+		value = value[0] if value else ''
+		
+		if field in array_items:
+	
+			if field == "Package":
+				package = value
+			
+			elif field == "Binary":
+				binary = value
+			...
+	\end{verbatim}
+	
+		\item \textbf{Identificar el final del paquete.} En un archivo hay miles de paquetes juntos separados por una línea en blanco. Este será nuestro identificador de que hemos recogido la información de un paquete. Si encuentra dicha línea, se llama a la función que nos permitirá insertar esta información en las diferentes tablas.
+		
+	\begin{verbatim}
+		 elif not line.strip():
+		# Esto indica el final de la información del paquete
+			insertar_info(package, binary, version, maintainer, uploaders, build_depends, architecture,
+			standards_version, format1, files_list, vcs_browser, vcs_git, check_list, homepage,
+			package_list, directory, priority, section, testsuite, testsuite_triggers)
+	\end{verbatim}
+	
+		\item \textbf{Restaurar las variables.} Este proceso es iterativo debido a que se realiza para cada paquete dentro de cada release. Necesitamos vaciar las variables para volver a obtener los datos de los próximos paquetes.
+		
+		\begin{verbatim}
+        	# Restablecer las listas y variables para el próximo paquete
+			files_list = []
+			package_list = []
+			check_list = {}
+			package = ""
+			binary = ""
+			version = ""
+			maintainer = ""
+			uploaders = ""
+			build_depends = ""
+			architecture = ""
+			standards_version = ""
+			format1 = ""
+			vcs_browser = ""
+			vcs_git = ""
+			homepage = ""
+			directory = ""
+			priority = ""
+			section = ""
+			testsuite = ""
+			testsuite_triggers = ""
+		\end{verbatim}
+		
+\end{enumerate}
+
+\section{Inserción de la información en la BBDD}
+\label{sec:insercion_BBDD}
+Una vez parseada la información de un paquete, debemos realizar la inserción en la BBDD. Esto se ejecuta mediante otro script en Pycharm y con la librería mysql.connector.
+
+\begin{enumerate}
+		\item \textbf{Conexión a la BBDD.} Primero debemos conectarnos a la BBDD para obtener la funcionalidad de insertar en ella. Debemos introducir los siguientes datos:
+		\begin{verbatim}
+			conexion = mysql.connector.connect(
+			host='localhost',
+			port=3306,
+			user='root',
+			password='xxxx',
+			db='14.bookworm_main'
+		)
+		\end{verbatim} 
+		
+		\item \textbf{Creación de diccionario.} Necesitamos asociar los diferentes valores, de las variables de la sección ~\ref{sec:parseo}, a los nombres de las tablas para facilitar la lógica de dicho script.
+		\begin{verbatim}
+			datos = {
+				"version": version,
+				"maintainer": maintainer,
+				"uploaders": uploaders,
+				"build_depends": build_depends,
+				"architecture": architecture,
+				"standards_version": standards_version,
+				"format": format1,
+				"section": section,
+				"priority": priority,
+				...
+		\end{verbatim} 
+		
+		\item \textbf{Inserción de los datos.} Finalmente pasamos a el objetivo final de este punto, la inserción. Tenemos varios casos que deben ser contemplados para su optima realización:
+		
+		\begin{itemize}
+			\item \textbf{Valores vacíos:} en este caso debemos comprobar si la variable en cuestión tiene un valor predeterminado o viene vacío. Hay paquetes en los que no existen ciertas entidades como vimos en la sección ~\ref{sec:analisis_de_los_paquetes}. Se actualiza el valor a None para evitar fallos en la BBDD al insertar.
+			
+			\item \textbf{Datos duplicados: } hay entidades que se repiten en múltiples paquetes como las versiones o los maintainer. Debemos tener en cuenta que, al crear las tablas, se ponen restricciones como los identificadores únicos. Esto significa que no se pueden meter duplicados y por ello debemos tenerlo en cuenta. Para ello, buscamos si el valor ya se encuentra en la tabla, si se confirma, se ignora para evitar errores en las tablas SQL.
+			
+			\item \textbf{Valores múltiples: } hay entidades que tienen varios datos separados por comas como Build-Depends. En estos casos debemos separarlo por comas creando un array. Después, se recorre el array y se va metiendo uno a uno verificando que no sean duplicados.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=15cm, keepaspectratio]{img/Build_depends.png}
+				\caption{Build Depends}
+				\label{fig:Build_depends}
+			\end{figure}
+			
+			\item \textbf{Files o Checksums-Sha256: } son 2 casos en los que no tenemos comas y vienen varios datos por entidad. Cuando verifiquemos que una linea del paquete empieza por estos 2 casos debemos cambiar la lógica. Saltamos a las siguientes lineas guardando todos los datos en un array. Posteriormente se recorrerá y se insertarán en las diferentes tablas.
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=15cm, keepaspectratio]{img/Files.png}
+				\caption{Files}
+				\label{fig:Files}
+			\end{figure}
+		\end{itemize}
+		
+		Por último, hay que vincular diferentes tablas a través de sus foreing keys.
+		
+		Al insertar un paquete, guardamos su id. De esta forma, al insertar otra entidad diferente (en otra tabla) sabemos que id de paquete tiene y con ello podemos referenciarlo sin problemas.
+		
+		Esto es de suma importancia debido al diseño de las posteriores Query's.
+\end{enumerate}
+
+\section{Creación de Query´s SQL}
+\label{sec:querys}
+
+Para este proceso se necesita de nuevo un script en Pycharm que se conecte a la BBDD y, a través de lenguaje SQL, realice llamadas especificas a la misma. De esta forma obtendremos la información que se necesita.
+
+\begin{enumerate}
+	\item \textbf{Conexión a la BBDD.} Primero debemos conectarnos a la BBDD para obtener la funcionalidad de realizar llamadas sobre ella como en la sección ~\ref{sec:insercion_BBDD}.
+	
+	\item \textbf{Lenguaje de manipulación de datos~\cite{geotalleres:_sql}.} Proporcionado por el sistema de gestión de base de datos, permite a los usuarios llevar a cabo las tareas de consulta o manipulación de los datos, organizados por el modelo de datos adecuado. 
+
+	\begin{itemize}
+		\item \textbf{Comandos}: para insertar como en la sección ~\ref{sec:insercion_BBDD}, actualizar o borrar pero en este caso se quiere consultar por lo que usaremos "SELECT".
+		
+		\item \textbf{Clausulas}: son condiciones de modificación utilizadas para definir los datos que desea seleccionar o manipular. En nuestro caso usaremos "WHERE".
+		
+		\item \textbf{Operadores Lógicos}: como \textbf{AND, OR y NOT}.
+		
+		\item \textbf{Operadores de comparación}: como \textbf{LIKE, IN, BETWEEN, etc.}
+		
+	\end{itemize}
+	
+	\item \textbf{Query's.} Se crean diferentes funciones para separar las llamadas y facilitar la comprensión del código. 
+	
+	
+	
+	Este sería un ejemplo de una Query que devuelve el numero de mantainers total que hay en cada release o BBDD:
+	
+	\begin{verbatim}
+		...
+		consulta = "SELECT COUNT(*) FROM maintainer"
+		cursor.execute(consulta)
+		...
+	\end{verbatim} 
+	
+	Cuenta el número de mantenedores que hay en la tabla 'maintainer' de la base de datos actual. Esta consulta va dentro de un bucle que hace el cálculo para todas las BBDD.
+	
+	Cada llamada contesta a las preguntas realizadas para este estudio obteniendo de forma eficiente la información de las BBDD.
+	 
+\end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % EXPERIMENTOS Y VALIDACIÓN %
