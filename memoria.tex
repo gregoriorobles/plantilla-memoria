@@ -1195,7 +1195,7 @@ Una vez lanzada este es el resultado:
 	
 	Una vez obtenida la información diseñamos una tabla para visualizar los datos.
 	
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
 		\includegraphics[width=18cm, keepaspectratio]{img/Tabla porcentajes maintainers.png}
 		\caption{Porcentaje de maintainers que siguen en releases posteriores}
@@ -1205,7 +1205,124 @@ Una vez lanzada este es el resultado:
 	En la Figura ~\ref{fig:tabla_1} podemos ver cual es el porcentaje de los maintainers de un release que se mantienen en el resto. Se lee de izquierda a derecha comparando el primero con el segundo, el primero con el tercero, el primero con el cuarto, etc.
 	
 	Analizando esta tabla podemos observar que, según avanzan los releases, disminuye el porcentaje de maintainers que aguantan en versiones posteriores.
+	
+	Ejecutamos una segunda query para observar los porcentajes de equipos de mantenedores:
+	
+		\begin{verbatim}
+		Porcentajes de grupos en la base de datos 1.hamm_main:
+		Con respecto a la base de datos 2.slink_main: 100.00%
+		Con respecto a la base de datos 3.potato_main: 100.00%
+		Con respecto a la base de datos 4.woody_main: 100.00%
+		Con respecto a la base de datos 5.sarge_main: 100.00%
+		Con respecto a la base de datos 6.etch_main: 100.00%
+		Con respecto a la base de datos 7.lenny_main: 100.00%
+		Con respecto a la base de datos 8.squeeze_main: 100.00%
+		Con respecto a la base de datos 9.wheezy_main: 100.00%
+		Con respecto a la base de datos 10.jessie_main: 100.00%
+		Con respecto a la base de datos 11.stretch_main: 100.00%
+		Con respecto a la base de datos 12.buster_main: 100.00%
+		Con respecto a la base de datos 13.bullseye_main: 100.00%
+		
+		Porcentajes de grupos en la base de datos 2.slink_main:
+		Con respecto a la base de datos 3.potato_main: 100.00%
+		Con respecto a la base de datos 4.woody_main: 100.00%
+		Con respecto a la base de datos 5.sarge_main: 100.00%
+		Con respecto a la base de datos 6.etch_main: 100.00%
+		Con respecto a la base de datos 7.lenny_main: 100.00%
+		Con respecto a la base de datos 8.squeeze_main: 100.00%
+		Con respecto a la base de datos 9.wheezy_main: 100.00%
+		Con respecto a la base de datos 10.jessie_main: 100.00%
+		Con respecto a la base de datos 11.stretch_main: 100.00%
+		Con respecto a la base de datos 12.buster_main: 100.00%
+		Con respecto a la base de datos 13.bullseye_main: 100.00%
+		
+		Porcentajes de grupos en la base de datos 3.potato_main:
+		Con respecto a la base de datos 4.woody_main: 50.00%
+		Con respecto a la base de datos 5.sarge_main: 50.00%
+		Con respecto a la base de datos 6.etch_main: 50.00%
+		Con respecto a la base de datos 7.lenny_main: 50.00%
+		Con respecto a la base de datos 8.squeeze_main: 50.00%
+		Con respecto a la base de datos 9.wheezy_main: 50.00%
+		Con respecto a la base de datos 10.jessie_main: 50.00%
+		Con respecto a la base de datos 11.stretch_main: 50.00%
+		Con respecto a la base de datos 12.buster_main: 50.00%
+		Con respecto a la base de datos 13.bullseye_main: 50.00%
+		
+		Porcentajes de grupos en la base de datos 4.woody_main:
+		Con respecto a la base de datos 5.sarge_main: 66.67%
+		Con respecto a la base de datos 6.etch_main: 50.00%
+		Con respecto a la base de datos 7.lenny_main: 50.00%
+		Con respecto a la base de datos 8.squeeze_main: 50.00%
+		Con respecto a la base de datos 9.wheezy_main: 50.00%
+		Con respecto a la base de datos 10.jessie_main: 50.00%
+		Con respecto a la base de datos 11.stretch_main: 50.00%
+		Con respecto a la base de datos 12.buster_main: 50.00%
+		Con respecto a la base de datos 13.bullseye_main: 50.00%
+		
+		Porcentajes de grupos en la base de datos 5.sarge_main:
+		Con respecto a la base de datos 6.etch_main: 82.76%
+		Con respecto a la base de datos 7.lenny_main: 79.31%
+		Con respecto a la base de datos 8.squeeze_main: 72.41%
+		Con respecto a la base de datos 9.wheezy_main: 68.97%
+		Con respecto a la base de datos 10.jessie_main: 68.97%
+		Con respecto a la base de datos 11.stretch_main: 62.07%
+		Con respecto a la base de datos 12.buster_main: 58.62%
+		Con respecto a la base de datos 13.bullseye_main: 58.62%
+		
+		Porcentajes de grupos en la base de datos 6.etch_main:
+		Con respecto a la base de datos 7.lenny_main: 85.71%
+		Con respecto a la base de datos 8.squeeze_main: 79.22%
+		Con respecto a la base de datos 9.wheezy_main: 72.73%
+		Con respecto a la base de datos 10.jessie_main: 68.83%
+		Con respecto a la base de datos 11.stretch_main: 59.74%
+		Con respecto a la base de datos 12.buster_main: 51.95%
+		Con respecto a la base de datos 13.bullseye_main: 50.65%
+		
+		Porcentajes de grupos en la base de datos 7.lenny_main:
+		Con respecto a la base de datos 8.squeeze_main: 87.93%
+		Con respecto a la base de datos 9.wheezy_main: 79.31%
+		Con respecto a la base de datos 10.jessie_main: 75.86%
+		Con respecto a la base de datos 11.stretch_main: 66.38%
+		Con respecto a la base de datos 12.buster_main: 56.03%
+		Con respecto a la base de datos 13.bullseye_main: 53.45%
+		
+		Porcentajes de grupos en la base de datos 8.squeeze_main:
+		Con respecto a la base de datos 9.wheezy_main: 88.28%
+		Con respecto a la base de datos 10.jessie_main: 84.14%
+		Con respecto a la base de datos 11.stretch_main: 73.79%
+		Con respecto a la base de datos 12.buster_main: 56.55%
+		Con respecto a la base de datos 13.bullseye_main: 53.10%
+		
+		Porcentajes de grupos en la base de datos 9.wheezy_main:
+		Con respecto a la base de datos 10.jessie_main: 91.02%
+		Con respecto a la base de datos 11.stretch_main: 77.84%
+		Con respecto a la base de datos 12.buster_main: 58.68%
+		Con respecto a la base de datos 13.bullseye_main: 54.49%
+		
+		Porcentajes de grupos en la base de datos 10.jessie_main:
+		Con respecto a la base de datos 11.stretch_main: 85.57%
+		Con respecto a la base de datos 12.buster_main: 66.49%
+		Con respecto a la base de datos 13.bullseye_main: 60.82%
+		
+		Porcentajes de grupos en la base de datos 11.stretch_main:
+		Con respecto a la base de datos 12.buster_main: 79.13%
+		Con respecto a la base de datos 13.bullseye_main: 71.36%
+		
+		Porcentajes de grupos en la base de datos 12.buster_main:
+		Con respecto a la base de datos 13.bullseye_main: 90.91%
 
+	\end{verbatim} 
+	
+	Ahora mostramos la tabla de porcentajes de equipos.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=18cm, keepaspectratio]{img/Tabla porcentajes equipos.png}
+		\caption{Porcentaje de equipos que siguen en releases posteriores}
+		\label{fig:tabla_2}
+	\end{figure}
+	
+	En la Figura  ~\ref{fig:tabla_2} podemos ver como los grupos creados en los releases 1.Hamm y 2.Slink se mantienen en todos los releases pero en los demás va disminuyendo el porcentaje según se lanzan nuevas versiones.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONCLUSIONES %
