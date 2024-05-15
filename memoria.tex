@@ -30,6 +30,10 @@
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
+\usepackage{multicol}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{array}
+\usepackage{longtable}
 
 \title{Memoria del Proyecto}
 \author{Nombre del autor}
@@ -101,8 +105,7 @@ Curso académico 2023/2024
 
 \vspace{1cm}
 \large
-Evolución de la Participación Voluntaria en Proyectos de Software Libre:
-Evidencia de Debian
+Reproducción de un trabajo con evidencias de Debian
 
 \vspace{1cm}
 \large
@@ -246,9 +249,9 @@ Treinta años después nos preguntamos ciertas cosas como, ¿Los individuos que 
 \subsection{Proyecto Debian}
 \label{subsec:proyecto debian}
 
-El Proyecto Debian está formado por un grupo de voluntarios a nivel mundial que trabajan para producir una distribución del Sistema Operativo Linux basada en 'software libre'.
+El Proyecto Debian está formado por un grupo de voluntarios a nivel mundial que trabajan para producir una distribución del Sistema Operativo Linux basada en `software libre'.
 
-Con el término 'software libre' no nos referimos a su coste. Este va enfocado a la 'libertad real' dentro del software, es decir, 'software de código abierto'.
+Con el término `software libre' no nos referimos a su coste. Este va enfocado a la `libertad real' dentro del software, es decir, `software de código abierto'.
 Esto significa que cualquier usuario puede acceder al código fuente para estudiarlo, revisarlo, modificarlo o distribuirlo sin restricción alguna.
 
 Debian es la distribución de Linux más relevante sin fines comerciales.
@@ -259,11 +262,11 @@ Con el tiempo fue asentando un gran conjunto de directrices y procedimientos par
 \subsection{Versiones Debian}
 \label{subsec:versiones debian}
 
-Debian está conformado por varias versiones desde 1993 las cuales explicaremos a continuación:
+Debian ha publicado varias versiones desde 1993 las cuales explicaremos a continuación:
 
 \begin{itemize}
 
-	\item \textbf {Versiones 0.x (1993 - 1995):} estas versiones fueron las primeras y mas rudimentarias pero dieron lugar a la creación de Debian gracias a su creador \textbf {Ian Murdock}.
+	\item \textbf {Versiones 0.x (1993 - 1995):} estas versiones fueron las primeras y más rudimentarias pero dieron lugar a la creación de Debian gracias a su creador \textbf {Ian Murdock}.
 	\begin{itemize}
 		\item \textbf {Debian 0.01 hasta 0.90.}
 		\item \textbf {Debian 0.91:} disponía de un sencillo sistema de empaquetamiento que permitía instalar y desinstalar paquetes.
@@ -273,7 +276,7 @@ Debian está conformado por varias versiones desde 1993 las cuales explicaremos 
 	\item \textbf {Versiones 1.x (1996 - 1997):} \textbf{Bruce Perens} fue designado como líder del proyecto después de que Ian lo designara.
 	\begin{itemize}
 		\item \textbf {Debian 1.0:} esta versión nunca fue publicada debido a una confusión al distribuir una versión en desarrollo con el nombre equivocado de Debian 1.0 que daría problemas en ejecución.
-		\item \textbf {Debian 1.1 Buzz: } es la primera versión de Debian con un nombre en clave sacado de las peliculas de \textbf {'Toy Story'}.
+		\item \textbf {Debian 1.1 Buzz: } es la primera versión de Debian con un nombre en clave sacado de las peliculas de \textbf {`Toy Story'}.
 		\item \textbf {Debian 1.2 Rex: } esta versión estaba completamente en formato \textbf{ELF} y usaba el núcleo (kernel) Linux 2.0.
 		
 		El formato \textbf{ELF} (Executable and Linkable Format) es un estándar. Se usa en sistemas operativos tipo \textbf{UNIX} (como Linux). Sirve para organizar y manejar archivos ejecutables, bibliotecas compartidas y otros objetos binarios.
@@ -292,16 +295,86 @@ Debian está conformado por varias versiones desde 1993 las cuales explicaremos 
 	\item \textbf {Debian 4.0 Etch (2007):}se añadieron mejoras como un instalador gráfico o la verificación criptográfica de los paquetes descargados entre otras.
 	\item \textbf {Debian 5.0 Lenny (2009):}añadió la arquitectura \textbf {ARM EABI} para dar soporte a los nuevos procesadores \textbf {ARM}.
 	\item \textbf {Debian 6.0 Squeeze: }con esta versión fue la primera vez que una distribución de Linux se extendía para permitir también el uso de un núcleo no Linux.
-	\item \textbf {Debian 7.0 Wheezy (2011):}se introdujo el soporte de \textbf {multiarquitectura}. Esto permitía que los usuarios instalaran en una misma máquina paquetes de múltiples arquitecturas.
-	\item \textbf {Debian 8 Jessie (2013):}trajo importantes mejoras de seguridad, como un nuevo kernel que solucionaba varias vulnerabilidades (como \textbf {ataques de enlace simbólico}).
-	\item \textbf {Debian 9 Stretch (2015):}se introdujeron paquetes para la depuración a través de un repositorio nuevo en el archivo. Facilitaría el proceso de depuración y solución de problemas relacionados con esos paquetes.
+	\item \textbf {Debian 7.0 Wheezy (2011):} se introdujo el soporte de \textbf {multiarquitectura}. Esto permitía que los usuarios instalaran en una misma máquina paquetes de múltiples arquitecturas.
+	\item \textbf {Debian 8 Jessie (2013):} trajo importantes mejoras de seguridad, como un nuevo kernel que solucionaba varias vulnerabilidades (como \textbf {ataques de enlace simbólico}).
+	\item \textbf {Debian 9 Stretch (2015):} se introdujeron paquetes para la depuración a través de un repositorio nuevo en el archivo. Facilitaría el proceso de depuración y solución de problemas relacionados con esos paquetes.
 	\item \textbf {Debian 10 Buster (2019):} incluyó por primera vez un marco de control de acceso obligatorio. Restringe las acciones que pueden realizar los programas, limitando su acceso a ciertos recursos del sistema, como archivos, directorios, redes, etc.
 	\item \textbf {Debian 11 Bullseye (2021):} introduce un nuevo paquete, ipp-usb, que utiliza el protocolo IPP-over-USB, independiente del fabricante y soportado por muchas impresoras actuales. Esto permite que un dispositivo USB sea tratado como un dispositivo de red.
 	
 		
 \end{itemize}
 	
+\subsection{Artículo Debian}
+\label{subsec:articulo debian}
 
+Este proyecto es la continuación del articulo \textbf {Evolución de la Participación Voluntaria en Proyectos de Software Libre:
+Evidencia de Debian} ~\cite{robles05:_debian}.
+
+En este 
+artículo se analiza la evolución en el tiempo de los recursos humanos de 
+uno de los proyectos de software libre más grandes y complejos 
+compuesto principalmente por voluntarios, el proyecto Debian.
+
+Se realiza una investigación 
+cuantitativa de datos de casi siete años, estudiando cómo la participación 
+de voluntarios ha afectado al software lanzado por el proyecto y a la 
+propia comunidad de desarrolladores.
+
+Los resultados que se obtuvieron fueron los siguientes:
+\begin{itemize}
+	\item \textbf {Número de maintainers de cada versión}: se llego a la conclusión de que aumenta el número de maintainers con el tiempo. También aumenta el número de paquetes por maintainer por lo que se supuso una mayor eficiencia de los maintainers debido a mejoras en las herramientas.
+	
+	\begin{table}[]
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			Date        & Release & Nº Maintainer & Packages & Packages/Maintainer \\ \hline
+			July-98     & 2.0     & 217           & 1.101    & 5,1                 \\ \hline
+			March-99    & 2.1     & 297           & 1.559    & 5,2                 \\ \hline
+			August-00   & 2.2     & 453           & 2.601    & 5,7                 \\ \hline
+			July-02     & 3.0     & 859           & 5.119    & 6,0                 \\ \hline
+			December-04 & (3.1)   & 1237          & 7.786    & 6,3                 \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\item \textbf {¿Existe una tendencia hacia la formación de equipos de 
+	mantenedores?}: los resultados que se obtuvieron marcan una clara tendencia a la formación de los mismos.
+	
+	\begin{table}[h]
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			Date        & Release & Group Packages & Quality Control Packages & Percentage \\ \hline
+			July-98     & 2.0     & 14             & 14                       & 1,3\%      \\ \hline
+			March-99    & 2.1     & 21             & 11                       & 1,4\%      \\ \hline
+			August-00   & 2.2     & 46             & 31                       & 1,8\%      \\ \hline
+			July-02     & 3.0     & 101            & 71                       & 2,2\%      \\ \hline
+			December-04 & (3.1)   & 599            & 194                      & 7,4\%      \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\item \textbf {Seguimiento de los mantenedores restantes de Debian}: se estudió el número de maintainers que había en la primera versión y como disminuye con el paso del tiempo debido a que abandonan el proyecto. 
+	
+	\begin{table}[h]
+		\begin{tabular}{|l|l|l|l|l|}
+			\hline
+			Date        & Release & Maintainers 1º version & Packages & Packages/Maintainer \\ \hline
+			July-98     & 2.0     & 14                     & 14       & 5,1                 \\ \hline
+			March-99    & 2.1     & 21                     & 11       & 5,2                 \\ \hline
+			August-00   & 2.2     & 46                     & 31       & 5,5                 \\ \hline
+			July-02     & 3.0     & 101                    & 71       & 5,9                 \\ \hline
+			December-04 & (3.1)   & 599                    & 194      & 6                   \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\item \textbf {Investigar la experiencia del mantenedor}: se estudió si los mantenedores más experimentados tenían asociados mayor cantidad de paquetes pero resultó ser una proporción igualada. Aunque se debería estudiar más a fondo.
+	
+	\item \textbf {Paquetes de mantenedores que abandonaron el proyecto}: se observó que se asignaban los paquetes a otro maintainer cuando abandonaba el proyecto y tenía paquetes asociados. 
+	
+	\item \textbf {Experiencia e importancia}: se llegó a la conclusión de que los paquetes con mayor número de instalaciones y más usados se asignaban a maintainers más experimentados.
+	
+	
+\end{itemize}
+
+Este articulo se publicó en 2005. A día de hoy, se han publicado ocho versiones nuevas de de Debian y por ello podemos realizar un estudio más exhaustivo de dicha distribución. Con la aportación de nuevos datos que ayuden a manejar una mayor exactitud en las conclusiones y a plantear nuevas cuestiones sobre Debian.
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
@@ -346,7 +419,7 @@ A continuación se exponen los capítulos en los que se organiza esta memoria y 
 
 Este proyecto de fin de grado se basa en el análisis de los lanzamientos, paquetes y mantenedores presentes en la evolución de la distribución Debian a lo largo de su historia. 
 
-Se busca conocer, de cada lanzamiento (\textbf{release}), la evolución en el número de personas y equipos que lo mantienen,  cuantos de ellos siguen en releases posteriores y que ocurre con los paquetes de un mantenedor si este abandona el proyecto. Se ha podido llevar acabo gracias al estudio de diferentes paquetes de datos aportados por Debian\footnote{\url{https://www.debian.org/releases/}} en su página oficial.
+Se busca conocer, para cada versión (\textbf{release}), la evolución en el número de personas y equipos que lo mantienen,  cuantos de ellos siguen en releases posteriores y que ocurre con los paquetes de un mantenedor si este abandona el proyecto. Se ha podido llevar a cabo gracias al estudio de diferentes paquetes de datos aportados por Debian\footnote{\url{https://www.debian.org/releases/}} en su página oficial.
 De esta forma se obtienen las diferencias y similitudes necesarias para la comparación de los releases de forma que se pueda comprender su evolución.
 
 
@@ -356,14 +429,14 @@ De esta forma se obtienen las diferencias y similitudes necesarias para la compa
 Para poder llevar a cabo dicho objetivo se requiere: 
 
 \begin{itemize}
-	\item \textbf {Diseño del diagrama entidad relación.} Se comprenden los diferentes campos que conforman un paquete y se crea un diagrama para el posterior diseño de la base de datos que los alojará.
+	\item \textbf {Diseñar el diagrama entidad relación.} Se comprenden los diferentes campos que conforman un paquete y se crea un diagrama para el posterior diseño de la base de datos que los alojará.
 	.
-	\item \textbf {Creación de la base de datos.} Se crea una base de datos con un buen diseño (basada en el diagrama anterior) para poder lanzar \textbf {Queries} con las que se obtienen la información que se requiere.
+	\item \textbf {Crear la base de datos.} Se crea una base de datos con un buen diseño (basada en el diagrama anterior) para poder lanzar \textbf {Queries} con las que se obtienen la información que se requiere.
 	
-	\item \textbf {Formulación de Queries.} Se analiza la información que se quiere extraer de la base de datos y se crean las llamadas necesarias para obtenerla.
+	\item \textbf {Formular las Queries.} Se analiza la información que se quiere extraer de la base de datos y se crean las llamadas necesarias para obtenerla.
 	
 	
-	\item \textbf {Creación de tablas y gráficas.} Con la información obtenida se crean diferentes tablas y gráficas para ayudar a la comprensión de los datos de forma visual.
+	\item \textbf {Crear las tablas y gráficas.} Con la información obtenida se crean diferentes tablas y gráficas para ayudar a la comprensión de los datos de forma visual.
 \end{itemize}
 
 
@@ -377,7 +450,7 @@ Más tarde se realizó un análisis de los diferentes paquetes para poder crear 
 Realizamos el parseo de las diferentes datos del paquete para poder insertarlos correctamente en la base de datos.
 La inserción de los datos fue lo más problemático en este proyecto. Cada release consta de muchos paquetes en los cuales hay que parsear, extraer e insertar todos los datos. Este estudio se realiza sobre 11 releases. Al tratarse de tanto volumen de datos, el tiempo de ejecución fue elevado. Al comprobar las bases de datos y hallar errores, se insertaban de nuevo los datos por lo que esto fue lo más complejo del proyecto.
 
-Finalmente se realizaron una serie de llamadas sql (Queries) con las que extraer la información necesaria para el proyecto junto con sus gráficas para obtener dicha información de forma visual.
+Finalmente se realizaron una serie de llamadas SQL (Queries) con las que extraer la información necesaria para el proyecto junto con sus gráficas para obtener dicha información de forma visual.
 
 Con ello pudimos obtener conclusiones sobre el estudio de estos datos y comenzar con la redacción de la memoria.
 
@@ -398,24 +471,25 @@ Dr. Gregorio Robles me propuso dicho proyecto en noviembre de 2023 y el tiempo d
 \cleardoublepage
 \chapter{Estado del arte}
 \label{chap:estado}
-
+En este capítulo mencionamos las diferentes tecnologías  usadas en este proyecto sin las que no hubiera sido posible su realización.
+ 
 
 \section{Python 3.12.0} 
 \label{sec:python}
 \textbf{Python}~\cite{oracle:_python} es un lenguaje de programación orientado a objetos de alto nivel con una sintaxis fácil de interpretar y leer. Tiene un amplio uso en computación científica, desarrollo web y automatización.
 
-\textbf{Peter Norvig}, director de investigación de Google afirma que 'Python ha sido una parte importante de Google desde el principio, y permanece así a medida que el sistema crece y evoluciona'.
+\textbf{Peter Norvig}, director de investigación de Google afirma que `Python ha sido una parte importante de Google desde el principio, y permanece así a medida que el sistema crece y evoluciona'.
 
 Al ser un lenguaje popular tiene una mayor selección de bibliotecas, lo que ahorra a un desarrollador cantidades increíbles de tiempo y esfuerzo. También tiene más tutoriales y documentación. Esto aumenta las probabilidades de encontrar soluciones a los problemas.
 
-Una curiosidad del lenguaje es que la empresa de mayor emprendimiento de la 'inteligencia artificial'  \textbf{ Open AI\footnote{\url{https://platform.openai.com/docs/libraries/python-library}}} está diseñada con python en gran parte y sus bibliotecas son públicas para su uso.
+Una curiosidad del lenguaje es que la empresa de mayor emprendimiento de la `inteligencia artificial'  \textbf{ Open AI\footnote{\url{https://platform.openai.com/docs/libraries/python-library}}} está diseñada con python en gran parte y sus bibliotecas son públicas para su uso.
 
 En la figura~\ref{fig:evolucion_python} podemos observar que Python es el lenguaje más usado del mundo según sus últimos datos en 2019~\cite{statista:_tecnología}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=14cm, keepaspectratio]{img/ev_python.jpeg}
-	\caption{Lenguajes de programación más populares del mundo}
+	\caption{Lenguajes de programación más usados - Fuente: Guadalupe Moreno.}
 	\label{fig:evolucion_python}
 \end{figure}
 
@@ -437,7 +511,7 @@ Sus funciones más destacadas e importantes son:
 \label{sec:matplotlib}
 
 
-Matplotlib es~\cite{python:_matplotlib} es una librería de \textbf{Python open source}. John Hunter, neurobiólogo, fue su desarrollador inicial en 2002. Su objetivo era visualizar las señales eléctricas del cerebro de personas epilépticas. Por ello intentó replicar las diferentes funcionalidades de MATLAB (gráficas) con Python. 
+Matplotlib~\cite{python:_matplotlib} es una librería de \textbf{Python open source}. John Hunter, neurobiólogo, fue su desarrollador inicial en 2002. Su objetivo era visualizar las señales eléctricas del cerebro de personas epilépticas. Por ello intentó replicar las diferentes funcionalidades de MATLAB (gráficas) con Python. 
 
 Matplotlib ha sido mejorado a lo largo del tiempo por numerosos contribuidores de la comunidad open source. Se usa para crear gráficas y diagramas de gran calidad que aportan la visualización de los datos de  forma detallada.
 
@@ -475,7 +549,7 @@ Es un lenguaje de programación que \textbf{almacena y procesa información en u
 
 Una base de datos \textbf{relacional} almacena información en forma de tabla, con filas y columnas que representan diferentes atributos de datos junto con sus relaciones. Con ello se puede \textbf{almacenar, actualizar, eliminar, buscar y recuperar} información de la base de datos.
 
-Es un lenguaje de consulta popular que se usa con frecuencia en todos los tipos de aplicaciones debido a su alta integración con el resto de lenguajes tales como \textbf{java, python, C\#, PHP, etc}.
+Es un lenguaje de consulta popular que se usa con frecuencia en todos los tipos de aplicaciones debido a su alta integración con el resto de lenguajes tales como \textbf{Java, Python, C\#, PHP, etc}.
 
 \section{MySQL WorkBench} 
 \label{sec:mysqlworkbench}
@@ -495,7 +569,7 @@ Este software tiene múltiples funcionalidades como:
 \begin{figure}[hb]
 	\centering
 	\includegraphics[width=10cm, keepaspectratio]{img/workbench.png}
-	\caption{SQL Workbench}
+	\caption{SQL Workbench. Fuente: elaboración propia.}
 	\label{fig:workbench}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -521,7 +595,7 @@ Debemos analizar una gran cantidad de datos. Debian consta de 11 releases (lanza
 
 Por ello, se necesita seguir una secuencia específica representada en la \textbf {Figura~\ref{fig:Diagrama_general}} para descargar, limpiar, ordenar y extraer estos datos de forma efectiva. 
 
-Primero debemos descargar los diferentes releases de Debian desde su página oficial~\cite{oficialdebian:_releases}.
+Primero debemos descargar los diferentes releases de Debian desde su página oficial~\cite{debian:_releases}.
 Con ello ya podremos analizar los diferentes paquetes que contienen y así poder diseñar el diagrama entidad - relación correspondiente.
 
 Una vez tenemos el diseño completo, podremos comenzar con la creación de las diferentes BBDD (bases de datos) tal que cada release sea una BBDD con sus correspondientes tablas sql.
@@ -564,27 +638,27 @@ Un paquete esta conformado por los atributos mostrados en la \textbf {Figura~\re
 El siguiente proceso consta de la comparación de diferentes paquetes para entender que entidades hay y como relacionarlas:
 
 \begin{itemize}
-	\item \textbf {Package nombre}: siempre hay 1 y es único. 
-	\item \textbf {Binary}: mínimo hay 1 o más. 
-	\item \textbf {Version}: siempre hay 1 y puede repetirse en varios paquetes.
-	\item \textbf {Maintainer}: siempre hay 1 y puede repetirse en varios paquetes. 
-	\item \textbf {Uploaders}: mínimo hay 1 o más y puede repetirse en varios paquetes. 
-	\item \textbf {Build-Depends}: mínimo hay 1 o más y puede repetirse en varios paquetes.  
-	\item \textbf {Architecture}: siempre hay 1 y puede repetirse en varios paquetes. 
-	\item \textbf {Standards-Version}: siempre hay 1 y puede repetirse en varios paquetes.
-	\item \textbf {Format}: siempre hay 1 y puede repetirse en varios paquetes. 
-	\item \textbf {Files}:  mínimo hay 1 o más y son únicos. 
-	\item \textbf {Vcs-Browser}: (no está en todos los paquetes) siempre hay 1 y es único. 
-	\item \textbf {Vcs-Git}: (no está en todos los paquetes) siempre hay 1 y es único. 
-	\item \textbf {Checksums-Sha256}: mínimo hay 1 o más y son únicos. 
-	\item \textbf {Homepage}: (no está en todos los paquetes) siempre hay 1 y puede repetirse en varios paquetes. 
-	\item \textbf {Package-List}: mínimo hay 1 o más y son únicos. 
-	\item \textbf {Directory}: siempre hay 1 y es único. 
-	\item \textbf {Dgit}: (no está en todos los paquetes) siempre hay 1 y es único. 
-	\item \textbf {Testsuite}: (no está en todos los paquetes) siempre hay 1 y puede repetirse en varios paquetes. 
-	\item \textbf {Testsuite-Triggers}: (no está en todos los paquetes) mínimo hay 1 o más y puede repetirse en varios paquetes. 
-	\item \textbf {Priority}: siempre hay 1 y puede repetirse en varios paquetes. 
-	\item \textbf {Section}: siempre hay 1 y puede repetirse en varios paquetes. 
+	\item \textbf {Package nombre}: siempre hay uno y es único. 
+	\item \textbf {Binary}: mínimo hay uno o más. 
+	\item \textbf {Version}: siempre hay uno y puede repetirse en varios paquetes.
+	\item \textbf {Maintainer}: siempre hay uno y puede repetirse en varios paquetes. 
+	\item \textbf {Uploaders}: mínimo hay uno o más y puede repetirse en varios paquetes. 
+	\item \textbf {Build-Depends}: mínimo hay uno o más y puede repetirse en varios paquetes.  
+	\item \textbf {Architecture}: siempre hay uno y puede repetirse en varios paquetes. 
+	\item \textbf {Standards-Version}: siempre hay uno y puede repetirse en varios paquetes.
+	\item \textbf {Format}: siempre hay uno y puede repetirse en varios paquetes. 
+	\item \textbf {Files}:  mínimo hay uno o más y son únicos. 
+	\item \textbf {Vcs-Browser}: (no está en todos los paquetes) máximo uno y es único. 
+	\item \textbf {Vcs-Git}: (no está en todos los paquetes) máximo hay uno y es único. 
+	\item \textbf {Checksums-Sha256}: mínimo hay uno o más y son únicos. 
+	\item \textbf {Homepage}: (no está en todos los paquetes) máximo hay uno y puede repetirse en varios paquetes. 
+	\item \textbf {Package-List}: mínimo hay uno o más y son únicos. 
+	\item \textbf {Directory}: siempre hay uno y es único. 
+	\item \textbf {Dgit}: (no está en todos los paquetes) máximo hay uno y es único. 
+	\item \textbf {Testsuite}: (no está en todos los paquetes) máximo hay uno y puede repetirse en varios paquetes. 
+	\item \textbf {Testsuite-Triggers}: (no está en todos los paquetes) puede haber uno o más y puede repetirse en varios paquetes. 
+	\item \textbf {Priority}: siempre hay uno y puede repetirse en varios paquetes. 
+	\item \textbf {Section}: siempre hay uno y puede repetirse en varios paquetes. 
 \end{itemize}
 
 Con esta información podemos comenzar con el diseño del diagrama.
@@ -593,35 +667,52 @@ Con esta información podemos comenzar con el diseño del diagrama.
 \label{sec:diagrama_entidad_relacion}
 Un diagrama \textbf {entidad-relación}, también conocido como \textbf {modelo entidad relación o ERD ~\cite{lucidchart:_diagramaERD}}, es un tipo de diagrama de flujo que ilustra cómo las entidades, como personas, objetos o conceptos, se relacionan entre sí dentro de un sistema.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=17cm, keepaspectratio]{img/Diagrama_ER.png}
+	\caption{Diagrama ER.}
+	\label{fig:entidad_relación}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=17cm, keepaspectratio]{img/leyenda_diagrama.png}
+	\caption{Leyenda del Diagrama ER.}
+	\label{fig:leyenda_diagrama}
+\end{figure}
+
 Los diagramas ER se usan a menudo para diseñar o depurar bases de datos relacionales en los campos de ingeniería de software, sistemas de información empresarial, educación e investigación. También emplean un conjunto definido de símbolos, tales como rectángulos, diamantes, óvalos y líneas de conexión para representar la interconexión de \textbf {entidades, relaciones y sus atributos.}
 
 En la Figura ~\ref{fig:entidad_relación} se observa el diseño del diagrama junto con la Figura ~\ref{fig:leyenda_diagrama} que es su leyenda.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=17cm, keepaspectratio]{img/diagrama_entidad_relación.png}
-	\caption{Diagrama ERD.}
-	\label{fig:entidad_relación}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=10cm, keepaspectratio]{img/Leyenda_diagrama.png}
-	\caption{Leyenda de diagrama ERD.}
-	\label{fig:leyenda_diagrama}
-\end{figure}
-
-Cada rectángulo es una entidad que va unida a otras entidades mediante una serie de líneas y el rombo que las separa es el indicador del tipo de relación que muestran.
+Cada rectángulo es una entidad que va unida a otras entidades mediante una serie de líneas que son los indicadores del tipo de relación que muestran.
 
 En este caso todas las entidades tienen una relación de pertenencia debido a que un paquete contiene o no estas entidades.
 
 En la \textbf {Figura ~\ref{fig:leyenda_diagrama}} podemos ver el tipo de relación entre entidades:
 
+\begin{enumerate}
+\item Se muestra una relación de \textbf {1 a 1}, es decir, solo puede existir una entidad en el paquete obligatoriamente.
+
+\item Se muestra una relación de \textbf {0 a 1}, es decir, pueden existir ninguna o una entidad en el paquete.
+
+\item Se muestra una relación de \textbf {1 a infinito}, es decir, pueden existir una o muchas entidades en el paquete pero nunca puede no existir.
+
+\item Se muestra una relación de \textbf {0 a infinito}, es decir, pueden existir ninguna, una o muchas entidades en el paquete.
+\end{enumerate}
+
+En este tipo de diagrama podemos observar como están diseñadas las tablas de la BBDD y como están relacionadas entre sí.
+
+En la Figura\textbf {~\ref{fig:entidad_relación}} identificamos diferentes tablas:
+
 \begin{itemize}
-\item \textbf {1: }esta línea discontinua muestra una relación de \textbf {0 a infinito}, es decir, pueden existir ninguna, una o muchas entidades en el paquete.
-\item \textbf {2: }esta línea continua muestra una relación de \textbf {1 a infinito}, es decir, pueden existir una o muchas entidades en el paquete pero nunca puede no existir.
-\item \textbf {3: }esta línea discontinua terminada en flecha muestra una relación de \textbf {0 a 1}, es decir, pueden existir ninguna o una entidad en el paquete.
-\item \textbf {4: }esta línea continua terminada en flecha muestra una relación de \textbf {1 a 1}, es decir, solo puede existir una entidad en el paquete obligatoriamente.
+	\item \textbf {Tabla amarilla: }esta tabla es la principal ya que es \textbf {Package}. Tiene relaciónes con todas las demás tablas. En ella podemos observar su \textbf {Primary Key} que es su \textbf {Id o identificador}, una serie de campos que son atributos (id's del resto de tablas) y sus \textbf {Foreing Key} que permiten poder relacionar las demás tablas con ella misma y así obtener valores correctos al realizar llamadas \textbf {SQL mediante Queries}.
+	
+	\item \textbf {Tablas azules: }estas tablas son las diferentes entidades que se encuentran en un paquete y están unidas a la tabla principal mediante las líneas, explicadas anteriormente, que muestran las relaciones que tienen.
+	Cada una tiene su \textbf {Primary Key} que es su identificador, los atributos como el nombre y algunas contienen \textbf {Foreing Key} debido al tipo de relación entre tablas.
+	
+	\item \textbf {Tablas rosas: }estas son tablas intermedias que son necesarias para conectar tablas en las cuales no se puede insertar una \textbf {Foreing Key} en niguna de las dos y por lo tanto no pueden relacionarse. Creando este tipo de tablas forzamos una conexión. Estas contienen una \textbf {Primary Key} especial conformada por los identificadores de ambas tablas y las \textbf {Foreing Key} asociadas a las tablas para poder relacionarlas.
+	Son casos especiales en relaciones de \textbf {muchos a muchos}.
 \end{itemize}
 
 Una vez completadas las relaciones junto con las entidades se diseña la BBDD que va a acoger todos aquellos datos necesarios para el estudio.
@@ -632,9 +723,9 @@ En este punto se usan las aplicaciones MySQL Workbench y Pycharm.
 
 Se crean las diferentes BBDD en MySQL para poder realizar la inserción de las tablas posteriormente como se muestra en la \textbf {Figura ~\ref{fig:BBDDsql}}.
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
-	\includegraphics[width=2cm, keepaspectratio]{img/BBDDsql.png}
+	\includegraphics[width=4cm, keepaspectratio]{img/BBDDsql.png}
 	\caption{Bases de datos}
 	\label{fig:BBDDsql}
 \end{figure}
@@ -657,7 +748,7 @@ Este diagrama tiene una traducción a lenguaje sql:
 	
 	Una \textbf {FOREIGN KEY} ~\cite{thedataschool:_foreingkey} en SQL, es una clave (campo de una columna) que sirve para relacionar dos tablas. El campo FOREIGN KEY se relaciona o vincula con la PRIMARY KEY de otra tabla de la bbdd.
 	
-	La restricción \textbf {PRIMARY KEY}~\cite{thedataschool:_primarykeyen} SQL identifica de forma única cada registro en una tabla.
+	La restricción \textbf {PRIMARY KEY}~\cite{thedataschool:_primarykey} SQL identifica de forma única cada registro en una tabla.
 	Deben contener valores únicos y no pueden contener valores NULL.
 	Una tabla solo puede tener una clave principal, que puede consistir en campos simples o múltiples.
 	
@@ -681,11 +772,11 @@ Este diagrama tiene una traducción a lenguaje sql:
 	
 	Para ello, debemos establecer una conexión con la BBDD indicando el host, puerto, usuario, contraseña y nombre de la BBDD.
 	
-	Todo se realiza a través de python y con la librería mysql.connector.
+	Todo se realiza a través de Python y con la librería mysql.connector.
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=3.5cm, keepaspectratio]{img/Tablas.png}
+		\includegraphics[width=6cm, keepaspectratio]{img/Tablas.png}
 		\caption{Tablas BBDD}
 		\label{fig:Tablas}
 	\end{figure}
@@ -703,16 +794,20 @@ Para ello se diseña un script en Pycharm siguiendo estos pasos:
 	\item \textbf{Lectura del archivo.} Las descargas de los releases realizadas en la sección  ~\ref{sec:Descarga_de_los_releases_de_Debian} las tratamos como ficheros de texto. Por ello debemos leer linea por linea todo el fichero e ir guardando la información relevante de cada paquete.
 	
 	\begin{verbatim}
-		with open('Sources/14.Sources - bookworm-main.txt', 'r', encoding='utf-8') as file:
+		with open('Sources/14.Sources - bookworm-main.txt', 'r',
+		 encoding='utf-8') as file:
 		lines = iter(file.readlines())
 	\end{verbatim}
 	
 	\item \textbf{Especificar que datos son relevantes.} Se crea un array de strings con los diferentes nombres de los campos que queremos sacar para verificar si alguno se encuentra en la línea en la que estamos leyendo.
 	
 	\begin{verbatim}
-		array_items = ['Package', 'Binary', 'Version', 'Maintainer', 'Uploaders', 'Build-Depends', 'Architecture',
-		'Standards-Version', 'Format', 'Files', 'Vcs-Browser', 'Vcs-Git', 'Checksums-Sha256', 'Homepage',
-		'Package-List', 'Directory', 'Priority', 'Section', 'Testsuite', 'Testsuite-Triggers']
+		array_items = ['Package', 'Binary', 'Version', 'Maintainer',
+		 'Uploaders', 'Build-Depends', 'Architecture',
+		'Standards-Version', 'Format', 'Files', 'Vcs-Browser',
+		 'Vcs-Git', 'Checksums-Sha256', 'Homepage',
+		'Package-List', 'Directory', 'Priority', 'Section',
+		 'Testsuite', 'Testsuite-Triggers']
 	\end{verbatim}
 	
 	\item \textbf{Buscar los datos relevantes en el archivo.} Con el diseño del array ya podemos encontrar la información de interés. Recorremos línea a línea el archivo, comparamos si esa línea empieza con alguno de los items definidos seguido de \textbf{:} y parseamos la información guardándola en unas variables definidas anteriormente.
@@ -737,36 +832,15 @@ Para ello se diseña un script en Pycharm siguiendo estos pasos:
 	\begin{verbatim}
 		 elif not line.strip():
 		# Esto indica el final de la información del paquete
-			insertar_info(package, binary, version, maintainer, uploaders, build_depends, architecture,
-			standards_version, format1, files_list, vcs_browser, vcs_git, check_list, homepage,
-			package_list, directory, priority, section, testsuite, testsuite_triggers)
+			insertar_info(package, binary, version, maintainer,
+			 uploaders, build_depends, architecture,
+			standards_version, format1, files_list, vcs_browser,
+			 vcs_git, check_list, homepage,
+			package_list, directory, priority, section, testsuite,
+			 testsuite_triggers)
 	\end{verbatim}
 	
 		\item \textbf{Restaurar las variables.} Este proceso es iterativo debido a que se realiza para cada paquete dentro de cada release. Necesitamos vaciar las variables para volver a obtener los datos de los próximos paquetes.
-		
-		\begin{verbatim}
-        	# Restablecer las listas y variables para el próximo paquete
-			files_list = []
-			package_list = []
-			check_list = {}
-			package = ""
-			binary = ""
-			version = ""
-			maintainer = ""
-			uploaders = ""
-			build_depends = ""
-			architecture = ""
-			standards_version = ""
-			format1 = ""
-			vcs_browser = ""
-			vcs_git = ""
-			homepage = ""
-			directory = ""
-			priority = ""
-			section = ""
-			testsuite = ""
-			testsuite_triggers = ""
-		\end{verbatim}
 		
 \end{enumerate}
 
@@ -822,7 +896,7 @@ Una vez parseada la información de un paquete, debemos realizar la inserción e
 			\begin{figure}[h]
 				\centering
 				\includegraphics[width=15cm, keepaspectratio]{img/Files.png}
-				\caption{Files}
+				\caption{Atributo Files de cada paquete en el que se muestran diferentes archivos contenidos en él.}
 				\label{fig:Files}
 			\end{figure}
 		\end{itemize}
@@ -845,9 +919,9 @@ Para este proceso se necesita de nuevo un script en Pycharm que se conecte a la 
 	\item \textbf{Lenguaje de manipulación de datos~\cite{geotalleres:_sql}.} Proporcionado por el sistema de gestión de base de datos, permite a los usuarios llevar a cabo las tareas de consulta o manipulación de los datos, organizados por el modelo de datos adecuado. 
 
 	\begin{itemize}
-		\item \textbf{Comandos}: para insertar como en la sección ~\ref{sec:insercion_BBDD}, actualizar o borrar pero en este caso se quiere consultar por lo que usaremos 'SELECT'.
+		\item \textbf{Comandos}: para insertar como en la sección ~\ref{sec:insercion_BBDD}, actualizar o borrar pero en este caso se quiere consultar por lo que usaremos `SELECT'.
 		
-		\item \textbf{Clausulas}: son condiciones de modificación utilizadas para definir los datos que desea seleccionar o manipular. En nuestro caso usaremos 'WHERE'.
+		\item \textbf{Clausulas}: son condiciones de modificación utilizadas para definir los datos que desea seleccionar o manipular. En nuestro caso usaremos `WHERE'.
 		
 		\item \textbf{Operadores Lógicos}: como \textbf{AND, OR y NOT}.
 		
@@ -868,7 +942,7 @@ Para este proceso se necesita de nuevo un script en Pycharm que se conecte a la 
 		...
 	\end{verbatim} 
 	
-	Cuenta el número de mantenedores que hay en la tabla 'maintainer' de la base de datos actual. Esta consulta va dentro de un bucle que hace el cálculo para todas las BBDD.
+	Cuenta el número de mantenedores que hay en la tabla `maintainer' de la base de datos actual. Esta consulta va dentro de un bucle que hace el cálculo para todas las BBDD.
 	
 	Cada llamada contesta a las preguntas realizadas para este estudio obteniendo de forma eficiente la información de las BBDD.
 	 
@@ -877,7 +951,7 @@ Para este proceso se necesita de nuevo un script en Pycharm que se conecte a la 
 \section{Obtención de gráficas informativas}
 \label{sec:graficas}
 
-En este apartado sigue siendo necesario la creación de un script en Pycharm pero con la librería 'Matplotlib'.
+En este apartado sigue siendo necesario la creación de un script en Pycharm pero con la librería `Matplotlib'.
 
 Con el diseño de las queries del apartado ~\ref{sec:queries} obtenemos la información necesaria para responder a las diferentes cuestiones planteadas en este estudio.
 Para ayudar a la comprensión de estos datos debemos crear diferentes gráficas.
@@ -894,9 +968,10 @@ Para ello es necesario:
 	\item \textbf{Definir los ejes}: estas gráficas aportarán información del número de paquetes existentes y el número de mantenedores que trabajan con cada versión. Debemos definir cada eje con sus correspondientes etiquetas para evitar confusiones.
 	
 	\begin{verbatim}
-		x = ["Julio1998", "Marzo1999", "Agosto2000", "Julio2002", "Junio2005", "Abril2007",
-		"Febrero2009", "Mayo2014", "Junio2016", "Junio2018", "Junio2020",
-		"Septiembre2022", "Febrero2024"]
+		x = ["Julio1998", "Marzo1999", "Agosto2000", "Julio2002",
+		 "Junio2005", "Abril2007", "Febrero2009", "Mayo2014",
+		  "Junio2016", "Junio2018", "Junio2020", "Septiembre2022",
+		   "Febrero2024"]
 	\end{verbatim} 
 	
 	\begin{itemize}
@@ -905,7 +980,7 @@ Para ello es necesario:
 		\item \textbf{Eje y}: número de paquetes o mantenedores (dependiendo de la gráfica) que hay en cada release.
 	\end{itemize}
 	
-	\item \textbf{Conversión del eje x a objeto fecha}: este es uno de los detalles más importantes para presenciar y entender de forma correcta la información. Se trata de convertir cada etiqueta del eje x como 'Junio2022' a un objeto temporal. De esta forma se representará un espacio mayor o menor en el eje x dependiendo de la distancia entre fechas de lanzamiento de los releases.
+	\item \textbf{Conversión del eje x a objeto fecha}: este es uno de los detalles más importantes para presenciar y entender de forma correcta la información. Se trata de convertir cada etiqueta del eje x como `Junio2022' a un objeto temporal. De esta forma se representará un espacio mayor o menor en el eje x dependiendo de la distancia entre fechas de lanzamiento de los releases.
 	
 	
 	\item \textbf{Creación del gráfico}: en nuestro caso será un gráfico de barras. Para ello definimos el tipo de gráfica que queremos, agregamos los datos obtenidos por las queries, configuramos los diferentes ejes junto con el título de la gráfica y la mostramos.
@@ -932,35 +1007,29 @@ Y por ello nos preguntamos,  \textbf{¿cual es el número de mantenedores en cad
 Para responderla se han aplicado unas queries con las que se obtiene el número total de maintainers únicos en cada versión/release.
 
 Una vez ejecutadas las queries se obtienen estos resultados:
-\begin{verbatim}
-Número total de maintainers en 1.hamm_main: 255
 
-Número total de maintainers en 2.slink_main: 362
-
-Número total de maintainers en 3.potato_main: 530
-
-Número total de maintainers en 4.woody_main: 986
-
-Número total de maintainers en 5.sarge_main: 1490
-
-Número total de maintainers en 6.etch_main: 1760
-
-Número total de maintainers en 7.lenny_main: 1971
-
-Número total de maintainers en 8.squeeze_main: 2173
-
-Número total de maintainers en 9.wheezy_main: 2286
-
-Número total de maintainers en 10.jessie_main: 2468
-
-Número total de maintainers en 11.stretch_main: 2412
-
-Número total de maintainers en 12.buster_main: 2418
-
-Número total de maintainers en 13.bullseye_main: 2298
-
-\end{verbatim} 
-
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{|l|l|}
+				\hline
+				Release  & Maintainers \\ \hline
+				Hamm     & 255         \\ \hline
+				Slink    & 362         \\ \hline
+				Potato   & 530         \\ \hline
+				Woody    & 986         \\ \hline
+				Sarge    & 1.490        \\ \hline
+				Etch     & 1.760        \\ \hline
+				Lenny    & 1.971        \\ \hline
+				Squeeze  & 2.173        \\ \hline
+				Wheezy   & 2.286        \\ \hline
+				Jessie   & 2.468        \\ \hline
+				Stretch  & 2.412        \\ \hline
+				Buster   & 2.418        \\ \hline
+				Bullseye & 2.298        \\ \hline
+			\end{tabular}
+			\caption{Tabla de versiones de Debian}
+		\end{center}
+	\end{table}
 
 
 Una vez obtenidos los resultados podemos mostrar las gráficas para visualizarlos.
@@ -987,7 +1056,7 @@ La distribución Debian estaba conformada en sus orígenes por una serie de pers
 
 Por ello nos preguntamos si existiera dicha tendencia a la creación de equipos y como varía con el tiempo.
 
-Podemos diferenciar que maintainers son equipos o personas individuales debido al 'nombre' del campo 'maintainer' de cada paquete. Estos nombres suelen contener la palabra \textbf{Team} o \textbf{Group} como vemos en las \textbf{Figuras ~\ref{fig:ejemplo_equipo_1} y ~\ref{fig:mantenedores}}
+Podemos diferenciar que maintainers son equipos o personas individuales debido al `nombre' del campo `maintainer' de cada paquete. Estos nombres suelen contener la palabra \textbf{Team} o \textbf{Group} como vemos en las \textbf{Figuras ~\ref{fig:ejemplo_equipo_1} y ~\ref{fig:mantenedores}}
 
 \begin{figure}
 	\centering
@@ -1007,34 +1076,27 @@ Para ello lanzamos la query para obtener el número de equipos en cada release.
 
 Una vez ejecutado estos son los resultados:
 
-	\begin{verbatim}
-		Número total de equipos en 1.hamm_main: 1
-		
-		Número total de equipos en 2.slink_main: 2
-		
-		Número total de equipos en 3.potato_main: 8
-		
-		Número total de equipos en 4.woody_main: 8
-		
-		Número total de equipos en 5.sarge_main: 31
-		
-		Número total de equipos en 6.etch_main: 79
-		
-		Número total de equipos en 7.lenny_main: 118
-		
-		Número total de equipos en 8.squeeze_main: 147
-		
-		Número total de equipos en 9.wheezy_main: 168
-		
-		Número total de equipos en 10.jessie_main: 196
-		
-		Número total de equipos en 11.stretch_main: 210
-		
-		Número total de equipos en 12.buster_main: 289
-		
-		Número total de equipos en 13.bullseye_main: 317
-		
-	\end{verbatim} 
+\begin{table}[]
+	\begin{center}
+		\begin{tabular}{|l|l|}
+			\hline
+			Release  & Equipos \\ \hline
+			Hamm     & 1       \\ \hline
+			Slink    & 2       \\ \hline
+			Potato   & 8       \\ \hline
+			Woody    & 8       \\ \hline
+			Sarge    & 31      \\ \hline
+			Etch     & 79      \\ \hline
+			Lenny    & 118     \\ \hline
+			Squeeze  & 147     \\ \hline
+			Wheezy   & 168     \\ \hline
+			Jessie   & 196     \\ \hline
+			Stretch  & 210     \\ \hline
+			Buster   & 289     \\ \hline
+			Bullseye & 317     \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
 
 Obteniendo los datos analíticamente, mostramos la gráfica para visualizar la información.
 
@@ -1051,11 +1113,11 @@ Se distinguen cuatro fases.
 \begin{itemize}
 	\item  \textbf{Fase 1:} los 4 primeros releases conformados por muy pocos equipos con un máximo de ocho de 1998 a 2002. 
 	
-	\item  \textbf{Fase 2:} los 3 siguientes a la 'Fase 1' cuentan con una subida sustancial de equipos llegando a un máximo de 118 de 2005 a 2009.
+	\item  \textbf{Fase 2:} los 3 siguientes a la `Fase 1' cuentan con una subida sustancial de equipos llegando a un máximo de 118 de 2005 a 2009.
 	
-	\item  \textbf{Fase 3:} los 4 siguientes a la 'Fase 2' cuentan con una subida en la conformación de equipos llegando a un máximo de 210 de 2014 a 2020.
+	\item  \textbf{Fase 3:} los 4 siguientes a la `Fase 2' cuentan con una subida en la conformación de equipos llegando a un máximo de 210 de 2014 a 2020.
 	
-	\item  \textbf{Fase 4:} los 2 siguientes a la 'Fase 3' cuentan con una subida  llegando a un máximo de 317 de 2005 a 2009.
+	\item  \textbf{Fase 4:} los 2 siguientes a la `Fase 3' cuentan con una subida  llegando a un máximo de 317 de 2005 a 2009.
 	
 \end{itemize}
 
@@ -1067,262 +1129,423 @@ Como comentamos en las sección ~\ref{sec:pregunta_1}, con el paso del tiempo ha
 Primero lanzamos una query que nos muestra cuales son los mantenedores que se encuentran en todos los releases de Debian. Estos maintainers son los veteranos que llevan desde el comienzo.
 
 Una vez lanzada este es el resultado:
-	\begin{verbatim}
-	Maintainers comunes en todas las bases de datos:
+ 
+
+	\begin{multicols}{3}
+		\begin{itemize}
+			\item Jaldhar H. Vyas
+			\item Hakan Ardo
+			\item Fredrik Hallenberg
+			\item Joel Rosdahl
+			\item Dirk Eddelbuettel
+			\item Norbert Veber
+			\item Bdale Garbee
+			\item Roberto Lumbreras
+			\item John Goerzen
+			\item Paul Slootman
+			\item Craig Sanders
+			\item Manoj Srivastava
+			\item Michael Meskes
+			\item Martin Schulze
+			\item Anselm Lingnau
+			\item Martin Buck
+			\item Anthony Fok
+			\item Miquel van Smoorenburg
+			\item Yann Dirson
+			\item Matthias Klose
+			\item Juan Cespedes
+			\item Philip Hands
+			\item Davide G. M. Salvetti
+			\item Craig Small
+			\item Marco d'Itri
+			\item Riku Voipio
+			\item Roderick Schertler
+		\end{itemize}
+	\end{multicols}
+		
+
 	
-	['Jaldhar H. Vyas', 'Hakan Ardo','Fredrik Hallenberg', 'Joel Rosdahl',
-	  'Dirk Eddelbuettel', 'Norbert Veber',
-	  'Bdale Garbee <bdale@gag.com>', 'Roberto Lumbreras <rover@debian.org>',
-	  'John Goerzen <jgoerzen@complete.org>', 'Paul Slootman <paul@debian.org>',
-	  'Craig Sanders <cas@taz.net.au>', 'Manoj Srivastava <srivasta@debian.org>',
-	  'Michael Meskes <meskes@debian.org>', 'Martin Schulze <joey@debian.org>',
-	  'Anselm Lingnau <lingnau@debian.org>', 'Martin Buck <mbuck@debian.org>',
-	  'Anthony Fok <foka@debian.org>', 'Miquel van Smoorenburg <miquels@cistron.nl>',
-	  'Yann Dirson <dirson@debian.org>', 'Matthias Klose <doko@debian.org>',
-	  'Juan Cespedes <cespedes@debian.org>', 'Philip Hands <phil@hands.com>', 
-	 'Davide G. M. Salvetti <salve@debian.org>', 'Craig Small <csmall@debian.org>',
-	 "Marco d'Itri <md@linux.it>", 'Riku Voipio <riku.voipio@iki.fi>', 
-	 'Roderick Schertler <roderick@argon.org>']
-	
-	\end{verbatim} 
 	
 	Como queremos comparar (en porcentajes) cuantos maintainers se mantienen de un release a los demás, realizamos otra query para ello.
 	Este es su resultado:
 	
-	\begin{verbatim}
-		Porcentajes de maintainers en la base de datos 1.hamm_main:
-		Con respecto a la base de datos 2.slink_main: 94.74%
-		Con respecto a la base de datos 3.potato_main: 82.46%
-		Con respecto a la base de datos 4.woody_main: 60.96%
-		Con respecto a la base de datos 5.sarge_main: 47.37%
-		Con respecto a la base de datos 6.etch_main: 38.60%
-		Con respecto a la base de datos 7.lenny_main: 32.46%
-		Con respecto a la base de datos 8.squeeze_main: 28.07%
-		Con respecto a la base de datos 9.wheezy_main: 27.19%
-		Con respecto a la base de datos 10.jessie_main: 25.44%
-		Con respecto a la base de datos 11.stretch_main: 21.05%
-		Con respecto a la base de datos 12.buster_main: 18.86%
-		Con respecto a la base de datos 13.bullseye_main: 17.98%
-		
-		Porcentajes de maintainers en la base de datos 2.slink_main:
-		Con respecto a la base de datos 3.potato_main: 86.67%
-		Con respecto a la base de datos 4.woody_main: 66.67%
-		Con respecto a la base de datos 5.sarge_main: 51.43%
-		Con respecto a la base de datos 6.etch_main: 42.22%
-		Con respecto a la base de datos 7.lenny_main: 33.97%
-		Con respecto a la base de datos 8.squeeze_main: 29.21%
-		Con respecto a la base de datos 9.wheezy_main: 26.35%
-		Con respecto a la base de datos 10.jessie_main: 24.13%
-		Con respecto a la base de datos 11.stretch_main: 20.32%
-		Con respecto a la base de datos 12.buster_main: 18.41%
-		Con respecto a la base de datos 13.bullseye_main: 17.78%
-		
-		Porcentajes de maintainers en la base de datos 3.potato_main:
-		Con respecto a la base de datos 4.woody_main: 77.68%
-		Con respecto a la base de datos 5.sarge_main: 56.87%
-		Con respecto a la base de datos 6.etch_main: 45.92%
-		Con respecto a la base de datos 7.lenny_main: 37.34%
-		Con respecto a la base de datos 8.squeeze_main: 31.97%
-		Con respecto a la base de datos 9.wheezy_main: 28.54%
-		Con respecto a la base de datos 10.jessie_main: 26.39%
-		Con respecto a la base de datos 11.stretch_main: 23.39%
-		Con respecto a la base de datos 12.buster_main: 20.60%
-		Con respecto a la base de datos 13.bullseye_main: 19.10%
-		
-		Porcentajes de maintainers en la base de datos 4.woody_main:
-		Con respecto a la base de datos 5.sarge_main: 73.58%
-		Con respecto a la base de datos 6.etch_main: 58.93%
-		Con respecto a la base de datos 7.lenny_main: 49.39%
-		Con respecto a la base de datos 8.squeeze_main: 41.51%
-		Con respecto a la base de datos 9.wheezy_main: 36.40%
-		Con respecto a la base de datos 10.jessie_main: 33.85%
-		Con respecto a la base de datos 11.stretch_main: 29.63%
-		Con respecto a la base de datos 12.buster_main: 27.19%
-		Con respecto a la base de datos 13.bullseye_main: 23.97%
-		
-		Porcentajes de maintainers en la base de datos 5.sarge_main:
-		Con respecto a la base de datos 6.etch_main: 82.92%
-		Con respecto a la base de datos 7.lenny_main: 69.69%
-		Con respecto a la base de datos 8.squeeze_main: 57.41%
-		Con respecto a la base de datos 9.wheezy_main: 48.91%
-		Con respecto a la base de datos 10.jessie_main: 44.84%
-		Con respecto a la base de datos 11.stretch_main: 38.44%
-		Con respecto a la base de datos 12.buster_main: 34.81%
-		Con respecto a la base de datos 13.bullseye_main: 30.67%
-		
-		Porcentajes de maintainers en la base de datos 6.etch_main:
-		Con respecto a la base de datos 7.lenny_main: 84.26%
-		Con respecto a la base de datos 8.squeeze_main: 69.97%
-		Con respecto a la base de datos 9.wheezy_main: 59.94%
-		Con respecto a la base de datos 10.jessie_main: 53.92%
-		Con respecto a la base de datos 11.stretch_main: 45.77%
-		Con respecto a la base de datos 12.buster_main: 40.50%
-		Con respecto a la base de datos 13.bullseye_main: 35.67%
-		
-		Porcentajes de maintainers en la base de datos 7.lenny_main:
-		Con respecto a la base de datos 8.squeeze_main: 83.57%
-		Con respecto a la base de datos 9.wheezy_main: 71.95%
-		Con respecto a la base de datos 10.jessie_main: 64.22%
-		Con respecto a la base de datos 11.stretch_main: 54.55%
-		Con respecto a la base de datos 12.buster_main: 47.80%
-		Con respecto a la base de datos 13.bullseye_main: 42.07%
-		
-		Porcentajes de maintainers en la base de datos 8.squeeze_main:
-		Con respecto a la base de datos 9.wheezy_main: 85.59%
-		Con respecto a la base de datos 10.jessie_main: 76.48%
-		Con respecto a la base de datos 11.stretch_main: 64.88%
-		Con respecto a la base de datos 12.buster_main: 56.20%
-		Con respecto a la base de datos 13.bullseye_main: 48.78%
-		
-		Porcentajes de maintainers en la base de datos 9.wheezy_main:
-		Con respecto a la base de datos 10.jessie_main: 88.84%
-		Con respecto a la base de datos 11.stretch_main: 74.89%
-		Con respecto a la base de datos 12.buster_main: 64.43%
-		Con respecto a la base de datos 13.bullseye_main: 54.88%
-		
-		Porcentajes de maintainers en la base de datos 10.jessie_main:
-		Con respecto a la base de datos 11.stretch_main: 84.44%
-		Con respecto a la base de datos 12.buster_main: 72.15%
-		Con respecto a la base de datos 13.bullseye_main: 61.26%
-		
-		Porcentajes de maintainers en la base de datos 11.stretch_main:
-		Con respecto a la base de datos 12.buster_main: 85.02%
-		Con respecto a la base de datos 13.bullseye_main: 72.45%
-		
-		Porcentajes de maintainers en la base de datos 12.buster_main:
-		Con respecto a la base de datos 13.bullseye_main: 85.41%
-	\end{verbatim} 
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+
 	
-	Una vez obtenida la información diseñamos una tabla para visualizar los datos.
-	
-	\begin{figure}[h]
+	\begin{table}[htbp]
 		\centering
-		\includegraphics[width=18cm, keepaspectratio]{img/Tabla porcentajes maintainers.png}
-		\caption{Porcentaje de maintainers que siguen en releases posteriores}
-		\label{fig:tabla_1}
-	\end{figure}
+		\scalebox{0.6}{
+			\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+				\hline
+				Release      & 1.Hamm                   & 2. Slink                 & 3.Potato                 & 4. Woody                 & 5. Sarge                 & 6. Etch                  & 7. Lenny                 & 8. Squeeze               & 9. Wheezy                & 10. Jessie               & 11. Stretch              & 12. Buster               & 13. Bullseye \\ \hline
+				1. Hamm      & 100                      & 94.74                    & 82.46                    & 60.96                    & 47.37                    & 38.60                    & 32.46                    & 28.07                    & 27.19                    & 25.44                    & 21.05                    & 18.86                    & 17.98        \\ \hline
+				2. Slink     & \cellcolor[HTML]{000000} & 100                      & 86.67                    & 66.67                    & 51.43                    & 42.22                    & 33.97                    & 29.21                    & 26.35                    & 24.13                    & 20.32                    & 18.41                    & 17.78        \\ \hline
+				3. Potato    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 77.68                    & 56.87                    & 45.92                    & 37.34                    & 31.97                    & 28.54                    & 26.39                    & 23.39                    & 20.60                    & 19.1         \\ \hline
+				4. Woody     & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 73.58                    & 58.93                    & 49.39                    & 41.51                    & 36.40                    & 33.85                    & 29.63                    & 27.19                    & 23.97        \\ \hline
+				5. Sarge     & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 82.92                    & 69.69                    & 57.41                    & 48.91                    & 44.84                    & 38.44                    & 34.81                    & 30.67        \\ \hline
+				6. Etch      & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 84.26                    & 69.97                    & 59.94                    & 53.92                    & 45.77                    & 40.50                    & 35.67        \\ \hline
+				7. Lenny     & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 83.57                    & 71.95                    & 64.22                    & 54.55                    & 47.80                    & 42.07        \\ \hline
+				8. Squeeze   & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 85.59                    & 76.48                    & 64.88                    & 56.20                    & 48.78        \\ \hline
+				9. Wheezy    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 88.84                    & 74.89                    & 64.43                    & 54.88        \\ \hline
+				10. Jessie   & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 84.44                    & 72.15                    & 61.26        \\ \hline
+				11. Stretch  & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 85.02                    & 72.45        \\ \hline
+				12. Buster   & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 85.41        \\ \hline
+				13. Bullseye & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100          \\ \hline
+		\end{tabular}}
+	\end{table}
 	
-	En la Figura ~\ref{fig:tabla_1} podemos ver cual es el porcentaje de los maintainers de un release que se mantienen en el resto. Se lee de izquierda a derecha comparando el primero con el segundo, el primero con el tercero, el primero con el cuarto, etc.
+	En la tabla anterior podemos ver cual es el porcentaje de los maintainers de un release que se mantienen en el resto. Se lee de izquierda a derecha comparando el primero con el segundo, el primero con el tercero, el primero con el cuarto, etc.
 	
 	Analizando esta tabla podemos observar que, según avanzan los releases, disminuye el porcentaje de maintainers que aguantan en versiones posteriores.
 	
 	Ejecutamos una segunda query para observar los porcentajes de equipos de mantenedores:
 	
-		\begin{verbatim}
-		Porcentajes de grupos en la base de datos 1.hamm_main:
-		Con respecto a la base de datos 2.slink_main: 100.00%
-		Con respecto a la base de datos 3.potato_main: 100.00%
-		Con respecto a la base de datos 4.woody_main: 100.00%
-		Con respecto a la base de datos 5.sarge_main: 100.00%
-		Con respecto a la base de datos 6.etch_main: 100.00%
-		Con respecto a la base de datos 7.lenny_main: 100.00%
-		Con respecto a la base de datos 8.squeeze_main: 100.00%
-		Con respecto a la base de datos 9.wheezy_main: 100.00%
-		Con respecto a la base de datos 10.jessie_main: 100.00%
-		Con respecto a la base de datos 11.stretch_main: 100.00%
-		Con respecto a la base de datos 12.buster_main: 100.00%
-		Con respecto a la base de datos 13.bullseye_main: 100.00%
-		
-		Porcentajes de grupos en la base de datos 2.slink_main:
-		Con respecto a la base de datos 3.potato_main: 100.00%
-		Con respecto a la base de datos 4.woody_main: 100.00%
-		Con respecto a la base de datos 5.sarge_main: 100.00%
-		Con respecto a la base de datos 6.etch_main: 100.00%
-		Con respecto a la base de datos 7.lenny_main: 100.00%
-		Con respecto a la base de datos 8.squeeze_main: 100.00%
-		Con respecto a la base de datos 9.wheezy_main: 100.00%
-		Con respecto a la base de datos 10.jessie_main: 100.00%
-		Con respecto a la base de datos 11.stretch_main: 100.00%
-		Con respecto a la base de datos 12.buster_main: 100.00%
-		Con respecto a la base de datos 13.bullseye_main: 100.00%
-		
-		Porcentajes de grupos en la base de datos 3.potato_main:
-		Con respecto a la base de datos 4.woody_main: 50.00%
-		Con respecto a la base de datos 5.sarge_main: 50.00%
-		Con respecto a la base de datos 6.etch_main: 50.00%
-		Con respecto a la base de datos 7.lenny_main: 50.00%
-		Con respecto a la base de datos 8.squeeze_main: 50.00%
-		Con respecto a la base de datos 9.wheezy_main: 50.00%
-		Con respecto a la base de datos 10.jessie_main: 50.00%
-		Con respecto a la base de datos 11.stretch_main: 50.00%
-		Con respecto a la base de datos 12.buster_main: 50.00%
-		Con respecto a la base de datos 13.bullseye_main: 50.00%
-		
-		Porcentajes de grupos en la base de datos 4.woody_main:
-		Con respecto a la base de datos 5.sarge_main: 66.67%
-		Con respecto a la base de datos 6.etch_main: 50.00%
-		Con respecto a la base de datos 7.lenny_main: 50.00%
-		Con respecto a la base de datos 8.squeeze_main: 50.00%
-		Con respecto a la base de datos 9.wheezy_main: 50.00%
-		Con respecto a la base de datos 10.jessie_main: 50.00%
-		Con respecto a la base de datos 11.stretch_main: 50.00%
-		Con respecto a la base de datos 12.buster_main: 50.00%
-		Con respecto a la base de datos 13.bullseye_main: 50.00%
-		
-		Porcentajes de grupos en la base de datos 5.sarge_main:
-		Con respecto a la base de datos 6.etch_main: 82.76%
-		Con respecto a la base de datos 7.lenny_main: 79.31%
-		Con respecto a la base de datos 8.squeeze_main: 72.41%
-		Con respecto a la base de datos 9.wheezy_main: 68.97%
-		Con respecto a la base de datos 10.jessie_main: 68.97%
-		Con respecto a la base de datos 11.stretch_main: 62.07%
-		Con respecto a la base de datos 12.buster_main: 58.62%
-		Con respecto a la base de datos 13.bullseye_main: 58.62%
-		
-		Porcentajes de grupos en la base de datos 6.etch_main:
-		Con respecto a la base de datos 7.lenny_main: 85.71%
-		Con respecto a la base de datos 8.squeeze_main: 79.22%
-		Con respecto a la base de datos 9.wheezy_main: 72.73%
-		Con respecto a la base de datos 10.jessie_main: 68.83%
-		Con respecto a la base de datos 11.stretch_main: 59.74%
-		Con respecto a la base de datos 12.buster_main: 51.95%
-		Con respecto a la base de datos 13.bullseye_main: 50.65%
-		
-		Porcentajes de grupos en la base de datos 7.lenny_main:
-		Con respecto a la base de datos 8.squeeze_main: 87.93%
-		Con respecto a la base de datos 9.wheezy_main: 79.31%
-		Con respecto a la base de datos 10.jessie_main: 75.86%
-		Con respecto a la base de datos 11.stretch_main: 66.38%
-		Con respecto a la base de datos 12.buster_main: 56.03%
-		Con respecto a la base de datos 13.bullseye_main: 53.45%
-		
-		Porcentajes de grupos en la base de datos 8.squeeze_main:
-		Con respecto a la base de datos 9.wheezy_main: 88.28%
-		Con respecto a la base de datos 10.jessie_main: 84.14%
-		Con respecto a la base de datos 11.stretch_main: 73.79%
-		Con respecto a la base de datos 12.buster_main: 56.55%
-		Con respecto a la base de datos 13.bullseye_main: 53.10%
-		
-		Porcentajes de grupos en la base de datos 9.wheezy_main:
-		Con respecto a la base de datos 10.jessie_main: 91.02%
-		Con respecto a la base de datos 11.stretch_main: 77.84%
-		Con respecto a la base de datos 12.buster_main: 58.68%
-		Con respecto a la base de datos 13.bullseye_main: 54.49%
-		
-		Porcentajes de grupos en la base de datos 10.jessie_main:
-		Con respecto a la base de datos 11.stretch_main: 85.57%
-		Con respecto a la base de datos 12.buster_main: 66.49%
-		Con respecto a la base de datos 13.bullseye_main: 60.82%
-		
-		Porcentajes de grupos en la base de datos 11.stretch_main:
-		Con respecto a la base de datos 12.buster_main: 79.13%
-		Con respecto a la base de datos 13.bullseye_main: 71.36%
-		
-		Porcentajes de grupos en la base de datos 12.buster_main:
-		Con respecto a la base de datos 13.bullseye_main: 90.91%
 
-	\end{verbatim} 
+\begin{table}[htbp]
+	\scalebox{0.6}{
+	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+		\hline
+		Release      & 1.Hamm                   & 2. Slink                 & 3.Potato                 & 4. Woody                 & 5. Sarge                 & 6. Etch                  & 7. Lenny                 & 8. Squeeze               & 9. Wheezy                & 10. Jessie               & 11. Stretch              & 12. Buster               & 13. Bullseye \\ \hline
+		1. Hamm      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100          \\ \hline
+		2. Slink     & \cellcolor[HTML]{000000} & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100                      & 100          \\ \hline
+		3. Potato    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 50                       & 50                       & 50                       & 50                       & 50                       & 50                       & 50                       & 50                       & 50                       & 50           \\ \hline
+		4. Woody     & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 66,67                    & 50                       & 50                       & 50                       & 50                       & 50                       & 50                       & 50                       & 50           \\ \hline
+		5. Sarge     & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 82.76                    & 79.31                    & 72.41                    & 68.97                    & 68.97                    & 62.07                    & 58.62                    & 58.62        \\ \hline
+		6. Etch      & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 85.71                    & 79.22                    & 72.73                    & 68.83                    & 59.74                    & 51.95                    & 50.65        \\ \hline
+		7. Lenny     & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 87.93                    & 79.31                    & 75.86                    & 66.38                    & 56.03                    & 53.45        \\ \hline
+		8. Squeeze   & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 88.28                    & 84.14                    & 73.79                    & 56.55                    & 53.10        \\ \hline
+		9. Wheezy    & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 91.02                    & 77.84                    & 58.68                    & 54.49        \\ \hline
+		10. Jessie   & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 85.57                    & 66.49                    & 60.82        \\ \hline
+		11. Stretch  & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 79.13                    & 71.36        \\ \hline
+		12. Buster   & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100                      & 90.91        \\ \hline
+		13. Bullseye & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & \cellcolor[HTML]{000000} & 100          \\ \hline
+	\end{tabular}}
+\end{table}
+
+En la tabla anterior se observa la evolución de los equipos o grupos que se mantienen de una versión en las posteriores en porcentajes.
+
+Podemos ver como los grupos creados en los releases Hamm y Slink se mantienen en todos los releases pero en los demás va disminuyendo el porcentaje según se lanzan nuevas versiones.
+
+Esto puede deberse a la creación de nuevos equipos que sustituyan a los anteriores para la mejora de eficiencia al mantener paquetes.
+
+Sabemos que no todos los maintainers de una versión se mantienen en las siguientes. Pero, ¿hay maintainers que comenzaron en la primera versión y hoy en día siguen activos?
+
+Para resolverlo ejecutamos una query que, coge todos los maintainers únicos de cada versión y realiza un \textbf{set~\cite{ellibrodepython:_set}}.
+
+Un `set' es como una lista o un array pero con la peculiaridad de que sus items deben ser únicos, justo lo que necesitamos para resolver esta pregunta.
+
+Una vez tengamos un `set' con los maintainers de la primera versión, realizamos la \textbf{intersección} ~\cite{medium:_intersection} con el `set' de la segunda versión, y así sucesivamente. 
+
+Con una intersección entre las versiones conseguimos quedarnos únicamente con los maintainers que se repiten en todas las versiones. Estos son los que permanecerán activos.
+
+Ejecutando la query obtenemos estos resultados:
+\begin{multicols}{3}
+	\begin{itemize}
+		\item Manoj Srivastava
+		\item Roderick Schertler
+		\item Davide G. M. Salvetti
+		\item Anthony Fok
+		\item Roberto Lumbreras
+		\item Juan Cespedes
+		\item Riku Voipio
+		\item Michael Meskes
+		\item Craig Small
+		\item Anselm Lingnau
+		\item Miquel van Smoorenburg
+		\item John Goerzen
+		\item Dirk Eddelbuettel
+		\item Martin Buck
+		\item Paul Slootman
+		\item Marco d'Itri
+		\item Jaldhar H. Vyas
+		\item Bdale Garbee
+		\item Matthias Klose
+		\item Martin Schulze
+		\item Joel Rosdahl
+		\item Fredrik Hallenberg
+		\item Yann Dirson
+		\item Hakan Ardo
+		\item Philip Hands
+		\item Craig Sanders
+		\item Norbert Veber
+	\end{itemize}
+\end{multicols}
+
+
+En esta lista/set encontramos los maintainers que llevan desde el inicio manteniendo paquetes de diferentes versiones en Debian.
+
+\section{¿Cuál es el aporte de los mantenedores que permanecen en versiones posteriores?}
+\label{sec:pregunta_4}
+Tras haber obtenido los maintainers que han estado activos en todas las versiones, queremos conocer que paquetes mantienen de cada versión.
+
+Diseñamos una query para buscar en las BBDD que paquetes tienen, en el campo maintainer, el nombre de alguno de los mantenedores de la lista anterior.
+
+Una vez ejecutada dicha query, estos serían los resultados:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=18cm, keepaspectratio]{img/pregunta_4.1.png}
+\caption{Ejemplo de paquetes mantenidos por maintainers activos}
+\label{fig:paquetes_maintainers_activos}
+\end{figure}
+
+En la \textbf{Figura ~\ref{fig:paquetes_maintainers_activos}} se muestran los diferentes paquetes que, cada maintainer de la sección anterior, mantienen. Se observa que cada mantenedor tiene muchos paquetes debido a su larga vida dentro del proyecto por lo que no podemos sacar todos los resultados ya que son muy extensos.
+
+
+\section{¿Qué sucede con los paquetes mantenidos por los mantenedores que abandonan el proyecto?}
+\label{sec:pregunta_5}
+Hemos visto en la sección ~\ref{sec:pregunta_4} cuantos mantenedores permanecen activos y cuales han sido sus aportaciones a lo largo de la evolución de Debian. 
+Pero, ¿qué ocurre con los paquetes asociados a un maintainer que abandona el proyecto?
+Debe existir un método de control u organización para estos casos en los que no se puede dejar un paquete sin maintainer.
+Para ello, cogemos a uno de los maintainers que no aparezcan en la sección anterior y realizamos un seguimiento del paquete para ver que ocurre con él.
+
+Cogemos como ejemplo a el maintainer \textbf{Martin Albisetti} y ejecutamos una query que devuelve los paquetes mantenidos por \textbf{Martin Albisetti} junto con la versión en la que se encuentra.
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+\begin{table}[h]
+	\begin{tabular}{|c|cc|}
+		\hline
+		\rowcolor[HTML]{FFFE65} 
+		Releases        & \multicolumn{2}{c|}{\cellcolor[HTML]{FFFE65}Packages} \\ \hline
+		7.lenny\_main   & \multicolumn{1}{c|}{2vcard}        & exifprobe        \\ \hline
+		8.squeeze\_main & \multicolumn{1}{c|}{2vcard}        & exifprobe        \\ \hline
+		9.wheezy\_main  & \multicolumn{1}{c|}{2vcard}        & exifprobe        \\ \hline
+		10.jessie\_main & \multicolumn{2}{c|}{2vcard}                           \\ \hline
+	\end{tabular}
+\end{table}
+
+Como podemos ver en la tabla, este maintainer tiene asociados dos paquetes en los releases \textbf{Lenny, Squeeze y Wheezy}, en el release \textbf{Jessie} solo mantiene uno y abandona el proyecto para releases posteriores.
+
+Ahora vamos a realizar un seguimiento a dichos paquetes en todos los releases obteniendo quien es la persona o equipo que los mantiene ejecutando otra query.
+ 
+ % Please add the following required packages to your document preamble:
+ % \usepackage[table,xcdraw]{xcolor}
+ % Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+ \begin{table}[]
+ 	\begin{tabular}{|l|l|l|}
+ 		\hline
+ 		\rowcolor[HTML]{FFFE65} 
+ 		Release           & Package   & Maintainer            \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		7.lenny\_main     & 2vcard    & Martin Albisetti      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		7.lenny\_main     & exifprobe & Martin Albisetti      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		8.squeeze\_main   & 2vcard    & Martin Albisetti      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		8.squeeze\_main   & exifprobe & Martin Albisetti      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		9.wheezy\_main    & 2vcard    & Martin Albisetti      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		9.wheezy\_main    & exifprobe & Martin Albisetti      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		10.jessie\_main   & 2vcard    & Martin Albisetti      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		10.jessie\_main   & exifprobe & Debian Forensics      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		11.stretch\_main  & 2vcard    & Riley Baird           \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		11.stretch\_main  & exifprobe & Debian Forensics      \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		12.buster\_main   & 2vcard    & Riley Baird           \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		12.buster\_main   & exifprobe & Debian Security Tools \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		13.bullseye\_main & 2vcard    & Debian QA Group       \\ \hline
+ 		\rowcolor[HTML]{FFFFFF} 
+ 		13.bullseye\_main & exifprobe & Debian Security Tools \\ \hline
+ 	\end{tabular}
+ \end{table}
+ 
+En esta tabla se puede observar que, a partir de la versión \textbf{Jessie}, el paquete \textbf{exifprobe} comienza a mantenerse por un grupo de Debian.
+En el release \textbf{Stretch y Buster} el paquete \textbf{2vcard} es mantenido por \textbf{Riley Baird} mientras que \textbf{exifprobe} sigue mantenido por el grupo anterior.
+En \textbf{Buster} cambia el paquete \textbf{exifprobe} de mantenedor a otro grupo de seguridad de Debian.
+Y finalmente se asignan los dos paquetes a grupos Debian.
+
+Podemos ver los paquetes \textbf{huérfanos} se asocian a otros maintainers o a grupos para que trabajen en ellos. 
+
+También hay paquetes que dejan de usarse de una versión a otra aunque el maintainer no haya abandonado el proyecto.
+
+Observando otros ejemplos vemos una clara tendencia a la mantención de dichos paquetes por grupos Debian a partir de la versión Buster.
+
+Como podemos ver en la \textbf{Figura ~\ref{fig:equipos}}, a partir de la versión Buster hay un claro aumento en el número de equipos Debian, de 210 a 289, por lo que es lógico pensar que se han distribuido estos paquetes entre los diferentes grupos.
+
+También se refleja en la \textbf{Figura ~\ref{fig:mantenedores}} que en cada versión hay un aumento de los mantenedores hasta la versión Buster en la que observamos una tendencia de bajada en el número de los mismos.
+
+Por ello podemos pensar que, hasta la versión Buster, se asignaban a maintainers pero a partir de dicho release comenzaron a organizarse en equipos y repartieron dichos paquetes entre los mismos.
+
+
+\section{¿Los paquetes más importantes y de uso común son mantenidos por mantenedores más experimentados?}
+\label{sec:pregunta_6}
+
+Para resolver esta pregunta debemos conocer cuales son los paquetes más importantes y usados de Debian. Entramos en la página de Debian Popcon ~\cite{debian:_popcon}, accedemos a las estadísticas de \textbf{la suma de paquetes ordenados}.Tras esto nos fijamos en el campo \textbf{vote} que indica el \textbf{número de personas que usan este paquete regularmente}. Estos paquetes son los que consideramos \textbf{importantes} como se muestra en la Figura ~\ref{fig:paquetes_popcon}.
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=18cm, keepaspectratio]{img/popcon.png}
+	\caption{Paquetes Popcon más usados ordenados por vote.}
+	\label{fig:paquetes_popcon}
+\end{figure}
+
+El paquete \textbf{Not in sid} no aparece en ninguna versión o release de Debian.
+Debian tiene varias ramas de desarrollo:
+\begin{itemize}
+	\item \textbf{Unstable o Sid}: se desarrollan activamente los paquetes de Debian. Pueden tener errores y no se garantiza su estabilidad. Es usada principalmente por desarrolladores y usuarios avanzados para probar las últimas versiones.
+	\item \textbf{Testing}: se prueban los paquetes que probablemente formarán parte de la próxima versión estable de Debian.
+	\item \textbf{Stable}: contiene paquetes que han sido probados extensivamente y se consideran estables para el uso diario.
 	
-	Ahora mostramos la tabla de porcentajes de equipos.
-	
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=18cm, keepaspectratio]{img/Tabla porcentajes equipos.png}
-		\caption{Porcentaje de equipos que siguen en releases posteriores}
-		\label{fig:tabla_2}
-	\end{figure}
-	
-	En la Figura  ~\ref{fig:tabla_2} podemos ver como los grupos creados en los releases 1.Hamm y 2.Slink se mantienen en todos los releases pero en los demás va disminuyendo el porcentaje según se lanzan nuevas versiones.
+\end{itemize}
+
+Este paquete \textbf{Not in sid} no está disponible en la rama unstable de Debian. Esto indica que el paquete no está en la fase de desarrollo activo o que no cumple con los estándares para ser incluido en la rama unstable.
+
+Tras encontrar los nombres de los paquetes más importantes, diseñamos una query para obtener que maintainers son los que mantienen estos paquetes. Y al ejecutarla estos son los resultados:
+
+
+	\begin{longtable}{|c|c|c|}
+		\caption{Información de paquetes encontrados} \label{tab:packages_info} \\
+		\hline
+		\textbf{Paquete} & \textbf{Base de datos} & \textbf{Maintainer} \\
+		\hline
+		\endfirsthead
+		
+		\multicolumn{3}{c}%
+		{{\tablename\ \thetable{} -- continuación de la página anterior}} \\
+		\hline
+		\textbf{Paquete} & \textbf{Base de datos} & \textbf{Maintainer} \\
+		\hline
+		\endhead
+		
+		\hline
+		\endfoot
+		
+		\hline
+		\endlastfoot
+		
+		util-linux
+		& 1.hamm\_main & Guy Maor \\
+		& 2.slink\_main & Vincent Renardias \\
+		& 3.potato\_main & Vincent Renardias \\
+		& 4.woody\_main & LaMont Jones \\
+		& 5.sarge\_main & LaMont Jones \\
+		& 6.etch\_main & LaMont Jones \\
+		& 7.lenny\_main & LaMont Jones \\
+		& 8.squeeze\_main & LaMont Jones \\
+		& 9.wheezy\_main & LaMont Jones \\
+		& 10.jessie\_main & Debian util-linux Maintainers \\
+		& 11.stretch\_main & Debian util-linux Maintainers \\
+		& 12.buster\_main & LaMont Jones \\
+		& 13.bullseye\_main & util-linux packagers \\
+		\hline
+		gnupg2 & 5.sarge\_main & Matthias Urlichs \\
+		& 6.etch\_main & Eric Dorland \\
+		& 7.lenny\_main & Eric Dorland \\
+		& 8.squeeze\_main & Eric Dorland \\
+		& 9.wheezy\_main & Eric Dorland \\
+		& 10.jessie\_main & Debian GnuPG Maintainers \\
+		& 11.stretch\_main & Debian GnuPG Maintainers \\
+		& 12.buster\_main & Debian GnuPG Maintainers \\
+		& 13.bullseye\_main & Debian GnuPG Maintainers \\
+		\hline
+		systemd & 9.wheezy\_main & Tollef Fog Heen \\
+		& 10.jessie\_main & Debian systemd Maintainers \\
+		& 11.stretch\_main & Debian systemd Maintainers \\
+		& 12.buster\_main & Debian systemd Maintainers \\
+		& 13.bullseye\_main & Debian systemd Maintainers \\
+		\hline
+		libxcb & 7.lenny\_main & XCB Developers \\
+		& 8.squeeze\_main & XCB Developers \\
+		& 9.wheezy\_main & XCB Developers \\
+		& 10.jessie\_main & XCB Developers \\
+		& 11.stretch\_main & Debian X Strike Force \\
+		& 12.buster\_main & Debian X Strike Force \\
+		& 13.bullseye\_main & Debian X Strike Force \\
+		\hline
+		dbus & 5.sarge\_main & D-Bus Maintainance Team \\
+		& 6.etch\_main & Utopia Maintenance Team \\
+		& 7.lenny\_main & Utopia Maintenance Team \\
+		& 8.squeeze\_main & Utopia Maintenance Team \\
+		& 9.wheezy\_main & Utopia Maintenance Team \\
+		& 10.jessie\_main & Utopia Maintenance Team \\
+		& 11.stretch\_main & Utopia Maintenance Team \\
+		& 12.buster\_main & Utopia Maintenance Team \\
+		& 13.bullseye\_main & Utopia Maintenance Team \\
+		\hline
+		krb5 & 4.woody\_main & Sam Hartman \\
+		& 5.sarge\_main & Sam Hartman \\
+		& 6.etch\_main & Sam Hartman \\
+		& 7.lenny\_main & Sam Hartman \\
+		& 8.squeeze\_main & Sam Hartman \\
+		& 9.wheezy\_main & Sam Hartman \\
+		& 10.jessie\_main & Sam Hartman \\
+		& 11.stretch\_main & Sam Hartman \\
+		& 12.buster\_main & Sam Hartman \\
+		& 13.bullseye\_main & Sam Hartman \\
+		\hline
+		libblockdev & 12.buster\_main & Utopia Maintenance Team \\
+		& 13.bullseye\_main & Utopia Maintenance Team \\
+		\hline
+		libreoffice & 9.wheezy\_main & Debian LibreOffice Maintainers \\
+		& 10.jessie\_main & Debian LibreOffice Maintainers \\
+		& 11.stretch\_main & Debian LibreOffice Maintainers \\
+		& 12.buster\_main & Debian LibreOffice Maintainers \\
+		& 13.bullseye\_main & Debian LibreOffice Maintainers \\
+		\hline
+		avahi & 6.etch\_main & Utopia Maintenance Team \\
+		& 7.lenny\_main & Utopia Maintenance Team \\
+		& 8.squeeze\_main & Utopia Maintenance Team \\
+		& 9.wheezy\_main & Utopia Maintenance Team \\
+		& 10.jessie\_main & Utopia Maintenance Team \\
+		& 11.stretch\_main & Utopia Maintenance Team \\
+		& 12.buster\_main & Utopia Maintenance Team \\
+		& 13.bullseye\_main & Utopia Maintenance Team \\
+		\hline
+	\end{longtable}
+
+
+Tras estos resultados, en los que se muestran los releases donde se encuentran estos paquetes y los maintainers asociados a los mismos, creamos una query que coja todos estos maintainers (de forma única) y compruebe si son expertos o no basándonos en la \textbf{vida media}.
+
+La \textbf{vida media} de un maintainer es la suma de el número de releases en los que se encuentran cada maintainer dividido entre el número total de maintainers únicos. 
+
+Esto lo calculamos con otra query y nos devuelve como resultado que el número de apariciones de los maintainers es \textbf{21.409}, el número total de maintainers es \textbf{6.052} y la media de apariciones de un maintainer es \textbf{3.54}.
+
+A partir de esta vida media podemos conocer si los maintainers que están asociados a los paquetes más importantes son \textbf{expertos} o no.
+
+Comparamos las apariciones de cada uno de los maintainers anteriores con la vida media y diseñamos una query que devuelva si es experto. Estos son los resultados:
+
+	\begin{itemize}
+		\item El maintainer \textbf{Guy Maor} es un experto con presencia en 4 bases de datos (superando la media total).
+		\item El maintainer \textbf{Vincent Renardias} es un experto con presencia en 4 bases de datos (superando la media total).
+		\item El maintainer \textbf{LaMont Jones} es un experto con presencia en 11 bases de datos (superando la media total).
+		\item El maintainer \textbf{Tollef Fog Heen} es un experto con presencia en 11 bases de datos (superando la media total).
+		\item El maintainer \textbf{Eric Dorland} es un experto con presencia en 10 bases de datos (superando la media total).
+		\item El maintainer \textbf{Sam Hartman} es un experto con presencia en 10 bases de datos (superando la media total).
+		\item El maintainer \textbf{Matthias Urlichs} es un experto con presencia en 9 bases de datos (superando la media total).
+		\item El maintainer \textbf{Debian X Strike Force} es un experto con presencia en 9 bases de datos (superando la media total).
+		\item El maintainer \textbf{Utopia Maintenance Team} es un experto con presencia en 8 bases de datos (superando la media total).
+		\item El maintainer \textbf{XCB Developers} es un experto con presencia en 5 bases de datos (superando la media total).
+		\item El maintainer \textbf{Debian LibreOffice Maintainers} es un experto con presencia en 5 bases de datos (superando la media total).
+		\item El maintainer \textbf{Debian systemd Maintainers} es un experto con presencia en 4 bases de datos (superando la media total).
+		\item El maintainer \textbf{Debian GnuPG Maintainers} es un experto con presencia en 4 bases de datos (superando la media total).
+		\item El maintainer \textbf{D-Bus Maintainance Team} NO es un experto con presencia en 1 base de datos.
+		\item El maintainer \textbf{util-linux packagers} NO es un experto con presencia en 1 base de datos.
+	\end{itemize}
+
+Como se observa en los resultados, hay 13 maintainers expertos y 2 no expertos en un total de 15 maintainers. Los que definimos como no expertos son grupos recientes formados por Debian y esta puede ser la explicación de porque no llevan tantas versiones activos.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONCLUSIONES %
