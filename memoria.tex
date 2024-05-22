@@ -433,6 +433,8 @@ Para poder llevar a cabo dicho objetivo se requiere:
 	.
 	\item \textbf {Crear la base de datos.} Se crea una base de datos con un buen diseño (basada en el diagrama anterior) para poder lanzar \textbf {Queries} con las que se obtienen la información que se requiere.
 	
+	\item \textbf {Inserción de los datos.} Se crea un script para parsear los datos de los paquetes e insertarlos en sus respectivas tablas junto a sus relaciones con otras tablas..
+	
 	\item \textbf {Formular las Queries.} Se analiza la información que se quiere extraer de la base de datos y se crean las llamadas necesarias para obtenerla.
 	
 	
@@ -1033,7 +1035,7 @@ Una vez ejecutadas las queries se obtienen estos resultados:
 
 
 Una vez obtenidos los resultados podemos mostrar las gráficas para visualizarlos.
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	\includegraphics[width=15cm, keepaspectratio]{img/Figura2_buena_maintainers.png}
 	\caption{Número de maintainers de cada release}
@@ -1048,6 +1050,17 @@ Gracias a que el eje x es un objeto temporal, podemos apreciar la diferencia ent
 	
 	\item También podemos ver la tendencia que sigue la gráfica con respecto a los maintainers. Hasta Junio de 2018 hay una subida del número de maintainers pero a partir de este release se aprecia una pequeña bajada de los mismos.
 \end{itemize}
+
+También se ha calculado el número de paquetes que encontramos en cada release mediante una query y podemos ver el resultado en la \textbf{Figura ~\ref{fig:paquetes}}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{img/paquetes_releases.png}
+	\caption{Número de paquetes de cada release}
+	\label{fig:paquetes}
+\end{figure}
+
+Como se puede apreciar, hay un aumento exponencial en la cantidad de paquetes llegando hasta los 30.795 en la última versión.
 
 \section{¿Existe una tendencia hacia la formación de equipos de mantenedores?}
 \label{sec:pregunta_2}
@@ -1175,6 +1188,8 @@ Una vez lanzada este es el resultado:
 
 	
 	\begin{table}[htbp]
+  		\label{tab:tabla1}
+		
 		\centering
 		\scalebox{0.6}{
 			\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
@@ -1204,6 +1219,7 @@ Una vez lanzada este es el resultado:
 	
 
 \begin{table}[htbp]
+	\label{tab:tabla2}
 	\scalebox{0.6}{
 	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
 		\hline
@@ -1229,6 +1245,10 @@ En la tabla anterior se observa la evolución de los equipos o grupos que se man
 Podemos ver como los grupos creados en los releases Hamm y Slink se mantienen en todos los releases pero en los demás va disminuyendo el porcentaje según se lanzan nuevas versiones.
 
 Esto puede deberse a la creación de nuevos equipos que sustituyan a los anteriores para la mejora de eficiencia al mantener paquetes.
+
+También quisimos responder a la pregunta de cuál es la vida media de un maintainer, es decir, cuando se reduce a la mitad el número de maintainer de un release. 
+
+Ejecutamos un query en la que obtenemos dicho valor el cual tiene como resultado 3.5 releases.
 
 Sabemos que no todos los maintainers de una versión se mantienen en las siguientes. Pero, ¿hay maintainers que comenzaron en la primera versión y hoy en día siguen activos?
 
@@ -1554,67 +1574,167 @@ Como se observa en los resultados, hay 13 maintainers expertos y 2 no expertos e
 \cleardoublepage
 \chapter{Conclusiones}
 \label{chap:conclusiones}
+En esta sección comentaremos cuales fueron los resultados del estudio realizado hace veinte años visto en la subsección ~\ref{subsec:articulo debian} comparados con los obtenidos en este proyecto. De esta forma, podremos aportar las conclusiones adecuadas.
+
+\section{Conclusiones a las cuestiones planteadas}
+\label{sec:conclusiones-cuestiones}
+Como vimos en el capitulo de resultados ~\ref{chap:resultados} obtuvimos una serie de respuestas a las preguntas planteadas y, en consecuencia, aportaremos las conclusiones necesarias.
+
+\subsection{Conclusiones: ¿Cuántos mantenedores tiene Debian y cómo cambia este número con el tiempo?}
+\label{subsec:conclusion_1}
+En el \textbf{estudio anterior~\cite{robles05:_debian}} llegaron a la conclusión de que había un aumento en el número de maintainers de casi un \textbf{35\%} en cada release. También un aumento, a mayor escala, en el número de paquetes de cada release. Por ello pensaron que podía deberse a una mayor eficiencia de los maintainers por el desarrollo de nuevas tecnologías o en las prácticas de desarrollo.
+
+Los resultados obtenidos en este proyecto difieren en ciertos aspectos del estudio anterior.
+\begin{itemize}
+	\item Los porcentajes de aumento o disminución de maintainers entre los diferentes releases vistos en la \textbf{Figura~\ref{fig:mantenedores}} son: 
+	\begin{enumerate}
+		\item Subida del 41\%.
+		\item Subida del 46\%.
+		\item Subida del 86\%.
+		\item Subida del 51\%.
+		\item Subida del 18\%.
+		\item Subida del 11\%.
+		\item Subida del 10\%.
+		\item Subida del 5\%.
+		\item Subida del 7\%.
+		\item Bajada del 2\%.
+		\item Se mantiene con un ligero aumento de 2 maintainers.
+		\item Bajada del 5\%.
+	\end{enumerate}
+\end{itemize}
+
+La tendencia ha sido ascendente hasta la versión \textbf{10 Jessie} en la cual empezó a mantenerse e incluso a descender en número. Esto puede deberse a la creación de grupos los cuales se organizaban y distribuían el trabajo entre sí. Esta conclusión está respaldada por la \textbf{Figura ~\ref{fig:paquetes}} en la que se muestra un gran número de paquetes según evoluciona Debian. Por ello, no tendría sentido la disminución de los maintainer con el aumento de los paquetes para que siga siendo una distribución estable. 
+
+\subsection{Conclusiones: ¿Existe una tendencia hacia la formación de equipos de mantenedores?}
+\label{subsec:conclusion_2}
+En el \textbf{estudio anterior~\cite{robles05:_debian}} se refleja que ha habido un claro aumento en el número de paquetes que mantiene un maintainer y que esto se debe a que se ha obtenido una mayor conciencia sobre la imprevisibilidad de los voluntarios formando equipos organizados los cuales mantengan dichos paquetes.
+
+Los resultados de este proyecto cuadran con el estudio. Como se observa en la \textbf{Figura ~\ref{fig:equipos}} hay un aumento exponencial en la creación de equipos. En el release 10 Jessie se observa un elevado aumento de 210 a 289 que coincide con la disminución de los maintainers y con el aumento del número de paquetes. Con ello concluimos que hay una clara tendencia a la formación de grupos y esto resuelve la pregunta anterior ~\ref{subsec:conclusion_1}.
+
+\subsection{Conclusiones: ¿Cuántos mantenedores de versiones anteriores permanecen activos?}
+\label{subsec:conclusion_3}
+En el \textbf{estudio anterior~\cite{robles05:_debian}} se refleja que hay un claro descenso de los maintainers desde la primera versión que se mantienen en adelante. 
+En el estudio de las primeras cuatro versiones se observa que ha bajado la aportación de los mismos y solo quedan (desde la primera versión) un 55\% de los mismos. Se intentó calcular la vida media de los maintainers, es decir, cuando su número baja hasta la mitad y se pronóstico que se daría al rededor de 7.5 años.
+
+Las causas pueden ser por agotamiento pero estudios sobre recursos humanos dictan que se motivarían proyectos de software libre que ampliarían la vida media de los maintainers. 
+
+En este proyecto obtuvimos dos tablas en las que se observa la disminución de aportaciones de los maintainers y grupos a lo largo de las diferentes versiones.
+
+Por ello se calculó la vida media de cada uno que consta de 3.5 releases. Calculando en cuantos años se lanza un release obtenemos que de media es cada 2.16 años. Si vemos el tiempo en años en el que se cumple la vida media de un maintainer se obtiene que son 7.5 años por lo que la conclusión que se obtuvo en el estudio ~\cite{robles05:_debian} coincide veinte años después.
+
+\subsection{Conclusiones: ¿Cuál es el aporte de los mantenedores que permanecen en versiones posteriores?}
+\label{subsec:conclusion_4}
+
+En el \textbf{estudio anterior~\cite{robles05:_debian}} se refleja que, aunque el pensamiento inicial era que los mantenedores expertos tendrían más carga de trabajo, tienen números similares a maintainers más nuevos.
+
+En este proyecto consideramos maintainers activos a los que llevan desde su primera versión hasta día de hoy en Debian. Como pudimos ver en los resultados, cada maintainer tiene asociado un gran conjunto de paquetes distribuidas entre todos los releases en los que se les asignaron.
+
+Si nos fijamos en este dato podemos ver que estos miantainers mantienen muchos más paquetes que el resto pero hay que entender que esto es debido a que llevan desde el inicio.
+
+Si los comparamos dentro de la misma versión, encontraremos resultados similares entre todos los maintainers por lo que la conclusión final coincide con la del estudio ~\cite{robles05:_debian}. 
+
+\subsection{Conclusiones: ¿Cuál es el aporte de los mantenedores que permanecen en versiones posteriores?}
+\label{subsec:conclusion_5}
+
+En el \textbf{estudio anterior~\cite{robles05:_debian}} se refleja que cuando los mantenedores abandonan un proyecto, sus paquetes quedan huérfanos. 
+
+Más del 60\% de estos paquetes son adoptados en todas las versiones estudiadas, mostrando un proceso de regeneración natural en Debian. Sin embargo, el número de paquetes huérfanos crece más rápidamente que el de los adoptados, lo que sugiere que muchos paquetes no se mantienen en futuras versiones. 
+
+Además, es importante establecer mecanismos para evitar la introducción de paquetes insostenibles a largo plazo. Los proyectos con más desarrolladores tienen mayores probabilidades de mantenerse activos.
+
+En este proyecto realizamos el seguimiento a un paquete de un maintainer específico que abandonó el proyecto. Pudimos observar que, los dos paquetes que tenía asociados, fueron adoptados por otros maintainers o grupos por lo que se mantienen en la actualidad. También entendimos que, al formarse una gran cantidad de grupos Debian, se están empezando a adoptar por dichos grupos los cuales se distribuyen organizadamente y con sus estándares los diferentes paquetes.
+
+\subsection{Conclusiones: ¿Los paquetes más importantes y de uso común son mantenidos por mantenedores más experimentados?}
+\label{subsec:conclusion_6}
+
+En el \textbf{estudio anterior~\cite{robles05:_debian}}, se usaron datos del Concurso de Popularidad de Debian para investigar si los paquetes más importantes son mantenidos por voluntarios más experimentados.
+
+Al analizar el número de instalaciones y uso regular por mantenedor, concluyen que los voluntarios más experimentados mantienen los paquetes más frecuentemente instalados y utilizados. Esto es evidente en todas las versiones de Debian, excepto en la 2.2, que tiene valores más altos que la 2.1, indicando una actividad inusual de los mantenedores de esa época.
+
+Esto también sugiere que muchos componentes esenciales de Debian se introdujeron en las primeras versiones, mientras que los nuevos paquetes son mayoritariamente complementos y software menos utilizados.
+
+En este proyecto volvimos a coger los datos de los paquetes del Concurso de Popularidad de Debian. Diseñamos una query que devolviera que mantenedor o mantenedores tenían asignados los diez paquetes más usados y comparamos si eran expertos (comparando su vida con la vida media de 3.5 releases obtenida anteriormente).
+
+Esto nos aportó un resultado de 13 expertos y 2 no expertos sobre un total de 15. Con esto podemos concluir que los paquetes más importantes de dicha distribución están asignados a los expertos.
+
+
 
 
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
+En este proyecto se ha cumplido el objetivo general basado en poder responder a las preguntas planteadas en el estudio de Debian. Esto ha sido posible gracias a los diferentes objetivos específicos planteados:
 
-Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
+\begin{itemize}
+	\item \textbf {Diseñar el diagrama entidad relación.} Este objetivo fue posible gracias al estudio de los diferentes paquetes y comprender las relaciones entre los atributos de los mismos. Este objetivo era el más importante ya que de él dependen los objetivos posteriores.
+	Se encontraron ciertas dificultades para el diseño del diagrama debido a que esta formado por una entidad principal que acoge todas las demás. Hubo que adaptarlo para que en un folio se pudiera representar el mismo junto con sus tablas SQL.
+	.
+	\item \textbf {Crear la base de datos.} Este objetivo se separó en dos fases:
+	\begin{enumerate}
+		
+		\item \textbf{Crear las BBDD de cada release.} Se realizó de forma manual en el programa MySQL Work Bench.
+		
+		\item \textbf{Crear las tablas SQL} Se realizó en PyCharm mediante un script. Fue algo tedioso debido a tener que analizar las diferentes relaciones entre entidades y añadir de forma correcta sus Primary Key y Foreing Key. También hubo tablas que no se podían relacionar entre sí y se tuvieron que diseñar tablas intermedias.
+		
+	\end{enumerate}
+	\item \textbf {Inserción de los datos.} Se realizó en Pycharm mediante un script. Este fue el objetivo con mayor dificultad debido a problemas al insertar dichos datos y al volumen de los mismos. Una vez realizado de forma correcta fue esencial para tener los datos estructurados y organizados de tal forma que se puedan consultar fácil y rápidamente.
+	
+	\item \textbf {Formular las Queries.} Se realizó en Pycharm mediante un script. Tuvimos que mezclar lenguaje Python con SQL para poder diseñar bien las queries y que se ejecutaran para todas las BBDD mediante bucles. El diseño fue lo más problemático debido a que hay que entender correctamente lo que se quiere resolver para poder aplicar un algoritmo que funcione. 
+	
+	
+	\item \textbf {Crear las tablas y gráficas.} Se realizó en Pycharm mediante un script. Una vez obtenidos los resultados con las queries, se usan los mismos para plasmarlos en gráficas o tablas. La mayor dificultad encontrada en este objetivo fue la inserción de un eje x temporal de forma que las gráficas quedaran espaciadas según el tiempo en el que se lanzó cada release.
+\end{itemize}
 
-Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
-Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
-
-\begin{verbatim}
-  aspell --lang=es_ES -c memoria.tex
-\end{verbatim}
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM.
-Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+Este proyecto no hubiera sido posible sin los conocimientos obtenidos en diferentes asignaturas del Grado en Ingeniería de Técnologías de Telecomunicación.
 
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
+Las más relacionadas con este proyecto son: 
+
+\begin{itemize}
+	\item \textbf {Ingeniería de Sistemas de Información.} Esta asignatura me aportó los conocimientos necesarios sobre diagramas entidad - relación y lenguaje SQL para poder realizar las querys y como relacionar las tablas de las BBDD.
+	
+	\item \textbf {Sistemas Operativos.} Aunque el lenguaje usado fuera C y se basara en un lenguaje de programación de bajo nivel, esta asignatura me dio la base definitiva para entender la lógica de como programar y como pensar para realizar algoritmos correctamente.
+	
+	\item \textbf {Prácticas externas.} Esta asignatura la realicé en diferentes empresas y me ayudó a comprender lo que es trabajar de una forma más seria y ha sido fundamental a la hora de organizarme y saber priorizar el trabajo.
+	
+	\item \textbf {Servicios y Aplicaciones Telemáticas.} Esta asignatura me aportó el conocimiento en Python necesario para poder programas eficientemente en este lenguaje. También fue una de las piezas clave que me ayudó a comprender la programación y, con ello, a desarrollarme en la misma.
+	
+	\item \textbf {Fundamentos de la programación.} Esta asignatura me aportó el conocimiento base sobre qué era la programación y como había que pensar para obtener resultados en este ámbito.
+	
+\end{itemize}
 
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+Lo que he podido aprender en este proyecto es:
 
 \begin{enumerate}
-  \item Aquí viene uno.
-  \item Aquí viene otro.
+  \item Qué es Debian y cómo funciona internamente mediante estos releases.
+  \item El trabajo que hay detrás de una distribución de software libre.
+  \item Como diseñar de forma eficiente una BBDD, desde el parseo de los datos hasta el diseño de queries pasando por la inserción de los mismo en las BBDD.
+  \item La evolución de Debian a lo largo de sus trece versiones.
+  \item Como, hasta una de las distribuciones más importantes de Linux de software libre, acaba organizándose en grupos y siguiendo unos estándares para poder realizar el trabajo de forma eficiente.
 \end{enumerate}
 
 
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Ningún proyecto ni software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
+Para trabajos futuros se podrían:
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+\begin{enumerate}
+	\item Analizar los datos de este estudio y ver las tendencias que siguen pasados unos cuantos años y así entender en profundidad las fases que tiene Debian y su evolución con una mayor cantidad de datos.
+	
+	\item Investigar otras distribuciones de Linux u otros sistemas operativos para comparar como funcionan, cuales son las más eficientes y por qué.
+	
+	\item Estudiar datos como Binary, Files, Check-Sum256, etc, los cuales se encuentran en los paquetes y no hemos usado para este proyecto. Quizas se puedan sacar más conclusiones y entender mejor el funcionamiento y las tendencias de Debian.
+\end{enumerate}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% APÉNDICE(S) %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\appendix
-\chapter{Manual de usuario}
-\label{app:manual}
-
-Esto es un apéndice.
-Si has creado una aplicación, siempre viene bien tener un manual de usuario.
-Pues ponlo aquí.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
