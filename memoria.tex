@@ -31,8 +31,20 @@
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
 
-\title{Memoria del Proyecto}
-\author{Nombre del autor}
+% Escribe el título y el nombre del autor / autora para que se use bien
+% en otras partes de la plantilla
+% Dependiendo de las partes de la plantilla, a veces aparecerán tal
+% cual los escribas, a veces totalmente en mayúsculas, a veces de otras
+% formas
+\title{Título del Trabajo con Letras Mayúsculas para Sustantivos y Adjetivos}
+\author{Nombre del autor / autora}
+
+% Guarda el título, el autor y la fecha en variables
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
 
 \renewcommand{\baselinestretch}{1.5}  %% Interlineado
 
@@ -65,12 +77,12 @@ TITULACIÓN EN MAYÚSCULAS
 \vspace{2cm}
 
 \Large
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
+\MakeUppercase{\thetitle}
 
 \vspace{2cm}
 
 \large
-Autor : Nombre del Alumno/a \\
+Autor : \theauthor \\
 Tutor : Dr. Nombre del Profesor/a\\
 Cotutor: (si procede)
 \vspace{1cm}
@@ -100,40 +112,51 @@ Curso académico 202X/202X
 
 \vspace{1cm}
 \large
-Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
+\thetitle
 
-\vspace{1cm}
+\vspace{0.8cm}
 \large
-\textbf{Autor :} Nombre del Alumno/a \\
+\textbf{Autor :} \theauthor \\
 \textbf{Tutor :} Dr. Nombre del Profesor/a
 
 \end{center}
 
-\vspace{1cm}
+\vspace{0.8cm}
 La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 202X, siendo calificada por el siguiente tribunal:
 
 
 \vspace{0.5cm}
 \textbf{Presidente:}
 
-\vspace{1.2cm}
+\vspace{1cm}
 \textbf{Secretario:}
 
-\vspace{1.2cm}
+\vspace{1cm}
 \textbf{Vocal:}
 
 
-\vspace{1.2cm}
-y habiendo obtenido la siguiente calificación:
-
 \vspace{1cm}
-\textbf{Calificación:}
+y habiendo obtenido la siguiente \textbf{Calificación:}
 
 
 \vspace{1cm}
 \begin{flushright}
 Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 202X
 \end{flushright}
+
+\vspace{1cm}
+
+%% Licencia de publicación en abierto elegida
+%% Ver detalles en https://ofilibre.urjc.es/guias/tfg-abierto/
+\includegraphics[scale=0.6]{img/by-sa}
+%\includegraphics[scale=0.6]{img/by}
+
+%% Poner el año adecuado
+\noindent©2024 \theauthor  \\
+Algunos derechos reservados  \\
+Este documento se distribuye bajo la licencia ``Atribución-CompartirIgual 4.0 Internacional'' de Creative Commons, disponible en \\
+\url{https://creativecommons.org/licenses/by-sa/4.0/deed.es}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Dedicatoria
