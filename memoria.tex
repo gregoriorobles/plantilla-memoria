@@ -173,17 +173,18 @@ Paula, gracias por ser mi compañera de viaje y por aparecer en el momento que m
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto.
-Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
+Este proyecto se basa en un estudio sobre la evolución de la distribución más importante de Linux llamada Debian, la cual es de software libre. Partimos de un estudio anterior llamado Evolution of Volunteer Participation in Libre Software Projects: Evidence from Debian~\cite{robles05:_debian} del cual se ha realizado una réplica veinte años después. 
 
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
-\end{itemize}
+El objetivo principal es responder a una serie de preguntas planteadas en dicho estudio las cuales nos darán la información necesaria para comprender como evoluciona Debian y si cumplen las tendencias estudiadas en el artículo anterior.
+Dichas preguntas son: \textbf {¿Cuántos mantenedores tiene Debian y cómo cambia este número con el tiempo?, ¿Existe una tendencia hacia la formación de equipos de mantenedores?, ¿Cuántos mantenedores de versiones anteriores permanecen activos?, ¿Cuál es el aporte de los mantenedores que permanecen en versiones posteriores?, ¿Qué sucede con los paquetes mantenidos por los mantenedores que abandonan el proyecto? y ¿Los paquetes más importantes y de uso común son mantenidos por mantenedores más experimentados?}.
 
-Lo mejor es escribir el resumen al final.
+Para obtener las conclusiones deseadas se ha pasado por las etapas de \textbf {descarga de releases de Debian, análisis de los paquetes de los releases, creación de diagrama entidad-relación, creación de bases de datos junto con sus tablas SQL, parseo de la información de cada paquete, obtención de gráficos sobre la información, creación de Queries e inserción de la información en la base de datos}.
+
+Para ello se usan tecnologías tales como \textbf {Pycharm y MySQL Worckbench}.
+En ellas necesitamos el uso de lenguajes de programación tales como \textbf {Python y SQL} junto con librerías de Python como \textbf {MYSQL Connector o Matplotlib}.
+
+Este proyecto se ha realizado como parte de la asignatura Servicios y Aplicaciones Telemáticas bajo la supervisión de mi tutor el Dr. Gregorio Robles.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -191,10 +192,17 @@ Lo mejor es escribir el resumen al final.
 \chapter*{Summary}
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
+This project is based on a study about the evolution of the most important Linux distribution called Debian, which is free software. We started from a previous study called "Evolution of Volunteer Participation in Libre Software Projects: Evidence from Debian"~\cite{robles05:_debian}, which has been replicated twenty years later.
 
-Here comes a translation of the ``Resumen'' into English. 
-Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out just before submitting.
+The main objective is to answer the questions raised in that study, which will provide us with the necessary information to understand how Debian evolves and if it follows the trends from the previous study.
+These questions are: \textbf{How many maintainers does Debian have and how does this number change over time?, Is there a pattern of creating maintainer teams?, How many maintainers from previous versions remain active?, What is the contribution of maintainers who stay in later versions?, What happens to the packages maintained by maintainers who leave the project?,Are the most important and commonly used packages maintained by more experienced maintainers?}
+
+To get the results we want, we have gone through the stages of \textbf{downloading Debian releases, analyzing the packages of the releases, creating an entity-relationship diagram, creating databases and their SQL tables, parsing the information of each package, obtaining graphs on the information, creating queries, and inserting the information into the database}.
+
+For this purpose, technologies such as \textbf{PyCharm and MySQL Workbench} are used.
+In them, we use programming languages like \textbf{Python and SQL} and Python libraries like \textbf{MySQL Connector and Matplotlib}.
+
+This project was done for the Telematic Services and Applications subject under my tutor Dr. Gregorio Robles.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -463,7 +471,7 @@ El Dr. Gregorio Robles, mi tutor, me propuso dicho proyecto en noviembre de 2023
 
 \begin{figure}
 	\centering
-	\includegraphics[width=9cm, keepaspectratio]{img/Gantt.png}
+	\includegraphics[width=17cm, keepaspectratio]{img/Gantt.png}
 	\caption{Diagrama de Gantt}
 	\label{fig:diagrama_gantt}
 \end{figure}
@@ -617,9 +625,18 @@ Por último, creamos una serie de gráficas y tablas para ayudar a la visualizac
 \section{Descarga de los releases de Debian} 
 \label{sec:Descarga_de_los_releases_de_Debian}
 
-Esta fase es la más rápida. Conociendo las páginas donde encontrar los releases retirados~\cite{debian:_releases_archive} y los que siguen en uso ~\cite{debian:_releases} (aportados por mi tutor Gregorio), podemos descargar sus diferentes archivos \textbf{main} donde encontramos todos los paquetes de cada lanzamiento y con ello los datos que queremos tratar.
+Esta fase es la más rápida. 
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{img/Descarga Releases.png}
+	\caption{Diagrama de Flujo de la descarga de los Releases}
+	\label{fig:flow_descarga}
+\end{figure}
+Conociendo las páginas donde encontrar los releases retirados~\cite{debian:_releases_archive} y los que siguen en uso ~\cite{debian:_releases} (aportados por mi tutor Gregorio), podemos descargar sus diferentes archivos \textbf{main} en la \textbf{Figura~\ref{fig:Descarga_releases}} donde encontramos todos los paquetes de cada lanzamiento y con ello los datos que queremos tratar. Podemos ver el flujo en la \textbf{Figura~\ref{fig:flow_descarga}}.
 
-\begin{figure}[h]
+
+
+\begin{figure}
 	\centering
 	\includegraphics[width=10cm, keepaspectratio]{img/releases.png}
 	\caption{Descarga de los datos de releases}
@@ -1418,7 +1435,7 @@ Por ello podemos pensar que, hasta la versión Buster, se asignaban a maintainer
 \section{¿Los paquetes más importantes y de uso común son mantenidos por mantenedores más experimentados?}
 \label{sec:pregunta_6}
 
-Para resolver esta pregunta debemos conocer cuales son los paquetes más importantes y usados de Debian. Entramos en la página de Debian Popcon ~\cite{debian:_popcon}, accedemos a las estadísticas de \textbf{la suma de paquetes ordenados}.Tras esto nos fijamos en el campo \textbf{vote} que indica el \textbf{número de personas que usan este paquete regularmente}. Estos paquetes son los que consideramos \textbf{importantes} como se muestra en la Figura ~\ref{fig:paquetes_popcon}.
+Para resolver esta pregunta debemos conocer cuales son los paquetes más importantes y usados de Debian. Entramos en la página de Debian Popcon ~\cite{debian:_popcon}, accedemos a las estadísticas de \textbf{la suma de paquetes ordenados}.Tras esto nos fijamos en el campo \textbf{vote} que indica el \textbf{número de personas que usan este paquete regularmente}. Estos paquetes son los que consideramos \textbf{importantes} como se muestra en la tabla.
 
 
 	\begin{table}[h!]
