@@ -650,11 +650,18 @@ En esta fase se requiere un estudio detallado de los diferentes atributos de cad
 
 Un paquete esta conformado por los atributos mostrados en la \textbf {Figura~\ref{fig:paquete}}.
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	\includegraphics[width=15cm, keepaspectratio]{img/paquete.png}
 	\caption{Atributos de un paquete.}
 	\label{fig:paquete}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=9cm, keepaspectratio]{img/Estudio Atributos.png}
+	\caption{Flujo del estudio de los atributos de un paquete}
+	\label{fig:flujo_paquete}
 \end{figure}
 
 El siguiente proceso consta de la comparación de diferentes paquetes para entender que entidades hay y como relacionarlas:
@@ -684,6 +691,8 @@ El siguiente proceso consta de la comparación de diferentes paquetes para enten
 \end{itemize}
 
 Con esta información podemos comenzar con el diseño del diagrama.
+
+
 
 \section{Creación diagrama Entidad - Relación} 
 \label{sec:diagrama_entidad_relacion}
@@ -739,10 +748,22 @@ En la Figura\textbf {~\ref{fig:entidad_relación}} identificamos diferentes tabl
 
 Una vez completadas las relaciones junto con las entidades se diseña la BBDD que va a acoger todos aquellos datos necesarios para el estudio.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{img/Creacion diagrama.png}
+	\caption{Flujo de creación de diagrama Entidad - Relación}
+	\label{fig:flujo creacion de diagrama}
+\end{figure}
+
 \section{Creación de BBDD junto con tablas SQL} 
 \label{sec:creacion_BBDD}
 En este punto se usan las aplicaciones MySQL Workbench y Pycharm.
-
+\begin{figure}
+	\centering
+	\includegraphics[width=7cm, keepaspectratio]{img/Creación de tablas.png}
+	\caption{Flujo de creación de BBDD}
+	\label{fig:flujo creacion BBDD}
+\end{figure}
 Se crean las diferentes BBDD en MySQL para poder realizar la inserción de las tablas posteriormente como se muestra en la \textbf {Figura ~\ref{fig:BBDDsql}}.
 
 \begin{figure}
@@ -796,12 +817,14 @@ Este diagrama tiene una traducción a lenguaje SQL:
 	
 	Todo se realiza a través de Python y con la librería mysql.connector.
 	
-	\begin{figure}[h]
+	\begin{figure}
 		\centering
 		\includegraphics[width=6cm, keepaspectratio]{img/Tablas.png}
 		\caption{Tablas BBDD}
 		\label{fig:Tablas}
 	\end{figure}
+	
+	
 
 	
 \end{itemize}
@@ -870,6 +893,14 @@ Para ello se diseña un script en Pycharm siguiendo estos pasos:
 \label{sec:insercion_BBDD}
 Una vez parseada la información de un paquete, debemos realizar la inserción en la BBDD. Esto se ejecuta mediante otro script en Pycharm y con la librería mysql.connector.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{img/Insertar BBDD.png}
+	\caption{Flujo de inserción de los datos en BBDD}
+	\label{fig:flujo insertar datos}
+\end{figure}
+
+
 \begin{enumerate}
 		\item \textbf{Conexión a la BBDD.} Primero debemos conectarnos a la BBDD para obtener la funcionalidad de insertar en ella. Debemos introducir los siguientes datos:
 		\begin{verbatim}
@@ -934,6 +965,13 @@ Una vez parseada la información de un paquete, debemos realizar la inserción e
 \label{sec:queries}
 
 Para este proceso se necesita de nuevo un script en Pycharm que se conecte a la BBDD y, a través de lenguaje SQL, realice llamadas especificas a la misma. De esta forma obtendremos la información que se necesita.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=6cm, keepaspectratio]{img/Creación queries.png}
+	\caption{Flujo de creación de queries}
+	\label{fig:flujo creacion queries}
+\end{figure}
 
 \begin{enumerate}
 	\item \textbf{Conexión a la BBDD.} Primero debemos conectarnos a la BBDD para obtener la funcionalidad de realizar llamadas sobre ella como en la sección ~\ref{sec:insercion_BBDD}.
@@ -1007,6 +1045,13 @@ Para ello es necesario:
 	
 	\item \textbf{Creación del gráfico}: en nuestro caso será un gráfico de barras. Para ello definimos el tipo de gráfica que queremos, agregamos los datos obtenidos por las queries, configuramos los diferentes ejes junto con el título de la gráfica y la mostramos.
 \end{enumerate}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=5cm, keepaspectratio]{img/Creación gráficas.png}
+	\caption{Flujo de creación de gráficas}
+	\label{fig:flujo creacion graficas}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
