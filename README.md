@@ -22,3 +22,4 @@ Para otras cuestiones, mándame un correo a grex (arroba) gsyc.urjc.es.
 Si os da por hacer el proyecto en R/RStudio y, de paso, quieren hacer también la memoria en PDF del trabajo de un solo golpe, aprovechando el esfuerzo, os recomiendo esta plantilla de Felipe Ortega:
 
 https://github.com/glimmerphoenix/plantilla-memoria-rmd-URJC
+ 
