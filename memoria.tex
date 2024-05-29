@@ -180,7 +180,7 @@ Dichas preguntas son: \textbf {¿Cuántos mantenedores tiene Debian y cómo camb
 
 Para obtener las conclusiones deseadas se ha pasado por las etapas de \textbf {descarga de releases de Debian, análisis de los paquetes de los releases, creación de diagrama entidad-relación, creación de bases de datos junto con sus tablas SQL, parseo de la información de cada paquete, obtención de gráficos sobre la información, creación de Queries e inserción de la información en la base de datos}.
 
-Para ello se usan tecnologías tales como \textbf {Pycharm y MySQL Worckbench}.
+Para ello se usan tecnologías tales como \textbf {Pycharm y MySQL Workbench}.
 En ellas necesitamos el uso de lenguajes de programación tales como \textbf {Python y SQL} junto con librerías de Python como \textbf {MYSQL Connector o Matplotlib}.
 
 Este proyecto se ha realizado como parte de la asignatura Servicios y Aplicaciones Telemáticas bajo la supervisión de mi tutor el Dr. Gregorio Robles.
@@ -336,11 +336,11 @@ Los resultados que se obtuvieron fueron los siguientes:
 		\begin{tabular}{|l|r|r|r|r|}
 			\hline
 			Date        & Release & Nº Maintainer & Packages & Packages/Maintainer \\ \hline
-			July-98     & 2.0     & 217           & 1.101    & 5,1                 \\ \hline
-			March-99    & 2.1     & 297           & 1.559    & 5,2                 \\ \hline
-			August-00   & 2.2     & 453           & 2.601    & 5,7                 \\ \hline
-			July-02     & 3.0     & 859           & 5.119    & 6,0                 \\ \hline
-			December-04 & (3.1)   & 1237          & 7.786    & 6,3                 \\ \hline
+			July-98     & 2.0     & 217           & 1,101    & 5.1                 \\ \hline
+			March-99    & 2.1     & 297           & 1,559    & 5.2                 \\ \hline
+			August-00   & 2.2     & 453           & 2,601    & 5.7                 \\ \hline
+			July-02     & 3.0     & 859           & 5,119    & 6.0                 \\ \hline
+			December-04 & (3.1)   & 1,237          & 7,786    & 6.3                 \\ \hline
 		\end{tabular}
 		\caption{Nº de maintainers, paquetes y paquetes por maintainer}
 	\end{table}
@@ -352,11 +352,11 @@ Los resultados que se obtuvieron fueron los siguientes:
 		\begin{tabular}{|l|r|r|r|r|}
 			\hline
 			Date        & Release & Group Packages & Quality Control Packages & Percentage \\ \hline
-			July-98     & 2.0     & 14             & 14                       & 1,3\%      \\ \hline
-			March-99    & 2.1     & 21             & 11                       & 1,4\%      \\ \hline
-			August-00   & 2.2     & 46             & 31                       & 1,8\%      \\ \hline
-			July-02     & 3.0     & 101            & 71                       & 2,2\%      \\ \hline
-			December-04 & (3.1)   & 599            & 194                      & 7,4\%      \\ \hline
+			July-98     & 2.0     & 14             & 14                       & 1.3\%      \\ \hline
+			March-99    & 2.1     & 21             & 11                       & 1.4\%      \\ \hline
+			August-00   & 2.2     & 46             & 31                       & 1.8\%      \\ \hline
+			July-02     & 3.0     & 101            & 71                       & 2.2\%      \\ \hline
+			December-04 & (3.1)   & 599            & 194                      & 7.4\%      \\ \hline
 		\end{tabular}
 		\caption{Nº de grupos, paquetes de los grupos y porcentaje de paquetes asociados a grupos}
 	\end{table}
@@ -367,10 +367,10 @@ Los resultados que se obtuvieron fueron los siguientes:
 		\begin{tabular}{|l|r|r|r|r|}
 			\hline
 			Date        & Release & Maintainers 1º version & Packages & Packages/Maintainer \\ \hline
-			July-98     & 2.0     & 216                     & 1.101       & 5,1                 \\ \hline
-			March-99    & 2.1     & 207                     & 1.086       & 5,2                 \\ \hline
-			August-00   & 2.2     & 188                    & 1.040       & 5,5                 \\ \hline
-			July-02     & 3.0     & 147                    & 870       & 5,9                 \\ \hline
+			July-98     & 2.0     & 216                     & 1,101       & 5.1                 \\ \hline
+			March-99    & 2.1     & 207                     & 1,086       & 5.2                 \\ \hline
+			August-00   & 2.2     & 188                    & 1,040       & 5.5                 \\ \hline
+			July-02     & 3.0     & 147                    & 870       & 5.9                 \\ \hline
 			December-04 & (3.1)   & 121                    & 729      & 6                   \\ \hline
 		\end{tabular}
 		\caption{Nº de maintainers de la 1º versión, paquetes y paquetes por maintainer}
@@ -632,7 +632,10 @@ Esta fase es la más rápida.
 	\caption{Diagrama de Flujo de la descarga de los Releases}
 	\label{fig:flow_descarga}
 \end{figure}
-Conociendo las páginas donde encontrar los releases retirados~\cite{debian:_releases_archive} y los que siguen en uso ~\cite{debian:_releases} (aportados por mi tutor Gregorio), podemos descargar sus diferentes archivos \textbf{main} en la \textbf{Figura~\ref{fig:Descarga_releases}} donde encontramos todos los paquetes de cada lanzamiento y con ello los datos que queremos tratar. Podemos ver el flujo en la \textbf{Figura~\ref{fig:flow_descarga}}.
+
+La \textbf{Figura~\ref{fig:flow_descarga}} es una representación de la lógica seguida para realizar la descarga de dichos releases entrando en la página oficial de Debian y, dependiendo de la antigüedad del release, entramos en archive o no para encontrarlo.
+
+Conociendo las páginas donde encontrar los releases retirados~\cite{debian:_releases_archive} y los que siguen en uso ~\cite{debian:_releases} (aportados por mi tutor Gregorio), podemos descargar sus diferentes archivos \textbf{main} en la \textbf{Figura~\ref{fig:Descarga_releases}} donde encontramos todos los paquetes de cada lanzamiento y con ello los datos que queremos tratar.
 
 
 
@@ -663,6 +666,8 @@ Un paquete esta conformado por los atributos mostrados en la \textbf {Figura~\re
 	\caption{Flujo del estudio de los atributos de un paquete}
 	\label{fig:flujo_paquete}
 \end{figure}
+
+En la \textbf {Figura~\ref{fig:flujo_paquete}} explicamos el flujo de como se ha realizado el estudio de los paquetes asignando las diferentes relaciones a las entidades.
 
 El siguiente proceso consta de la comparación de diferentes paquetes para entender que entidades hay y como relacionarlas:
 
@@ -755,6 +760,8 @@ Una vez completadas las relaciones junto con las entidades se diseña la BBDD qu
 	\label{fig:flujo creacion de diagrama}
 \end{figure}
 
+En la \textbf {Figura~\ref{fig:flujo creacion de diagrama}} podemos visualizar el método empleado para diseñar este diagrama. Para ello partimos de las entidades y las relaciones estudiadas anteriormente. Después asignamos las diferentes \textbf {Primary Keys} y por último comprobamos que tipo de relación tienen las entidades para crear tablas intermedias o asignar una \textbf {Foreing key} directamente.
+
 \section{Creación de BBDD junto con tablas SQL} 
 \label{sec:creacion_BBDD}
 En este punto se usan las aplicaciones MySQL Workbench y Pycharm.
@@ -764,7 +771,7 @@ En este punto se usan las aplicaciones MySQL Workbench y Pycharm.
 	\caption{Flujo de creación de BBDD}
 	\label{fig:flujo creacion BBDD}
 \end{figure}
-Se crean las diferentes BBDD en MySQL para poder realizar la inserción de las tablas posteriormente como se muestra en la \textbf {Figura ~\ref{fig:BBDDsql}}.
+Se crean las diferentes BBDD en MySQL para poder realizar la inserción de las tablas posteriormente.
 
 \begin{figure}
 	\centering
@@ -772,6 +779,8 @@ Se crean las diferentes BBDD en MySQL para poder realizar la inserción de las t
 	\caption{Bases de datos}
 	\label{fig:BBDDsql}
 \end{figure}
+
+En la \textbf {Figura~\ref{fig:BBDDsql}} podemos visualizar el flujo de trabajo realizado para el diseño y creación de las BBDD. Primero creamos manualmente las BBDD en MySQL Workbench. Creamos un script donde introducimos las credenciales necesarias, disñamos las tablas en lenguaje SQL e insertamos dichas tablas.
 
 El diseño de la BBDD depende directamente del diagrama realizado anteriormente. 
 Este diagrama tiene una traducción a lenguaje SQL:
@@ -836,7 +845,7 @@ Tras la creación de las diferentes BBDD con sus tablas correspondientes, ahora 
 Para ello se diseña un script en Pycharm siguiendo estos pasos:
 
 \begin{enumerate}
-	\item \textbf{Lectura del archivo.} Las descargas de los releases realizadas en la sección  ~\ref{sec:Descarga_de_los_releases_de_Debian} las tratamos como ficheros de texto. Por ello debemos leer linea por linea todo el fichero e ir guardando la información relevante de cada paquete.
+	\item \textbf{Lectura del archivo.} Las descargas de los releases realizadas en la sección~\ref{sec:Descarga_de_los_releases_de_Debian} las tratamos como ficheros de texto. Por ello debemos leer linea por linea todo el fichero e ir guardando la información relevante de cada paquete.
 	
 	\begin{verbatim}
 		with open('Sources/14.Sources - bookworm-main.txt', 'r',
@@ -899,7 +908,7 @@ Una vez parseada la información de un paquete, debemos realizar la inserción e
 	\caption{Flujo de inserción de los datos en BBDD}
 	\label{fig:flujo insertar datos}
 \end{figure}
-
+En la \textbf{Figura~\ref{fig:flujo insertar datos}} se representa el flujo de trabajo realizado para insertar los datos necesarios en la BBDD. Definimos en un array los campos que queremos extraer de los paquetes, parseamos y guardamos los datos en variables. Si hemos obtenido todos los datos de un paquete, insertamos dichos datos en las tablas SQL respectivamente de cada BBDD. 
 
 \begin{enumerate}
 		\item \textbf{Conexión a la BBDD.} Primero debemos conectarnos a la BBDD para obtener la funcionalidad de insertar en ella. Debemos introducir los siguientes datos:
@@ -913,7 +922,7 @@ Una vez parseada la información de un paquete, debemos realizar la inserción e
 		)
 		\end{verbatim} 
 		
-		\item \textbf{Creación de diccionario.} Necesitamos asociar los diferentes valores, de las variables de la sección ~\ref{sec:parseo}, a los nombres de las tablas para facilitar la lógica de dicho script.
+		\item \textbf{Creación de diccionario.} Necesitamos asociar los diferentes valores, de las variables de la sección~\ref{sec:parseo}, a los nombres de las tablas para facilitar la lógica de dicho script.
 		\begin{verbatim}
 			datos = {
 				"version": version,
@@ -931,7 +940,7 @@ Una vez parseada la información de un paquete, debemos realizar la inserción e
 		\item \textbf{Inserción de los datos.} Finalmente pasamos a el objetivo final de este punto, la inserción. Tenemos varios casos que deben ser contemplados para su optima realización:
 		
 		\begin{itemize}
-			\item \textbf{Valores vacíos:} en este caso debemos comprobar si la variable en cuestión tiene un valor predeterminado o viene vacío. Hay paquetes en los que no existen ciertas entidades como vimos en la sección ~\ref{sec:analisis_de_los_paquetes}. Se actualiza el valor a None para evitar fallos en la BBDD al insertar.
+			\item \textbf{Valores vacíos:} en este caso debemos comprobar si la variable en cuestión tiene un valor predeterminado o viene vacío. Hay paquetes en los que no existen ciertas entidades como vimos en la sección~\ref{sec:analisis_de_los_paquetes}. Se actualiza el valor a \textbf{None} para evitar fallos en la BBDD al insertar.
 			
 			\item \textbf{Datos duplicados: } hay entidades que se repiten en múltiples paquetes como las versiones o los maintainer. Debemos tener en cuenta que, al crear las tablas, se ponen restricciones como los identificadores únicos. Esto significa que no se pueden meter duplicados y por ello debemos tenerlo en cuenta. Para ello, buscamos si el valor ya se encuentra en la tabla, si se confirma, se ignora para evitar errores en las tablas SQL.
 			
@@ -973,13 +982,14 @@ Para este proceso se necesita de nuevo un script en Pycharm que se conecte a la 
 	\label{fig:flujo creacion queries}
 \end{figure}
 
+En la \textbf{Figura~\ref{fig:flujo creacion queries}} podemos visualizar el flujo de trabajo usado para crear las queries. Primero definimos un array con todas las BBDD, realizamos la conexión mediante las credenciales, diseñamos unas queries en lenguaje SQL y mostramos los resultados por pantalla.
 \begin{enumerate}
-	\item \textbf{Conexión a la BBDD.} Primero debemos conectarnos a la BBDD para obtener la funcionalidad de realizar llamadas sobre ella como en la sección ~\ref{sec:insercion_BBDD}.
+	\item \textbf{Conexión a la BBDD.} Primero debemos conectarnos a la BBDD para obtener la funcionalidad de realizar llamadas sobre ella como en la sección~\ref{sec:insercion_BBDD}.
 	
 	\item \textbf{Lenguaje de manipulación de datos~\cite{geotalleres:_sql}.} Proporcionado por el sistema de gestión de base de datos, permite a los usuarios llevar a cabo las tareas de consulta o manipulación de los datos, organizados por el modelo de datos adecuado. 
 
 	\begin{itemize}
-		\item \textbf{Comandos}: para insertar como en la sección ~\ref{sec:insercion_BBDD}, actualizar o borrar pero en este caso se quiere consultar por lo que usaremos `SELECT'.
+		\item \textbf{Comandos}: para insertar como en la sección~\ref{sec:insercion_BBDD}, actualizar o borrar pero en este caso se quiere consultar por lo que usaremos `SELECT'.
 		
 		\item \textbf{Clausulas}: son condiciones de modificación utilizadas para definir los datos que desea seleccionar o manipular. En nuestro caso usaremos `WHERE'.
 		
@@ -1013,7 +1023,7 @@ Para este proceso se necesita de nuevo un script en Pycharm que se conecte a la 
 
 En este apartado sigue siendo necesario la creación de un script en Pycharm pero con la librería `Matplotlib'.
 
-Con el diseño de las queries del apartado ~\ref{sec:queries} obtenemos la información necesaria para responder a las diferentes cuestiones planteadas en este estudio.
+Con el diseño de las queries del apartado~\ref{sec:queries} obtenemos la información necesaria para responder a las diferentes cuestiones planteadas en este estudio.
 Para ayudar a la comprensión de estos datos debemos crear diferentes gráficas.
 Visualizar los resultados facilita la interpretación de los mismos para obtener unas conclusiones óptimas.
 
@@ -1053,6 +1063,7 @@ Para ello es necesario:
 	\label{fig:flujo creacion graficas}
 \end{figure}
 
+En la \textbf{Figura~\ref{fig:flujo creacion graficas}} se representa el flujo de trabajo realizado para la creción de las gráficas. Comenzamos con los resultados de las queries anteriores. Luego definimos los ejes (el eje x en formato temporal), insertamos los resultados en la gráfica y lo mostramos por pantalla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1084,15 +1095,15 @@ Una vez ejecutadas las queries se obtienen estos resultados:
 			Marzo 1999      & Slink    & 362         \\ \hline
 			Agosto 2000     & Potato   & 530         \\ \hline
 			Julio 2002      & Woody    & 986         \\ \hline
-			Junio 2005      & Sarge    & 1.490       \\ \hline
-			Abril 2007      & Etch     & 1.760       \\ \hline
-			Febrero 2009    & Lenny    & 1.971       \\ \hline
-			Mayo 2014       & Squeeze  & 2.173       \\ \hline
-			Junio 2016      & Wheezy   & 2.286       \\ \hline
-			Junio 2018      & Jessie   & 2.468       \\ \hline
-			Junio 2020      & Stretch  & 2.412       \\ \hline
-			Septiembre 2022 & Buster   & 2.413       \\ \hline
-			Febrero 2024    & Bullseye & 2.293       \\ \hline
+			Junio 2005      & Sarge    & 1,490       \\ \hline
+			Abril 2007      & Etch     & 1,760       \\ \hline
+			Febrero 2009    & Lenny    & 1,971       \\ \hline
+			Mayo 2014       & Squeeze  & 2,173       \\ \hline
+			Junio 2016      & Wheezy   & 2,286       \\ \hline
+			Junio 2018      & Jessie   & 2,468       \\ \hline
+			Junio 2020      & Stretch  & 2,412       \\ \hline
+			Septiembre 2022 & Buster   & 2,413       \\ \hline
+			Febrero 2024    & Bullseye & 2,293       \\ \hline
 		\end{tabular}
 		\caption{Tabla de versiones de Debian}
 	\end{center}
@@ -1126,7 +1137,7 @@ También se ha calculado el número de paquetes que encontramos en cada release 
 	\label{fig:paquetes}
 \end{figure}
 
-Como se puede apreciar, hay un aumento exponencial en la cantidad de paquetes llegando hasta los 30.795 en la última versión.
+Como se puede apreciar, hay un aumento exponencial en la cantidad de paquetes llegando hasta los 30,795 en la última versión.
 
 \section{¿Existe una tendencia hacia la formación de equipos de mantenedores?}
 \label{sec:pregunta_2}
@@ -1135,7 +1146,7 @@ La distribución Debian estaba conformada en sus orígenes por una serie de pers
 
 Por ello nos preguntamos si existiera dicha tendencia a la creación de equipos y como varía con el tiempo.
 
-Podemos diferenciar que maintainers son equipos o personas individuales debido al `nombre' del campo `maintainer' de cada paquete. Estos nombres suelen contener la palabra \textbf{Team} o \textbf{Group} como vemos en las \textbf{Figuras ~\ref{fig:ejemplo_equipo_1} y ~\ref{fig:mantenedores}}
+Podemos diferenciar que maintainers son equipos o personas individuales debido al `nombre' del campo `maintainer' de cada paquete. Estos nombres suelen contener la palabra \textbf{Team} o \textbf{Group} como vemos en las \textbf{Figuras~\ref{fig:ejemplo_equipo_1} y~\ref{fig:mantenedores}}
 
 \begin{figure}
 	\centering
@@ -1188,7 +1199,7 @@ Obteniendo los datos analíticamente, mostramos la gráfica para visualizar la i
 	\label{fig:equipos}
 \end{figure}
 
-Podemos apreciar observando la \textbf{Figura ~\ref{fig:equipos}} la tendencia que sigue la creación de equipos. Es claramente ascendente llegando hasta los 317 en su último release de 2024.
+Podemos apreciar observando la \textbf{Figura~\ref{fig:equipos}} la tendencia que sigue la creación de equipos. Es claramente ascendente llegando hasta los 317 en su último release de 2024.
 
 Se distinguen cuatro fases.
 \begin{itemize}
@@ -1303,7 +1314,7 @@ Para resolverlo ejecutamos una query que, coge todos los maintainers únicos de 
 
 Un `set' es como una lista o un array pero con la peculiaridad de que sus items deben ser únicos, justo lo que necesitamos para resolver esta pregunta.
 
-Una vez tengamos un `set' con los maintainers de la primera versión, realizamos la \textbf{intersección} ~\cite{medium:_intersection} con el `set' de la segunda versión, y así sucesivamente. 
+Una vez tengamos un `set' con los maintainers de la primera versión, realizamos la \textbf{intersección}~\cite{medium:_intersection} con el `set' de la segunda versión, y así sucesivamente. 
 
 Con una intersección entre las versiones conseguimos quedarnos únicamente con los maintainers que se repiten en todas las versiones. Estos son los que permanecerán activos.
 
@@ -1374,7 +1385,7 @@ Podemos observar que, en los tres ejemplos expuestos en la tabla, hay paquetes q
 		\caption{Lista de paquetes por maintainer}
 	\end{table}
 
-
+Este resultado son unos ejemplos de lo que devuelve el script a la hora de ejecutarlo. Entendemos que carece de sentido mostrar perfiles individuales debido a que el estudio se basa en un proyecto grupal pero era la única forma de mostrar lo realizado. 
 
 
 
@@ -1636,7 +1647,7 @@ Tras estos resultados, en los que se muestran los releases donde se encuentran e
 
 La \textbf{vida media} de un maintainer es la suma de el número de releases en los que se encuentran cada maintainer dividido entre el número total de maintainers únicos. 
 
-Esto lo calculamos con otra query y nos devuelve como resultado que el número de apariciones de los maintainers es \textbf{21.409}, el número total de maintainers es \textbf{6.052} y la media de apariciones de un maintainer es \textbf{3.54}.
+Esto lo calculamos con otra query y nos devuelve como resultado que el número de apariciones de los maintainers es \textbf{21,409}, el número total de maintainers es \textbf{6,052} y la media de apariciones de un maintainer es \textbf{3.54}.
 
 A partir de esta vida media podemos conocer si los maintainers que están asociados a los paquetes más importantes son \textbf{expertos} o no.
 
