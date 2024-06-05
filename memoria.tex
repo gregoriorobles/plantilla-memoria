@@ -1076,7 +1076,7 @@ En la \textbf{Figura~\ref{fig:flujo creacion graficas}} se representa el flujo d
 
 En este capítulo se muestran los diferentes resultados a las preguntas que nos realizamos en este proyecto. De esta forma podremos observar la información obtenida y sacar conclusiones a partir de ella.
 
-\section{¿Cuántos mantenedores tiene Debian y cómo cambia este número con el tiempo?}
+\section[Mantenedores Debian en el tiempo]{¿Cuántos mantenedores tiene Debian y cómo cambia este número con el tiempo?}
 \label{sec:pregunta_1}
 Esta distribución lanza nuevas versiones cada cierto tiempo como mostramos en la sección ~\ref{subsec:proyecto debian}. Cada versión está formada por múltiples paquetes y cada paquete lo mantiene una persona (aunque puede mantener varios paquetes a la vez). El número de mantenedores de dichos paquetes no es fijo ya que en cada versión pueden incorporarse nuevos o, por el contrario, abandonarlo.
 
@@ -1139,7 +1139,7 @@ También se ha calculado el número de paquetes que encontramos en cada release 
 
 Como se puede apreciar, hay un aumento exponencial en la cantidad de paquetes llegando hasta los 30,795 en la última versión.
 
-\section{¿Existe una tendencia hacia la formación de equipos de mantenedores?}
+\section[Formación de equipos de mantenedores]{¿Existe una tendencia hacia la formación de equipos de mantenedores?}
 \label{sec:pregunta_2}
 La distribución Debian estaba conformada en sus orígenes por una serie de personas que trabajaban para su desarrollo. Con el paso del tiempo comenzaron con la agrupación de estos para la creación de grupos Debian. Con ello se organizarían mejor y podrían desempeñar un optimo trabajo especializándose en un área concreta.
 
@@ -1213,7 +1213,7 @@ Se distinguen cuatro fases.
 	
 \end{itemize}
 
-\section{¿Cuántos mantenedores de versiones anteriores permanecen activos?}
+\section[Mantenedores que permanecen activos]{¿Cuántos mantenedores de versiones anteriores permanecen activos?}
 \label{sec:pregunta_3}
 
 Como comentamos en las sección ~\ref{sec:pregunta_1}, con el paso del tiempo hay mantenedores nuevos que entran al proyecto y también existen mantenedores que lo abandonan. Por ello nos preguntamos cuantos de los mantenedores anteriores siguen en los releases posteriores y cual es el porcentaje de los mismos comparando los releases.
@@ -1354,7 +1354,7 @@ Ejecutando la query obtenemos estos resultados:
 
 En esta lista/set encontramos los maintainers que llevan desde el inicio manteniendo paquetes de diferentes versiones en Debian.
 
-\section{¿Cuál es el aporte de los mantenedores que permanecen en versiones posteriores?}
+\section[Aporte de mantenedores en versiones posteriores]{¿Cuál es el aporte de los mantenedores que permanecen en versiones posteriores?}
 \label{sec:pregunta_4}
 Tras haber obtenido los maintainers que han estado activos en todas las versiones, queremos conocer que paquetes mantienen de cada versión.
 
@@ -1371,7 +1371,7 @@ Podemos observar que, en los tres ejemplos expuestos en la tabla, hay paquetes q
 	
 	\begin{table}[h!]
 		\centering
-		\begin{tabular}{|l|p{10cm}|}
+		\begin{tabular}{|l|p{9cm}|}
 			\hline
 			\textbf{Maintainer} & \textbf{Paquetes} \\
 			\hline
@@ -1394,7 +1394,7 @@ Este resultado son unos ejemplos de lo que devuelve el script a la hora de ejecu
 Se observa que cada mantenedor tiene muchos paquetes debido a su larga vida dentro del proyecto por lo que no podemos sacar todos los resultados ya que son muy extensos.
 
 
-\section{¿Qué sucede con los paquetes mantenidos por los mantenedores que abandonan el proyecto?}
+\section[Paquetes de mantenedores que abandonan]{¿Qué sucede con los paquetes mantenidos por los mantenedores que abandonan el proyecto?}
 \label{sec:pregunta_5}
 Hemos visto en la sección~\ref{sec:pregunta_4} cuantos mantenedores permanecen activos y cuales han sido sus aportaciones a lo largo de la evolución de Debian. 
 Pero, ¿qué ocurre con los paquetes asociados a un maintainer que abandona el proyecto?
@@ -1416,6 +1416,7 @@ Cogemos como ejemplo a el maintainer \textbf{Martin Albisetti} y ejecutamos una 
 % \usepackage[table,xcdraw]{xcolor}
 % Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
 \begin{table}[h]
+	\centering
 	\begin{tabular}{|c|cc|}
 		\hline
 		\rowcolor[HTML]{FFFE65} 
@@ -1435,6 +1436,7 @@ Ahora vamos a realizar un seguimiento a dichos paquetes en todos los releases ob
  % \usepackage[table,xcdraw]{xcolor}
  % Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
  \begin{table}[]
+ 	\centering
  	\begin{tabular}{|l|l|l|}
  		\hline
  		\rowcolor[HTML]{FFFE65} 
@@ -1488,7 +1490,7 @@ También se refleja en la \textbf{Figura ~\ref{fig:mantenedores}} que en cada ve
 Por ello podemos pensar que, hasta la versión Buster, se asignaban a maintainers pero a partir de dicha release comenzaron a organizarse en equipos y repartieron dichos paquetes entre los mismos.
 
 
-\section{¿Los paquetes más importantes y de uso común son mantenidos por mantenedores más experimentados?}
+\section[Paquetes más importantes]{¿Los paquetes más importantes y de uso común son mantenidos por mantenedores más experimentados?}
 \label{sec:pregunta_6}
 
 Para resolver esta pregunta debemos conocer cuales son los paquetes más importantes y usados de Debian. Entramos en la página de Debian Popcon ~\cite{debian:_popcon}, accedemos a las estadísticas de \textbf{la suma de paquetes ordenados}.Tras esto nos fijamos en el campo \textbf{vote} que indica el \textbf{número de personas que usan este paquete regularmente}. Estos paquetes son los que consideramos \textbf{importantes} como se muestra en la tabla.
